@@ -181,7 +181,7 @@ const closeMobile = () => setMobileOpen(false);
   className="flex items-center"
 >
   <NextImage
-    src="/images/mmc.webp"
+    src="/images/MMC.webp"
     alt="MMC"
     width={160}
     height={55}
