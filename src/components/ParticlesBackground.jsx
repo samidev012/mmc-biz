@@ -1,375 +1,322 @@
+
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-export default function CircuitFlowBackground({ 
-  intensity = "medium" // "low", "medium", "high"
+export default function CircuitBlueprintBackground({
+  colors = {
+    ink: "#000000",
+    paper: "#e6f0fa",
+    steel: "#9a9a9a",
+    line: "#2a2a2a",
+    signal: "#0066ff",
+    circuit: "#28a745",
+  },
+  pathCount = 10,
+  gridSpacing = 48,
 }) {
   const canvasRef = useRef(null);
-  const mouseRef = useRef({ x: null, y: null });
-  const [isClient, setIsClient] = useState(false);
+  const mouse = useRef({ x: null, y: null });
+  const startTimeRef = useRef(null);
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isClient) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     let animationId;
-    let width, height;
-    let mouse = mouseRef.current;
+    let width, height, dpr;
+    let paths = [];
 
-    // Color palette
-    const colors = {
-      ink: "#000000",
-      paper: "#e6f0fa",
-      steel: "#9a9a9a",
-      line: "#2a2a2a",
-      signal: "#0066ff",
-      circuit: "#28a745"
-    };
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-    // Circuit nodes
-    let nodes = [];
-    let connections = [];
-    let pulses = [];
-    let floatingCircles = [];
-    let gridLines = [];
+    // ---------- helpers ----------
+    function hexToRgb(hex) {
+      const bigint = parseInt(hex.replace("#", ""), 16);
+      const r = (bigint >> 16) & 255;
+      const g = (bigint >> 8) & 255;
+      const b = bigint & 255;
+      return `${r}, ${g}, ${b}`;
+    }
+
+    function getPathLength(points) {
+      let total = 0;
+      for (let i = 0; i < points.length - 1; i++) {
+        const [x1, y1] = points[i];
+        const [x2, y2] = points[i + 1];
+        total += Math.hypot(x2 - x1, y2 - y1);
+      }
+      return total;
+    }
+
+    function getPointAtDistance(points, dist) {
+      let acc = 0;
+      for (let i = 0; i < points.length - 1; i++) {
+        const [x1, y1] = points[i];
+        const [x2, y2] = points[i + 1];
+        const segLen = Math.hypot(x2 - x1, y2 - y1);
+        if (acc + segLen >= dist) {
+          const t = segLen === 0 ? 0 : (dist - acc) / segLen;
+          return [x1 + (x2 - x1) * t, y1 + (y2 - y1) * t];
+        }
+        acc += segLen;
+      }
+      return points[points.length - 1];
+    }
+
+    function drawPartialPath(ctx, points, distance) {
+      let acc = 0;
+      ctx.beginPath();
+      ctx.moveTo(points[0][0], points[0][1]);
+      for (let i = 0; i < points.length - 1; i++) {
+        const [x1, y1] = points[i];
+        const [x2, y2] = points[i + 1];
+        const segLen = Math.hypot(x2 - x1, y2 - y1);
+        if (acc + segLen <= distance) {
+          ctx.lineTo(x2, y2);
+        } else {
+          const t = segLen === 0 ? 0 : (distance - acc) / segLen;
+          ctx.lineTo(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t);
+          break;
+        }
+        acc += segLen;
+      }
+      ctx.stroke();
+    }
+
+    function generatePath() {
+      let x = Math.round((Math.random() * width) / gridSpacing) * gridSpacing;
+      let y = Math.round((Math.random() * height) / gridSpacing) * gridSpacing;
+      const points = [[x, y]];
+      let dir = ["up", "down", "left", "right"][Math.floor(Math.random() * 4)];
+      const segments = 4 + Math.floor(Math.random() * 4);
+
+      for (let i = 0; i < segments; i++) {
+        const len = (1 + Math.floor(Math.random() * 4)) * gridSpacing;
+        const opposite = { up: "down", down: "up", left: "right", right: "left" }[dir];
+        const options = ["up", "down", "left", "right"].filter((d) => d !== opposite);
+        dir = options[Math.floor(Math.random() * options.length)];
+
+        let nx = x,
+          ny = y;
+        if (dir === "up") ny -= len;
+        if (dir === "down") ny += len;
+        if (dir === "left") nx -= len;
+        if (dir === "right") nx += len;
+
+        nx = Math.max(0, Math.min(width, nx));
+        ny = Math.max(0, Math.min(height, ny));
+
+        if (nx === x && ny === y) continue;
+        points.push([nx, ny]);
+        x = nx;
+        y = ny;
+      }
+      return points;
+    }
+
+    function createPaths() {
+      paths = Array.from({ length: pathCount }, () => {
+        const points = generatePath();
+        return {
+          points,
+          length: getPathLength(points),
+          color: Math.random() > 0.65 ? colors.circuit : colors.signal,
+          delay: Math.random() * 2000,
+          drawDuration: 900 + Math.random() * 800,
+          travelSpeed: 60 + Math.random() * 60,
+          nodePulse: Math.random() * Math.PI * 2,
+        };
+      });
+    }
 
     function resize() {
       const parent = canvas.parentElement;
-      width = canvas.width = parent.offsetWidth;
-      height = canvas.height = parent.offsetHeight;
+      dpr = window.devicePixelRatio || 1;
+      width = parent.offsetWidth;
+      height = parent.offsetHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    // Node class (circuit points)
-    class Node {
-      constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.baseX = x;
-        this.baseY = y;
-        this.active = false;
-        this.activeTime = 0;
-        this.pulsePhase = Math.random() * Math.PI * 2;
-      }
-
-      update() {
-        // Subtle float animation
-        this.x = this.baseX + Math.sin(Date.now() * 0.0005 + this.pulsePhase) * 3;
-        this.y = this.baseY + Math.cos(Date.now() * 0.0007 + this.pulsePhase) * 3;
-
-        // Mouse proximity activation
-        if (mouse.x && mouse.y) {
-          const dx = this.x - mouse.x;
-          const dy = this.y - mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          this.active = dist < 150;
-        }
-
-        if (this.active) {
-          this.activeTime = Math.min(this.activeTime + 0.05, 1);
-        } else {
-          this.activeTime = Math.max(this.activeTime - 0.02, 0);
-        }
-      }
-
-      draw() {
-        // Outer ring when active
-        if (this.activeTime > 0) {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, 8 * this.activeTime, 0, Math.PI * 2);
-          ctx.strokeStyle = colors.signal + Math.floor(this.activeTime * 100).toString(16).padStart(2, '0');
-          ctx.lineWidth = 2;
-          ctx.stroke();
-        }
-
-        // Core node
+    function drawGrid() {
+      ctx.strokeStyle = `rgba(${hexToRgb(colors.steel)}, 0.15)`;
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= width; x += gridSpacing) {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = this.active ? colors.signal : colors.steel;
-        ctx.fill();
-
-        // Inner glow
-        if (this.active) {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-          ctx.fillStyle = colors.paper;
-          ctx.fill();
-        }
-      }
-    }
-
-    // Connection class (lines between nodes)
-    class Connection {
-      constructor(node1, node2) {
-        this.node1 = node1;
-        this.node2 = node2;
-        this.pulseProgress = Math.random();
-      }
-
-      update() {
-        this.pulseProgress += 0.01;
-        if (this.pulseProgress > 1) this.pulseProgress = 0;
-      }
-
-      draw() {
-        const active = this.node1.active || this.node2.active;
-        
-        // Main line
-        ctx.beginPath();
-        ctx.moveTo(this.node1.x, this.node1.y);
-        ctx.lineTo(this.node2.x, this.node2.y);
-        ctx.strokeStyle = active ? colors.signal + "40" : colors.steel + "20";
-        ctx.lineWidth = active ? 2 : 1;
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
         ctx.stroke();
+      }
+      for (let y = 0; y <= height; y += gridSpacing) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
 
-        // Pulse effect
-        if (active) {
-          const x = this.node1.x + (this.node2.x - this.node1.x) * this.pulseProgress;
-          const y = this.node1.y + (this.node2.y - this.node1.y) * this.pulseProgress;
-          
-          const gradient = ctx.createRadialGradient(x, y, 0, x, y, 15);
-          gradient.addColorStop(0, colors.circuit + "ff");
-          gradient.addColorStop(0.5, colors.signal + "80");
-          gradient.addColorStop(1, colors.signal + "00");
-          
-          ctx.beginPath();
-          ctx.arc(x, y, 15, 0, Math.PI * 2);
-          ctx.fillStyle = gradient;
-          ctx.fill();
-        }
+      // major grid lines
+      ctx.strokeStyle = `rgba(${hexToRgb(colors.line)}, 0.12)`;
+      ctx.lineWidth = 1;
+      const majorStep = gridSpacing * 4;
+      for (let x = 0; x <= width; x += majorStep) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= height; y += majorStep) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
       }
     }
 
-    // Floating geometric shapes
-    class FloatingCircle {
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.r = Math.random() * 40 + 20;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.rotation = 0;
-        this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-        this.opacity = Math.random() * 0.3 + 0.1;
-        this.type = Math.random() > 0.5 ? 'circle' : 'square';
-      }
+    function draw(time) {
+      if (!startTimeRef.current) startTimeRef.current = time;
+      const elapsed = time - startTimeRef.current;
 
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        this.rotation += this.rotationSpeed;
+      ctx.fillStyle = colors.paper;
+      ctx.fillRect(0, 0, width, height);
+      drawGrid();
 
-        if (this.x < -this.r) this.x = width + this.r;
-        if (this.x > width + this.r) this.x = -this.r;
-        if (this.y < -this.r) this.y = height + this.r;
-        if (this.y > height + this.r) this.y = -this.r;
-      }
+      paths.forEach((path) => {
+        const localElapsed = elapsed - path.delay;
+        if (localElapsed < 0) return;
 
-      draw() {
+        const progress = Math.min(localElapsed / path.drawDuration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const distance = eased * path.length;
+
         ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.rotation);
-
-        if (this.type === 'circle') {
-          ctx.beginPath();
-          ctx.arc(0, 0, this.r, 0, Math.PI * 2);
-          ctx.strokeStyle = colors.signal + Math.floor(this.opacity * 255).toString(16).padStart(2, '0');
-          ctx.lineWidth = 2;
-          ctx.stroke();
-        } else {
-          ctx.strokeStyle = colors.circuit + Math.floor(this.opacity * 255).toString(16).padStart(2, '0');
-          ctx.lineWidth = 2;
-          ctx.strokeRect(-this.r/2, -this.r/2, this.r, this.r);
-        }
-
+        ctx.shadowColor = `rgba(${hexToRgb(path.color)}, 0.9)`;
+        ctx.shadowBlur = 8;
+        ctx.strokeStyle = `rgba(${hexToRgb(path.color)}, ${0.2 + 0.6 * eased})`;
+        ctx.lineWidth = 2;
+        ctx.lineJoin = "round";
+        ctx.lineCap = "round";
+        drawPartialPath(ctx, path.points, distance);
         ctx.restore();
-      }
-    }
 
-    // Grid lines
-    class GridLine {
-      constructor(isVertical) {
-        this.isVertical = isVertical;
-        this.position = 0;
-        this.speed = 0.3;
-        this.opacity = 0.1;
-      }
+        if (progress >= 1) {
+          const travelElapsed = localElapsed - path.drawDuration;
+          const travelDistance =
+            ((travelElapsed / 1000) * path.travelSpeed) % path.length;
+          const [px, py] = getPointAtDistance(path.points, travelDistance);
 
-      update() {
-        if (this.isVertical) {
-          this.position += this.speed;
-          if (this.position > width) this.position = 0;
-        } else {
-          this.position += this.speed;
-          if (this.position > height) this.position = 0;
+          const grad = ctx.createRadialGradient(px, py, 0, px, py, 10);
+          grad.addColorStop(0, `rgba(${hexToRgb(path.color)}, 1)`);
+          grad.addColorStop(1, `rgba(${hexToRgb(path.color)}, 0)`);
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(px, py, 10, 0, Math.PI * 2);
+          ctx.fill();
+
+          const pulse = 3 + Math.sin(elapsed / 400 + path.nodePulse) * 1.5;
+          [path.points[0], path.points[path.points.length - 1]].forEach(
+            ([nx, ny]) => {
+              ctx.beginPath();
+              ctx.fillStyle = `rgba(${hexToRgb(colors.circuit)}, 0.9)`;
+              ctx.shadowColor = `rgba(${hexToRgb(colors.circuit)}, 0.8)`;
+              ctx.shadowBlur = 10;
+              ctx.arc(nx, ny, pulse + 2, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          );
         }
-      }
+      });
 
-      draw() {
+      // scanning beam
+      const beamX = ((elapsed / 20) % (width + 400)) - 200;
+      const beamGrad = ctx.createLinearGradient(beamX - 150, 0, beamX + 150, height);
+      beamGrad.addColorStop(0, "rgba(0,0,0,0)");
+      beamGrad.addColorStop(0.5, `rgba(${hexToRgb(colors.signal)}, 0.05)`);
+      beamGrad.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = beamGrad;
+      ctx.fillRect(0, 0, width, height);
+
+      // cursor torch light
+      if (mouse.current.x !== null) {
+        const grad = ctx.createRadialGradient(
+          mouse.current.x,
+          mouse.current.y,
+          0,
+          mouse.current.x,
+          mouse.current.y,
+          220
+        );
+        grad.addColorStop(0, `rgba(${hexToRgb(colors.signal)}, 0.08)`);
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = grad;
         ctx.beginPath();
-        if (this.isVertical) {
-          ctx.moveTo(this.position, 0);
-          ctx.lineTo(this.position, height);
-        } else {
-          ctx.moveTo(0, this.position);
-          ctx.lineTo(width, this.position);
-        }
-        ctx.strokeStyle = colors.line + Math.floor(this.opacity * 255).toString(16).padStart(2, '0');
-        ctx.lineWidth = 1;
-        ctx.stroke();
+        ctx.arc(mouse.current.x, mouse.current.y, 220, 0, Math.PI * 2);
+        ctx.fill();
       }
-    }
-
-    function createNetwork() {
-      nodes = [];
-      connections = [];
-      
-      const spacing = 120;
-      const cols = Math.ceil(width / spacing);
-      const rows = Math.ceil(height / spacing);
-
-      // Create nodes in grid
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const x = i * spacing + spacing/2 + (Math.random() - 0.5) * 20;
-          const y = j * spacing + spacing/2 + (Math.random() - 0.5) * 20;
-          nodes.push(new Node(x, y));
-        }
-      }
-
-      // Create connections
-      nodes.forEach((node, i) => {
-        nodes.slice(i + 1).forEach(otherNode => {
-          const dx = node.x - otherNode.x;
-          const dy = node.y - otherNode.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          
-          if (dist < spacing * 1.5 && Math.random() > 0.5) {
-            connections.push(new Connection(node, otherNode));
-          }
-        });
-      });
-    }
-
-    function createFloatingShapes() {
-      const count = intensity === "high" ? 15 : intensity === "medium" ? 10 : 5;
-      floatingCircles = Array.from({ length: count }, () => new FloatingCircle());
-    }
-
-    function createGrid() {
-      gridLines = [];
-      for (let i = 0; i < 20; i++) {
-        gridLines.push(new GridLine(true));
-        gridLines.push(new GridLine(false));
-      }
-    }
-
-    function drawBackground() {
-      // Gradient background
-      const gradient = ctx.createRadialGradient(
-        width / 2, height / 2, 0,
-        width / 2, height / 2, Math.max(width, height)
-      );
-      gradient.addColorStop(0, colors.paper);
-      gradient.addColorStop(1, "#d0e5f5");
-      
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width, height);
-    }
-
-    function drawMouseGlow() {
-      if (!mouse.x || !mouse.y) return;
-
-      const gradient = ctx.createRadialGradient(
-        mouse.x, mouse.y, 0,
-        mouse.x, mouse.y, 200
-      );
-      gradient.addColorStop(0, colors.signal + "30");
-      gradient.addColorStop(0.5, colors.circuit + "15");
-      gradient.addColorStop(1, "transparent");
-
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width, height);
-    }
-
-    function draw() {
-      drawBackground();
-
-      // Grid
-      gridLines.forEach(line => {
-        line.update();
-        line.draw();
-      });
-
-      // Floating shapes
-      floatingCircles.forEach(circle => {
-        circle.update();
-        circle.draw();
-      });
-
-      // Connections
-      connections.forEach(connection => {
-        connection.update();
-        connection.draw();
-      });
-
-      // Nodes
-      nodes.forEach(node => {
-        node.update();
-        node.draw();
-      });
-
-      // Mouse glow
-      drawMouseGlow();
 
       animationId = requestAnimationFrame(draw);
     }
 
-    function handleMouseMove(e) {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
+    function drawStatic() {
+      ctx.fillStyle = colors.paper;
+      ctx.fillRect(0, 0, width, height);
+      drawGrid();
+      paths.forEach((path) => {
+        ctx.strokeStyle = `rgba(${hexToRgb(path.color)}, 0.6)`;
+        ctx.lineWidth = 2;
+        ctx.lineJoin = "round";
+        ctx.lineCap = "round";
+        drawPartialPath(ctx, path.points, path.length);
+      });
     }
 
+    function handleMouseMove(e) {
+      const rect = canvas.getBoundingClientRect();
+      mouse.current.x = e.clientX - rect.left;
+      mouse.current.y = e.clientY - rect.top;
+    }
     function handleMouseLeave() {
-      mouse.x = null;
-      mouse.y = null;
+      mouse.current.x = null;
+      mouse.current.y = null;
     }
 
     resize();
-    createNetwork();
-    createFloatingShapes();
-    createGrid();
-    draw();
+    createPaths();
+
+    if (prefersReducedMotion) {
+      drawStatic();
+    } else {
+      startTimeRef.current = null;
+      animationId = requestAnimationFrame(draw);
+    }
 
     const handleResize = () => {
       resize();
-      createNetwork();
-      createFloatingShapes();
-      createGrid();
+      createPaths();
+      startTimeRef.current = null;
     };
 
     window.addEventListener("resize", handleResize);
-    canvas.addEventListener("mousemove", handleMouseMove);
-    canvas.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", handleResize);
-      canvas.removeEventListener("mousemove", handleMouseMove);
-      canvas.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [intensity, isClient]);
+  }, [colors, pathCount, gridSpacing]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-auto absolute inset-0 h-full w-full"
+      className="pointer-events-none absolute inset-0 h-full w-full"
     />
   );
 }
+
+
