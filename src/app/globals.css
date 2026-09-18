@@ -19,260 +19,93 @@ p {
 /* =========================================
    SERVICES MEGA MENU
 ========================================= */
-
 .mega-menu-wrapper {
   position: fixed;
-  top: 60px;
   left: 0;
   right: 0;
-
+  top: 72px;
   display: flex;
   justify-content: center;
-
-  padding: 10px 30px 0;
-
-  z-index: 100;
+  padding: 0 24px;
 }
 
 .mega-menu {
   width: 100%;
-
-
-  padding: 42px 50px;
-
-  border: 1px solid rgba(0, 102, 255, 0.28);
+  max-width: 75%;
   border-radius: 16px;
-
-  background: linear-gradient(135deg,
-      rgba(7, 24, 61, 0.98),
-      rgba(3, 12, 30, 0.98));
-
-  box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.55),
-    0 0 50px rgba(0, 102, 255, 0.12);
-
-  backdrop-filter: blur(18px);
-
-  animation: megaMenuOpen 0.28s ease-out forwards;
-
-  transform-origin: top center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: white;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 40px;
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5);
 }
-
-
-/* OPEN ANIMATION */
-
-@keyframes megaMenuOpen {
-  0% {
-    opacity: 0;
-    transform: translateY(-12px) scaleY(0.96);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scaleY(1);
-  }
-}
-
-
-/* =========================================
-   4 COLUMNS
-========================================= */
 
 .mega-menu-grid {
   display: grid;
-
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-
-  gap: 34px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
 }
-
-
-/* COLUMN */
-
-.mega-menu-column {
-  min-width: 0;
-
-  padding-left: 34px;
-
-  border-left: 1px solid rgba(0, 102, 255, 0.18);
-}
-
-.mega-menu-column:first-child {
-  padding-left: 0;
-
-  border-left: none;
-}
-
-
-/* =========================================
-   TITLE
-========================================= */
 
 .mega-menu-title {
-  margin: 0;
-
-  color: #0066ff;
-
   font-size: 14px;
   font-weight: 600;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.08em;
+  color: #000;
 }
-
-
-/* TITLE LINE */
 
 .mega-menu-line {
-  width: 26px;
-  height: 2px;
-
-  margin-top: 11px;
-  margin-bottom: 21px;
-
-  background: linear-gradient(90deg,
-      #0066ff 0%,
-      #18d89b 100%);
+  margin: 8px 0 20px;
+  height: 1px;
+  width: 32px;
+  background: #0066ff;
 }
-
-
-/* =========================================
-   ITEMS
-========================================= */
 
 .mega-menu-items {
   display: flex;
-
   flex-direction: column;
-
-  gap: 18px;
+  gap: 20px;
 }
-
-
-/* ITEM */
 
 .mega-menu-item {
   display: flex;
-
   align-items: flex-start;
-
-  gap: 13px;
-
-  text-decoration: none;
-
-  opacity: 0;
-
-  animation: megaItemIn 0.35s ease forwards;
-
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
+  gap: 12px;
 }
-
-
-/* ITEM ANIMATION */
-
-@keyframes megaItemIn {
-  from {
-    opacity: 0;
-
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateY(0);
-  }
-}
-
-
-/* =========================================
-   ICON
-========================================= */
-
-.mega-menu-icon {
-  width: 36px;
-  height: 36px;
-
-  flex: 0 0 36px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid rgba(0, 102, 255, 0.45);
-
-  border-radius: 9px;
-
-  background: rgba(0, 102, 255, 0.08);
-
-  color: #0066ff;
-
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.mega-menu-icon svg {
-  width: 16px;
-  height: 16px;
-}
-
-
-/* =========================================
-   CONTENT
-========================================= */
 
 .mega-menu-content {
-  min-width: 0;
-
-  display: flex;
-
   flex: 1;
-
-  flex-direction: column;
 }
-
-
-/* ITEM TITLE */
 
 .mega-menu-item-title {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
-  gap: 8px;
-
-  color: #f5f7fa;
-
-  font-size: 14px;
-
-  font-weight: 500;
-
-  line-height: 1.4;
-
-  transition: color 0.25s ease;
 }
 
+.mega-menu-item-title span {
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  transition: color 0.2s;
+}
 
-/* DESCRIPTION */
+.mega-menu-item:hover .mega-menu-item-title span {
+  color: black;
+}
+
+.mega-menu-arrow {
+  height: 14px;
+  width: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
 
 .mega-menu-description {
-  margin-top: 4px;
-
-  color: #8d99ad;
-
+  display: block;
+  margin-top: 2px;
   font-size: 12px;
-
-  line-height: 1.5;
+  color: black;
+  text-transform: capitalize !important;
 }
-
 
 /* ARROW */
 

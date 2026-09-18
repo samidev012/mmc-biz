@@ -35,10 +35,10 @@ export default function Testimonials() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
 
       <div className="relative mx-auto  text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit ">
           Testimonial
         </p>
-        <h2 className="mt-3 text-4xl font-bold uppercase md:text-5xl">
+        <h2 className="mt-3 text-4xl font-bold uppercase md:text-6xl">
           <span className="text-paper">What Our </span>
           <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #0066ff" }}>
             Clients Are

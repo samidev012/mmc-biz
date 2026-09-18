@@ -18,7 +18,7 @@ export default function Home() {
       >
         <div className="mx-auto  text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">Who We Are</p>
-          <h2 className="mt-3 text-4xl  font-bold text-paper uppercase ">
+          <h2 className="mt-3 text-4xl  font-bold text-paper uppercase md:text-6xl">
             Technology <span className="hero-outline">That Moves</span> Your Business Forward
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-steel">

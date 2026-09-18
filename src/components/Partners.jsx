@@ -59,7 +59,7 @@ export default function Partners() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
             Our Partners
           </p>
-          <h2 className="mt-3 text-4xl uppercase font-semibold text-paper ">
+          <h2 className="mt-3 text-4xl uppercase font-semibold text-paper md:text-6xl">
             Trusted<span className="hero-outline mt-4"> Technology</span> Partners
           </h2>
         </div>
