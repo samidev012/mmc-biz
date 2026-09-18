@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function VantaDotsBackground({ 
   color = "#0066ff",
-  color2 = "#28a745",
+  color2 = "#fff",
   backgroundColor = "#000000",
   size = 3,
   spacing = 35,
