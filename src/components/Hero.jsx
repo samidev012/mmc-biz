@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, Blocks, Building2, Cable, ChevronRight, Code2, Database, Eye, ShieldCheck, Sparkles } from 'lucide-react';
 
-import ParticlesBackground from "@/components/ParticlesBackground";
+import VantaDotsBackground from './ParticlesBackground';
 
 const leftCapabilities = [
   [ShieldCheck, 'Cybersecurity'],
@@ -28,7 +28,7 @@ function CapabilityCard({ title, items, side }) {
 
 export default function Hero() {
   return <section className="hero-section overflow-hidden px-6 pb-16 pt-20 sm:pb-24 sm:pt-28">
-    <ParticlesBackground />
+    <VantaDotsBackground />
     <div className="hero-orb hero-orb-one" /><div className="hero-orb hero-orb-two" />
     <CapabilityCard title="Core divisions" items={leftCapabilities} side="left" />
     <CapabilityCard title="Full capability" items={rightCapabilities} side="right" />
