@@ -25,7 +25,11 @@ export const metadata = {
   title: "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
   description:
     "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.",
+     icons: {
+    icon: "/images/Favicon.png",
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (

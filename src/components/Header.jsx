@@ -186,7 +186,7 @@ const closeMobile = () => setMobileOpen(false);
     width={160}
     height={55}
     priority
-    className="h-auto w-[160px] object-contain"
+    className="h-auto w-[160px] object-cover"
   />
 </Link>
 
