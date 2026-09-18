@@ -26,8 +26,8 @@ export const metadata = {
   description:
     "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.",
      icons: {
-    icon: "/images/Favicon.png",
-  },
+  icon: "/Favicon.png",
+},
 };
 
 
