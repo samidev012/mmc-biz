@@ -8,7 +8,13 @@
   --color-signal: #0066ff;
   --color-circuit: #28a745;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
+}
 
+p {
+  font-family: var(--font-body), sans-serif;
+}
 
 /* =========================================
    SERVICES MEGA MENU
@@ -445,6 +451,7 @@ body {
   line-height: .98;
   letter-spacing: -.065em;
   text-transform: uppercase;
+  font-family: 'Poppins';
 }
 
 .hero-title span {

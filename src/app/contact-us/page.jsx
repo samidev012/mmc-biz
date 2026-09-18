@@ -1,7 +1,6 @@
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import Partners from "@/components/Partners";
-import Footer from "@/components/Footer";
-import ParticlesBackground from "@/components/ParticlesBackground";
+import VantaDotsBackground from "@/components/ParticlesBackground";
 
 const SocialX = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -31,17 +30,19 @@ const contactCards = [
 export default function ContactUs() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line px-6 py-24 text-center" style={{ background: "radial-gradient(ellipse 900px 500px at 50% 0%, rgba(0,102,255,0.22), transparent 70%)" }}>
-        <ParticlesBackground density={40} />
-        <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal" />
-          Let&apos;s Talk
+      <section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
+        <VantaDotsBackground />
+        <div className="relative z-10">
+          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal" />
+            Let&apos;s Talk
+          </div>
+          <h1 className="text-5xl font-bold uppercase text-paper md:text-6xl">Contact Us</h1>
         </div>
-        <h1 className="text-5xl font-bold uppercase text-paper md:text-6xl">Contact Us</h1>
       </section>
 
       <section className="border-b border-line px-6 py-20" style={{ background: "linear-gradient(135deg, rgba(0,102,255,0.1), transparent 50%, rgba(40,167,69,0.08))" }}>
-        <div className="mx-auto grid  gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {contactCards.map((c) => {
             const Wrapper = c.href ? "a" : "div";
             return (
@@ -62,7 +63,7 @@ export default function ContactUs() {
       <Partners />
 
       <section className="relative overflow-hidden border-t border-line px-6 py-20" style={{ background: "linear-gradient(120deg, #06170f, #000000 55%, #001a3d)" }}>
-        <div className="mx-auto grid  gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <h2 className="text-3xl font-bold text-paper">Get In Touch</h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-steel">
@@ -116,7 +117,6 @@ export default function ContactUs() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

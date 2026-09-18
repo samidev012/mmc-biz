@@ -165,7 +165,9 @@ const closeMobile = () => setMobileOpen(false);
 
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-ink/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line bg-ink/95 backdrop-blur "
+    style={{ background: "linear-gradient(120deg, #0a1128, #000000 60%, #06170f)" }}
+    >
       
       {/* ================= HEADER ================= */}
 
@@ -192,8 +194,8 @@ const closeMobile = () => setMobileOpen(false);
         {/* ================= DESKTOP NAV ================= */}
 
         <nav
-          className="hidden items-center gap-8 lg:flex"
-          aria-label="Main navigation"
+          className="hidden items-center gap-8 lg:flex uppercase"
+          aria-label="Main navigation "
         >
 
           {/* ================= SERVICES ================= */}
@@ -205,7 +207,7 @@ const closeMobile = () => setMobileOpen(false);
           >
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
-              className="flex items-center gap-1 text-sm font-medium text-paper/90 transition-colors hover:text-signal"
+              className="flex items-center uppercase gap-1 text-sm font-medium text-paper/90 transition-colors hover:text-signal"
             >
               Services
 
@@ -343,7 +345,7 @@ const closeMobile = () => setMobileOpen(false);
 
             <button
               onClick={() => setCompanyOpen(!companyOpen)}
-              className="flex items-center gap-1 text-sm font-medium text-paper/90 transition-colors hover:text-signal"
+              className="flex items-center gap-1 uppercase text-sm font-medium text-paper/90 transition-colors hover:text-signal"
             >
               Company
 

@@ -4,7 +4,7 @@ import Partners from "@/components/Partners";
 import ServicesGrid from "@/components/ServicesGrid";
 import Testimonials from "@/components/Testimonials";
 
-import Footer from "@/components/Footer";
+
 import FAQ from "@/components/FAQ";
 export default function Home() {
   return (
@@ -16,10 +16,10 @@ export default function Home() {
         className="border-t border-line px-6 py-20"
         style={{ background: "linear-gradient(120deg, #0a1128, #000000 60%, #06170f)" }}
       >
-        <div className="mx-auto max-w-5xl text-center">
+        <div className="mx-auto  text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">Who We Are</p>
-          <h2 className="mt-3 text-3xl font-bold text-paper md:text-4xl">
-            Technology <span className="text-signal">That Moves</span> Your Business Forward
+          <h2 className="mt-3 text-4xl  font-bold text-paper uppercase ">
+            Technology <span className="hero-outline">That Moves</span> Your Business Forward
           </h2>
           <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-steel">
             MMC is a technology solutions and ICT services provider helping organizations
@@ -62,7 +62,7 @@ export default function Home() {
       <ServicesGrid />
       <Testimonials />
       <FAQ />
-      <Footer />
+    
     </>
   );
 }

@@ -36,7 +36,7 @@ export default function Hero() {
       <div className="hero-pill"><i /> ICT partner since 1995</div>
       <h1 className="hero-title mt-10 text-paper">
         <span>ICT for Pakistan&apos;s</span>
-        <span className="hero-outline">banks, regulators</span>
+        <span className="hero-outline mt-4">banks, regulators</span>
         <span>enterprises</span>
       </h1>
       <p className="mt-10 max-w-2xl text-base leading-7 text-paper/90 sm:text-lg">

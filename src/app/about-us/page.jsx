@@ -1,7 +1,5 @@
 import { HeartHandshake, Leaf, Lightbulb, Trophy, Repeat2, Scale, BarChart3, PenLine } from "lucide-react";
-import Footer from "@/components/Footer";
 import VantaDotsBackground from "@/components/ParticlesBackground";
-
 
 const applications = [
   { n: "01", title: "Integrity", desc: "We operate with honesty, transparency, and strong ethical principles building lasting trust with every client and partner we work with.", icon: HeartHandshake },
@@ -22,25 +20,21 @@ const principles = [
 export default function AboutUs() {
   return (
     <>
-   
       {/* Page title */}
-
       <section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
-              <VantaDotsBackground density={40} />
-              <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal" />
-                Let&apos;s Talk
-              </div>
-              <h1 className="text-5xl font-bold uppercase text-paper md:text-6xl">About Us</h1>
-            </section>
+        <VantaDotsBackground />
+        <div className="relative z-10">
+          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal" />
+            Let&apos;s Talk
+          </div>
+          <h1 className="text-5xl font-bold uppercase text-paper md:text-6xl">About Us</h1>
+        </div>
+      </section>
 
       {/* Applications */}
-      <section
-        className="px-6 py-20"
-        style={{background: "linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d);)" }}
-      >
-        
-        <div className="mx-auto">
+      <section className="px-6 py-20" style={{ background: "linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)" }}>
+        <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-3xl font-bold uppercase text-paper">Applications</h2>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -56,13 +50,10 @@ export default function AboutUs() {
             ))}
           </div>
 
-          {/* Certification strip */}
           <div className="mt-16 grid grid-cols-2 gap-8 border-t border-line/50 pt-12 sm:grid-cols-4">
             {certifications.map((c) => (
               <div key={c} className="flex items-center justify-center">
-                <span className="text-center font-mono text-sm font-semibold uppercase tracking-wide text-paper/70">
-                  {c}
-                </span>
+                <span className="text-center font-mono text-sm font-semibold uppercase tracking-wide text-paper/70">{c}</span>
               </div>
             ))}
           </div>
@@ -70,11 +61,8 @@ export default function AboutUs() {
       </section>
 
       {/* Who we are */}
-      <section
-        className="border-t border-line px-6 py-20"
-        style={{ background: "linear-gradient(120deg, #0a1128, #000000 60%, #06170f)" }}
-      >
-        <div className="mx-auto text-center">
+      <section className="border-t border-line px-6 py-20" style={{ background: "linear-gradient(120deg, #0a1128, #000000 60%, #06170f)" }}>
+        <div className="mx-auto max-w-5xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">Who We Are</p>
           <h2 className="mt-3 text-3xl font-bold text-paper md:text-4xl">
             Technology <span className="text-signal">That Moves</span> Your Business Forward
@@ -117,10 +105,7 @@ export default function AboutUs() {
       </section>
 
       {/* Banner ribbon */}
-      <section
-        className="border-t border-line px-6 py-16 text-center"
-        style={{ background: "linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)" }}
-      >
+      <section className="border-t border-line px-6 py-16 text-center" style={{ background: "linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)" }}>
         <h2 className="mx-auto max-w-4xl text-2xl font-bold uppercase text-paper md:text-3xl">
           Your trusted <span className="text-signal">partner</span> in digital transformation,
           helping <span className="text-signal">you stay ahead</span> of the competition
@@ -135,8 +120,8 @@ export default function AboutUs() {
       </section>
 
       {/* Guiding Principles */}
-      <section className="border-t border-line px-6 py-20     background: linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]  background: linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)">
+      <section className="border-t border-line px-6 py-20" style={{ background: "linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)" }}>
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <h2 className="text-4xl font-bold uppercase leading-tight text-paper">
               Guiding
@@ -163,7 +148,6 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-      <Footer />  
     </>
   );
 }
