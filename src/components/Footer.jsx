@@ -125,7 +125,7 @@ export default function Footer() {
   className="flex items-center"
 >
   <Image
-    src="/images/mmc.webp"
+    src="/images/MMC.webp"
     alt="MMC"
     width={160}
     height={55}
