@@ -38,12 +38,9 @@ export default function Testimonials() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit ">
           Testimonial
         </p>
-        <h2 className="mt-3 text-4xl font-bold uppercase md:text-6xl">
-          <span className="text-paper">What Our </span>
-          <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #0066ff" }}>
-            Clients Are
-          </span>
-          <span className="text-paper"> Saying</span>
+        
+          <h2 className="animate-fade-in-up mt-3 text-3xl font-bold text-paper uppercase transition-all duration-500 hover:tracking-wide md:text-6xl">
+          <span className="text-paper">What Our </span>  <span className="text-signal"> Clients Are </span> Saying
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-steel">
           Discover real stories from clients who&apos;ve unlocked growth, efficiency,

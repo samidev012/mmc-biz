@@ -48,15 +48,12 @@ export default function FAQ() {
 
         {/* Left column */}
         <div>
-          <h2 className="text-4xl font-bold uppercase leading-tight md:text-5xl">
-            <span className="text-paper">Frequently </span>
+          
+          <h2 className="animate-fade-in-up mt-3 text-3xl font-bold text-paper uppercase transition-all duration-500 hover:tracking-wide md:text-6xl">
+            <span className="text-signal">Frequently </span>
 
-            <span
-              className="text-transparent"
-              style={{
-                WebkitTextStroke: "1.5px #0066ff",
-              }}
-            >
+            <span>
+              
               Asked
             </span>
 

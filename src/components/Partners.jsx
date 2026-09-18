@@ -59,8 +59,8 @@ export default function Partners() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
             Our Partners
           </p>
-          <h2 className="mt-3 text-4xl uppercase font-semibold text-paper md:text-6xl">
-            Trusted<span className="hero-outline mt-4"> Technology</span> Partners
+          <h2 className="animate-fade-in-up mt-3 text-3xl font-bold text-paper transition-all uppercase duration-500 hover:tracking-wide md:text-6xl" >
+            Trusted<span className="text-signal"> Technology</span> Partners
           </h2>
         </div>
 
