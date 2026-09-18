@@ -1,216 +1,133 @@
+import VantaBase, {VANTA} from './_base.js'
+import {rn, ri, sample, mobileCheck} from './helpers.js'
 
-"use client";
+const win = typeof window == 'object'
+let THREE = win && window.THREE
 
-import { useEffect, useRef } from "react";
-
-export default function AuroraGradientBackground({
-  colors = {
-    signal: "0, 102, 255",   // #0066ff
-    circuit: "40, 167, 69",  // #28a745
-  },
-  bg = "#000",
-}) {
-  const canvasRef = useRef(null);
-  const mouse = useRef({ x: null, y: null });
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    let animationId;
-    let width, height, dpr;
-    let orbs = [];
-    let noiseCanvas, noisePattern;
-
-    function resize() {
-      const parent = canvas.parentElement;
-      dpr = window.devicePixelRatio || 1;
-      width = parent.offsetWidth;
-      height = parent.offsetHeight;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      canvas.style.width = width + "px";
-      canvas.style.height = height + "px";
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-
-    function createOrbs() {
-      orbs = [
-        {
-          baseX: width * 0.85,
-          baseY: height * 0.15,
-          color: colors.signal,
-          radius: Math.max(width, height) * 0.45,
-          alpha: 0.45,
-          orbitX: 120,
-          orbitY: 80,
-          speed: 0.00025,
-          phase: 0,
-          pulseSpeed: 0.0006,
-        },
-        {
-          baseX: width * 0.15,
-          baseY: height * 0.85,
-          color: colors.circuit,
-          radius: Math.max(width, height) * 0.4,
-          alpha: 0.25,
-          orbitX: 100,
-          orbitY: 130,
-          speed: 0.0002,
-          phase: 2,
-          pulseSpeed: 0.0005,
-        },
-        {
-          baseX: width * 0.5,
-          baseY: height * 0.5,
-          color: colors.signal,
-          radius: Math.max(width, height) * 0.3,
-          alpha: 0.12,
-          orbitX: 160,
-          orbitY: 100,
-          speed: 0.00018,
-          phase: 4,
-          pulseSpeed: 0.0004,
-        },
-      ];
-    }
-
-    function createNoise() {
-      noiseCanvas = document.createElement("canvas");
-      noiseCanvas.width = 150;
-      noiseCanvas.height = 150;
-      const nctx = noiseCanvas.getContext("2d");
-      const imageData = nctx.createImageData(150, 150);
-      for (let i = 0; i < imageData.data.length; i += 4) {
-        const val = Math.random() * 255;
-        imageData.data[i] = val;
-        imageData.data[i + 1] = val;
-        imageData.data[i + 2] = val;
-        imageData.data[i + 3] = 12; // very subtle
-      }
-      nctx.putImageData(imageData, 0, 0);
-      noisePattern = ctx.createPattern(noiseCanvas, "repeat");
-    }
-
-    function drawGrid() {
-      const spacing = 60;
-      ctx.strokeStyle = "rgba(255,255,255,0.025)";
-      ctx.lineWidth = 1;
-      for (let x = 0; x <= width; x += spacing) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      for (let y = 0; y <= height; y += spacing) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-    }
-
-    function draw(time) {
-      // base background
-      ctx.fillStyle = bg;
-      ctx.fillRect(0, 0, width, height);
-
-      drawGrid();
-
-      // draw orbs (blend mode for that layered glow feel)
-      ctx.globalCompositeOperation = "screen";
-
-      orbs.forEach((orb) => {
-        const x = orb.baseX + Math.cos(time * orb.speed + orb.phase) * orb.orbitX;
-        const y = orb.baseY + Math.sin(time * orb.speed + orb.phase) * orb.orbitY;
-        const pulse = 1 + Math.sin(time * orb.pulseSpeed + orb.phase) * 0.12;
-        const r = orb.radius * pulse;
-
-        const grad = ctx.createRadialGradient(x, y, 0, x, y, r);
-        grad.addColorStop(0, `rgba(${orb.color}, ${orb.alpha})`);
-        grad.addColorStop(0.5, `rgba(${orb.color}, ${orb.alpha * 0.3})`);
-        grad.addColorStop(1, "rgba(0,0,0,0)");
-
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      // mouse reactive glow
-      if (mouse.current.x !== null) {
-        const grad = ctx.createRadialGradient(
-          mouse.current.x,
-          mouse.current.y,
-          0,
-          mouse.current.x,
-          mouse.current.y,
-          250
-        );
-        grad.addColorStop(0, `rgba(${colors.signal}, 0.15)`);
-        grad.addColorStop(1, "rgba(0,0,0,0)");
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(mouse.current.x, mouse.current.y, 250, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      ctx.globalCompositeOperation = "source-over";
-
-      // noise overlay for premium grain feel
-      if (noisePattern) {
-        ctx.fillStyle = noisePattern;
-        ctx.fillRect(0, 0, width, height);
-      }
-
-      // vignette
-      const vignette = ctx.createRadialGradient(
-        width / 2, height / 2, height * 0.3,
-        width / 2, height / 2, height * 0.9
-      );
-      vignette.addColorStop(0, "rgba(0,0,0,0)");
-      vignette.addColorStop(1, "rgba(0,0,0,0.5)");
-      ctx.fillStyle = vignette;
-      ctx.fillRect(0, 0, width, height);
-
-      animationId = requestAnimationFrame(draw);
-    }
-
-    function handleMouseMove(e) {
-      const rect = canvas.getBoundingClientRect();
-      mouse.current.x = e.clientX - rect.left;
-      mouse.current.y = e.clientY - rect.top;
-    }
-    function handleMouseLeave() {
-      mouse.current.x = null;
-      mouse.current.y = null;
-    }
-
-    resize();
-    createOrbs();
-    createNoise();
-    animationId = requestAnimationFrame(draw);
-
-    const handleResize = () => {
-      resize();
-      createOrbs();
+class Effect extends VantaBase {
+  static initClass() {
+    this.prototype.defaultOptions = {
+      color: 0xff8820,
+      color2: 0xff8820,
+      backgroundColor: 0x222222,
+      size: 3,
+      spacing: 35,
+      showLines: true,
     };
+  }
 
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseleave", handleMouseLeave);
+  onInit() {
+    var camera = this.camera = new THREE.PerspectiveCamera(50, this.width / this.height, 0.1, 5000)
+    camera.position.x = 0
+    camera.position.y = 250
+    camera.position.z = 50
+    camera.tx = 0
+    camera.ty = 50
+    camera.tz = 350
+    camera.lookAt(0,0,0)
+    this.scene.add(camera)
 
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [colors, bg]);
+    var starsGeometry = this.starsGeometry = new THREE.BufferGeometry()
+    var i,j,k,l,star,starsMaterial,starField
+    var space = this.options.spacing
+    const points = []
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="pointer-events-none absolute inset-0 h-full w-full"
-    />
-  );
+    for (i = k = -30; k <= 30; i = ++k) {
+      for (j = l = -30; l <= 30; j = ++l) {
+        star = new THREE.Vector3()
+        star.x = i * space + space/2
+        star.y = rn(0, 5) - 150
+        star.z = j * space + space/2
+        points.push(star)
+      }
+    }
+    starsGeometry.setFromPoints(points)
+
+
+    starsMaterial = new THREE.PointsMaterial({
+      color: this.options.color,
+      size: this.options.size
+    });
+    starField = this.starField = new THREE.Points(starsGeometry, starsMaterial)
+    this.scene.add(starField)
+
+    if (this.options.showLines) {
+      var material = new THREE.LineBasicMaterial( { color: this.options.color2 } );
+      var linesGeo = new THREE.BufferGeometry()
+      const points = []
+      for (i = 0; i < 200; i ++) {
+        var f1 = rn(40,60)
+        var f2 = f1 + rn(12,20)
+        // https://math.stackexchange.com/questions/1585975/how-to-generate-random-points-on-a-sphere
+        var z = rn(-1,1)
+        var r = Math.sqrt(1 - z*z)
+        var theta = rn(0, Math.PI * 2)
+        var y = Math.sin(theta) * r
+        var x = Math.cos(theta) * r
+        points.push(new THREE.Vector3( x*f1, y*f1, z*f1) )
+        points.push(new THREE.Vector3( x*f2, y*f2, z*f2) )
+      }
+      linesGeo.setFromPoints(points)
+      this.linesMesh = new THREE.LineSegments( linesGeo, material )
+      this.scene.add(this.linesMesh)
+    }
+
+    // this.geometry = new THREE.BoxGeometry( 10, 10, 10 );
+    // this.material = new THREE.MeshLambertMaterial({
+    //   color: this.options.color,
+    //   emissive: this.options.color,
+    //   emissiveIntensity: 0.75
+    // });
+    // this.cube = new THREE.Mesh( this.geometry, this.material );
+    // this.scene.add(this.cube);
+
+    // const c = this.camera = new THREE.PerspectiveCamera( 75, this.width/this.height, 0.1, 1000 );
+    // c.position.z = 30;
+    // this.scene.add(c);
+
+    // const light = new THREE.HemisphereLight( 0xffffff, this.options.backgroundColor , 1 );
+    // this.scene.add(light);
+  }
+
+  onUpdate() {
+    const starsGeometry = this.starsGeometry
+    const starField = this.starField
+    for (var j = 0; j < starsGeometry.attributes.position.array.length; j+=3) {
+      const x = starsGeometry.attributes.position.array[j]
+      const y = starsGeometry.attributes.position.array[j+1]
+      const z = starsGeometry.attributes.position.array[j+2]
+      // var i = starsGeometry.vertices[j]
+      const newY = y + 0.1 * Math.sin(z*0.02 + x*0.015 + this.t*0.02)
+      starsGeometry.attributes.position.array[j+1] = newY
+    }
+
+    starsGeometry.attributes.position.setUsage(THREE.DynamicDrawUsage)
+    starsGeometry.computeVertexNormals()
+    starsGeometry.attributes.position.needsUpdate = true
+
+    const c = this.camera
+    const rate = 0.003
+    c.position.x += (c.tx - c.position.x) * rate
+    c.position.y += (c.ty - c.position.y) * rate
+    c.position.z += (c.tz - c.position.z) * rate
+    c.lookAt(0,0,0)
+
+    if (this.linesMesh) {
+      this.linesMesh.rotation.z += 0.002
+      this.linesMesh.rotation.x += 0.0008
+      this.linesMesh.rotation.y += 0.0005
+      // starField.rotation.y += (this.mouseX * 0.1 - starField.rotation.y) * 0.01
+    }
+  }
+
+  onMouseMove(x,y) {
+    this.camera.tx = (x - 0.5) * 100 // -50 to 50
+    this.camera.ty = 50 + y * 50 // 50 to 100
+  }
+
+  onRestart() {
+    this.scene.remove( this.starField )
+  }
 }
+Effect.initClass()
+export default VANTA.register('DOTS', Effect)
