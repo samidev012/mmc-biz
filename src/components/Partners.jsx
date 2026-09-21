@@ -53,7 +53,7 @@ function PartnerGroup() {
 
 export default function Partners() {
   return (
-    <section className="border-t border-line px-6 py-20">
+    <section className="border-t border-line px-6 py-20 background: linear-gradient(135deg, #0a1128 0%, #1e1b4b 100%);">
       <div className="mx-auto">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">

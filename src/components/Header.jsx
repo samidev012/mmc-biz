@@ -275,28 +275,28 @@ export default function Header() {
                                 </Link>
 
                                 {/* ✅ SUB-MENU DROPDOWN */}
-                                {hasSubItems && activeSubMenu === itemKey && (
-                                  <div
-                                    className="absolute left-50 top-0 mr-90 w-80 rounded-md border border-line bg-ink shadow-xl"
-                                    onMouseEnter={() => openSubMenu(itemKey)}
-                                    onMouseLeave={closeSubMenu}
-                                  >
-                                    <div className="p-2">
-                                      {item.subItems.map((subItem, subIndex) => (
-                                        <Link
-                                          key={subIndex}
-                                          href={subItem.href}
-                                          className="block rounded px-3 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
-                                        >
-                                          <div className="font-medium">{subItem.title}</div>
-                                          <div className="text-xs text-paper/60">
-                                            {subItem.description}
-                                          </div>
-                                        </Link>
-                                      ))}
-                                    </div>
-                                  </div>
-                                )}
+                               {hasSubItems && activeSubMenu === itemKey && (
+  <div
+    className="absolute left-full top-0 ml-2 w-80 z-50 rounded-md border border-line bg-ink shadow-xl"
+    onMouseEnter={() => openSubMenu(itemKey)}
+    onMouseLeave={closeSubMenu}
+  >
+    <div className="p-2">
+      {item.subItems.map((subItem, subIndex) => (
+        <Link
+          key={subIndex}
+          href={subItem.href}
+          className="block rounded px-3 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
+        >
+          <div className="font-medium">{subItem.title}</div>
+          <div className="text-xs text-paper/60">
+            {subItem.description}
+          </div>
+        </Link>
+      ))}
+    </div>
+  </div>
+)}
                               </div>
                             );
                           })}

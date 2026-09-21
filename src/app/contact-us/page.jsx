@@ -42,7 +42,7 @@ export default function ContactUs() {
       </section>
 
       <section className="border-b border-line px-6 py-20" style={{ background: "linear-gradient(135deg, rgba(0,102,255,0.1), transparent 50%, rgba(40,167,69,0.08))" }}>
-        <div className="mx-auto grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid  gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {contactCards.map((c) => {
             const Wrapper = c.href ? "a" : "div";
             return (
@@ -63,7 +63,7 @@ export default function ContactUs() {
       <Partners />
 
       <section className="relative overflow-hidden border-t border-line px-6 py-20" style={{ background: "linear-gradient(120deg, #06170f, #000000 55%, #001a3d)" }}>
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mx-auto grid  gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <h2 className="text-3xl font-bold text-paper">Get In Touch</h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-steel">
