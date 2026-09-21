@@ -1,4 +1,4 @@
-import Footer from "@/components/Footer";
+
 import {
   Monitor,
   Scale,
@@ -111,7 +111,6 @@ export default function Careers() {
           </div>
         </div>
       </section>
-      <Footer/>
     </>
   );
 }
