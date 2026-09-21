@@ -12,7 +12,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), sans-serif;
 }
 
-p {
+p,
+button,
+li,
+nav {
   font-family: var(--font-body), sans-serif;
   font-size: 18px !important;
 }
@@ -49,7 +52,7 @@ p {
 }
 
 .mega-menu-title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   color: #000;
 }
@@ -84,7 +87,7 @@ p {
 }
 
 .mega-menu-item-title span {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: black;
   transition: color 0.2s;

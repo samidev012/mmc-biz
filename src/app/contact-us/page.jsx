@@ -86,7 +86,7 @@ export default function ContactUs() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-signal/40 bg-gradient-to-b from-[#0a1128]/80 to-black p-8 transition-shadow duration-500 hover:shadow-[0_0_60px_-15px_rgba(0,102,255,0.4)]">
+          <div className="rounded-2xl items-center border border-signal/40 bg-gradient-to-b from-[#0a1128]/80 to-black p-8 transition-shadow duration-500 hover:shadow-[0_0_60px_-15px_rgba(0,102,255,0.4)]">
             <h3 className="text-2xl font-bold text-paper">Get A Free Security Posture Review</h3>
             <p className="mt-2 text-sm text-steel">30-minute conversation with our vCISO team. No obligation, no sales pressure.</p>
 

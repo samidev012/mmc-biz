@@ -85,11 +85,11 @@ export default function Careers() {
         className="border-b border-line px-6 py-20"
         style={{ background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)" }}
       >
-        <div className="mx-auto  text-center">
-          <h2 className="text-3xl font-bold uppercase text-paper md:text-4xl">
+        <div className="mx-auto text-center">
+          <h1 className="text-3xl font-bold uppercase text-paper md:text-4xl">
             Creating Your <span className="text-signal">Pathway To Growth</span> And
             Achievement
-          </h2>
+          </h1>
           <p className="mx-auto mt-5 max-w-2xl text-sm text-steel">
             Providing a platform for freshers and professionals to accelerate their
             career journey and reach new heights in the IT industry.
