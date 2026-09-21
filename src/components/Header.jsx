@@ -41,11 +41,11 @@ const sections = [
         subItems: [
           {
             title: "Prefabricated Data Centers",
-            href: "/services/attom/servers",
+            href: "/services/attom/prefabricated",
           },
           {
             title: "Precision Air Conditioner",
-            href: "/services/attom/storage",
+            href: "/services/attom/precision",
           },
           {
             title: "Mission Critical Power System",
@@ -373,7 +373,7 @@ export default function Header() {
         {/* ================= BUSINESS PARTNER ================= */}
         <Link
           href="/contact-us"
-          className="hidden rounded-md bg-signal px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-signal/90 lg:inline-block"
+          className="group relative  overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]"
         >
           Business Partner
         </Link>
