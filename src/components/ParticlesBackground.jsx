@@ -144,4 +144,4 @@ export default function VantaDotsBackground({
       className="pointer-events-auto absolute inset-0 h-full w-full"
     />
   );
-}s
+}
