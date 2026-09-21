@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -41,7 +40,7 @@ const sections = [
         // ✅ ATTOM KE ANDAR SUB-MENU
         subItems: [
           {
-            title: "Prefabricated Data Centers", 
+            title: "Prefabricated Data Centers",
             href: "/services/attom/servers",
           },
           {
@@ -53,20 +52,19 @@ const sections = [
             href: "/services/attom/networking",
           },
 
-           {
+          {
             title: "Data Center Infrastructure Monitoring",
             href: "/services/attom/networking",
           },
 
-           {
+          {
             title: "Liquid Cooling System",
             href: "/services/attom/networking",
           },
-           {
+          {
             title: "Attom-Data Center Rack System",
             href: "/services/attom/networking",
           },
-          
         ],
       },
       {
@@ -245,14 +243,19 @@ export default function Header() {
                         <div className="mega-menu-items">
                           {section.items.map((item, itemIndex) => {
                             const itemKey = `${sectionIndex}-${itemIndex}`;
-                            const hasSubItems = item.subItems && item.subItems.length > 0;
+                            const hasSubItems =
+                              item.subItems && item.subItems.length > 0;
 
                             return (
                               <div
                                 key={itemKey}
                                 className="relative"
-                                onMouseEnter={() => hasSubItems && openSubMenu(itemKey)}
-                                onMouseLeave={() => hasSubItems && closeSubMenu()}
+                                onMouseEnter={() =>
+                                  hasSubItems && openSubMenu(itemKey)
+                                }
+                                onMouseLeave={() =>
+                                  hasSubItems && closeSubMenu()
+                                }
                               >
                                 <Link
                                   href={item.href}
@@ -265,7 +268,9 @@ export default function Header() {
                                     <span className="mega-menu-item-title">
                                       <span>{item.title}</span>
                                       {item.hasArrow && (
-                                        <span className="mega-menu-arrow">→</span>
+                                        <span className="mega-menu-arrow">
+                                          →
+                                        </span>
                                       )}
                                     </span>
                                     <span className="mega-menu-description">
@@ -275,28 +280,32 @@ export default function Header() {
                                 </Link>
 
                                 {/* ✅ SUB-MENU DROPDOWN */}
-                               {hasSubItems && activeSubMenu === itemKey && (
-  <div
-    className="absolute left-full top-0 ml-2 w-80 z-50 rounded-md border border-line bg-ink shadow-xl"
-    onMouseEnter={() => openSubMenu(itemKey)}
-    onMouseLeave={closeSubMenu}
-  >
-    <div className="p-2">
-      {item.subItems.map((subItem, subIndex) => (
-        <Link
-          key={subIndex}
-          href={subItem.href}
-          className="block rounded px-3 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
-        >
-          <div className="font-medium">{subItem.title}</div>
-          <div className="text-xs text-paper/60">
-            {subItem.description}
-          </div>
-        </Link>
-      ))}
-    </div>
-  </div>
-)}
+                                {hasSubItems && activeSubMenu === itemKey && (
+                                  <div
+                                    className="absolute left-full top-0 ml-2 w-80 z-50 rounded-md border border-line bg-ink shadow-xl"
+                                    onMouseEnter={() => openSubMenu(itemKey)}
+                                    onMouseLeave={closeSubMenu}
+                                  >
+                                    <div className="p-2">
+                                      {item.subItems.map(
+                                        (subItem, subIndex) => (
+                                          <Link
+                                            key={subIndex}
+                                            href={subItem.href}
+                                            className="block rounded px-3 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
+                                          >
+                                            <div className="font-medium">
+                                              {subItem.title}
+                                            </div>
+                                            <div className="text-xs text-paper/60">
+                                              {subItem.description}
+                                            </div>
+                                          </Link>
+                                        ),
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
                               </div>
                             );
                           })}
@@ -398,7 +407,11 @@ export default function Header() {
           <Link href="/about-us" onClick={closeMobile} className="py-2 text-sm">
             About Us
           </Link>
-          <Link href="/contact-us" onClick={closeMobile} className="py-2 text-sm">
+          <Link
+            href="/contact-us"
+            onClick={closeMobile}
+            className="py-2 text-sm"
+          >
             Contact Us
           </Link>
         </nav>
