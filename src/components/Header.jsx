@@ -394,7 +394,7 @@ export default function Header() {
           <Link
             href="/contact-us"
             onClick={closeMobile}
-            className="py-2 text-sm"
+            className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1"
           >
             Contact Us
           </Link>

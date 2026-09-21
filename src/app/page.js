@@ -65,8 +65,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      
       <ServicesGrid />
       <Testimonials />
       <FAQ />
