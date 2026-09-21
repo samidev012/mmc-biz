@@ -49,17 +49,17 @@ const sections = [
           },
           {
             title: "Mission Critical Power System",
-            href: "/services/attom/networking",
+            href: "/services/attom/mission-critical-power-system",
           },
 
           {
             title: "Data Center Infrastructure Monitoring",
-            href: "/services/attom/networking",
+            href: "/services/attom/data-center-infrastructure-management",
           },
 
           {
             title: "Liquid Cooling System",
-            href: "/services/attom/networking",
+            href: "/services/attom/liquid-cooling-system",
           },
           {
             title: "Attom-Data Center Rack System",

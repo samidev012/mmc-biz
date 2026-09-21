@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AttomContent from "./AttomContent"; // ✅ naya import
+import PassiveContent from "./PassiveContent";
+import TIAContent from "./TIAContent";
+import CctvContent from "./CctvContent";
 
 const services = {
   "cyber-security-brands": { title: "Cyber Security Brands", description: "Trusted cybersecurity solutions." },
@@ -26,6 +29,16 @@ export default async function ServicePage({ params }) {
   // ✅ ATTOM ke liye poora custom component
   if (slug === "attom") {
     return <AttomContent />;
+  }
+
+  if (slug === "passive-network-services"){
+    return <PassiveContent/>
+  }
+   if (slug === "tia"){
+    return <TIAContent />
+  }
+  if (slug === "cctv-surveillance"){
+    return <CctvContent />
   }
 
   // baaki normal services
