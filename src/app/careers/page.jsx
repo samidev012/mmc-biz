@@ -26,7 +26,7 @@ export default function Careers() {
     <>
       {/* Hero */}
       <section className="border-b border-line px-6 py-16">
-        <div className="mx-auto grid max-w-6xl overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
+        <div className="mx-auto grid  overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
           <div className="bg-gradient-to-b from-[#0a1128] to-black p-8 md:p-12">
             <h1 className="text-3xl font-bold uppercase leading-tight text-paper md:text-4xl">
               MMC - Your{" "}
@@ -85,7 +85,7 @@ export default function Careers() {
         className="border-b border-line px-6 py-20"
         style={{ background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)" }}
       >
-        <div className="mx-auto max-w-6xl text-center">
+        <div className="mx-auto  text-center">
           <h2 className="text-3xl font-bold uppercase text-paper md:text-4xl">
             Creating Your <span className="text-signal">Pathway To Growth</span> And
             Achievement
