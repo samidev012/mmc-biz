@@ -13,12 +13,85 @@ const sections = [
         description: "Trusted cybersecurity solutions.",
         href: "/services/cyber-security-brands",
         hasArrow: true,
+         subItems: [
+          {
+            title: "Fortra",
+            href: "/services/attom/prefabricated",
+          },
+          {
+            title: "Kaspersky",
+            href: "/services/attom/precision",
+          },
+          {
+            title: "Solarwinds",
+            href: "/services/attom/mission-critical-power-system",
+          },
+
+          {
+            title: "SPlunk",
+            href: "/services/attom/data-center-infrastructure-management",
+          },
+
+          {
+            title: "Openvpn",
+            href: "/services/attom/liquid-cooling-system",
+          },
+          {
+            title: "sangfor",
+            href: "/services/attom/networking",
+          },
+          {
+            title: "Crowdstrike",
+            href: "/services/attom/networking",
+          },
+          {
+            title: "Fortinet",
+            href: "/services/attom/networking",
+          },
+          {
+            title: "Microsoft",
+            href: "/services/attom/networking",
+          },
+          {
+            title: "Recorded Future",
+            href: "/services/attom/networking",
+          },
+          {
+            title: "Darktrace",
+            href: "/services/attom/networking",
+          },
+        ],
       },
+
       {
         title: "Cyber Security Services",
         description: "End-to-end security solutions.",
         href: "/services/cyber-security",
         hasArrow: true,
+        subItems: [
+          {
+            title: "SOC 24/7",
+            href: "/services/attom/prefabricated",
+          },
+          {
+            title: "MSSP",
+            href: "/services/attom/precision",
+          },
+          {
+            title: "Managed IT Services",
+            href: "/services/attom/mission-critical-power-system",
+          },
+
+          {
+            title: "VAPT",
+            href: "/services/attom/data-center-infrastructure-management",
+          },
+
+          {
+            title: "Red Teaming",
+            href: "/services/attom/liquid-cooling-system",
+          },
+        ],
       },
       {
         title: "Cyber Security Consultancy",
@@ -292,7 +365,7 @@ export default function Header() {
                                           <Link
                                             key={subIndex}
                                             href={subItem.href}
-                                            className="block rounded px-3 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
+                                            className="block rounded px-5 py-1 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
                                           >
                                             <div className="font-medium">
                                               {subItem.title}

@@ -4,6 +4,8 @@ import AttomContent from "./AttomContent"; // ✅ naya import
 import PassiveContent from "./PassiveContent";
 import TIAContent from "./TIAContent";
 import CctvContent from "./CctvContent";
+import CyberSecurityBrandsContent from "./CyberSecurityBrandsContent";
+import Cybersecurity from "./CyberSecurityContent";
 
 const services = {
   "cyber-security-brands": { title: "Cyber Security Brands", description: "Trusted cybersecurity solutions." },
@@ -40,6 +42,13 @@ export default async function ServicePage({ params }) {
   if (slug === "cctv-surveillance"){
     return <CctvContent />
   }
+  if (slug === "cyber-security-brands"){
+    return <CyberSecurityBrandsContent />
+  }
+  if (slug === "cyber-security"){
+    return <Cybersecurity />
+  }
+
 
   // baaki normal services
   return (
