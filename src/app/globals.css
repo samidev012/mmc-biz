@@ -1295,15 +1295,16 @@ body {
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 30px;
-  background: linear-gradient(135deg, #ffffff 0%, #0ea5e9 100%);
-  -webkit-background-clip: text;
+  /* background: linear-gradient(135deg, #ffffff 0%, #0ea5e9 100%); */
+  /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background-clip: text; */
   animation: fadeInUp 1s ease-out;
+  color: #ffffff !important;
 }
 
 .attom-hero-description {
-  font-size: 1.1rem;
+  font-size: 18px ;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
   animation: fadeInUp 1s ease-out 0.2s backwards;

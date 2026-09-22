@@ -16,49 +16,49 @@ const sections = [
          subItems: [
           {
             title: "Fortra",
-            href: "/services/attom/prefabricated",
+            href: "/services/cyber-security/fortra",
           },
           {
             title: "Kaspersky",
-            href: "/services/attom/precision",
+            href: "/services/cyber-security/kaspersky",
           },
           {
             title: "Solarwinds",
-            href: "/services/attom/mission-critical-power-system",
+            href: "/services/cyber-security/fortra",
           },
 
           {
             title: "SPlunk",
-            href: "/services/attom/data-center-infrastructure-management",
+            href: "/services/cyber-security/fortra",
           },
 
           {
             title: "Openvpn",
-            href: "/services/attom/liquid-cooling-system",
+            href: "/services/cyber-security/fortra",
           },
           {
             title: "sangfor",
-            href: "/services/attom/networking",
+            href: "/services/cyber-security/fortra",
           },
           {
             title: "Crowdstrike",
-            href: "/services/attom/networking",
+            href: "/services/cyber-security/fortra",
           },
           {
             title: "Fortinet",
-            href: "/services/attom/networking",
+            href: "/services/cyber-security/fortra",
           },
           {
             title: "Microsoft",
-            href: "/services/attom/networking",
+            href: "/services/cyber-security/fortra",
           },
           {
             title: "Recorded Future",
-            href: "/services/attom/networking",
+            href: "/services/cyber-security/fortra",
           },
           {
             title: "Darktrace",
-            href: "/services/attom/networking",
+            href: "/sservices/cyber-security/fortra",
           },
         ],
       },
