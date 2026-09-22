@@ -29,21 +29,21 @@ const services = [
     title: 'Build a secure, reliable data center', 
     description: 'Create and manage high-performance data environments with scalable computing, storage, virtualization, backup, and business continuity solutions.', 
     icon: Database, 
-    image: '/images/it-server.png'
+    image: '/images/IT-Server.png'
   },
   { 
     eyebrow: 'Cybersecurity & risk protection', 
     title: 'Stay ahead of evolving cyber threats', 
     description: 'Strengthen your cybersecurity strategy with advanced threat detection, endpoint protection, and digital defense solutions built for modern business.', 
     icon: ShieldCheck, 
-    image: '/images/cybersecurity.png'
+    image: '/images/Cybersecurity.png'
   },
   { 
     eyebrow: 'Integrated technology', 
     title: 'Connect every part of your business', 
     description: 'Bring your systems, teams, and operations together with smart integration services designed around your goals.', 
     icon: Boxes, 
-    image: '/images/ai.png'
+    image: '/images/AI.png'
   },
 ];
 
