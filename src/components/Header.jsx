@@ -24,21 +24,21 @@ const sections = [
           },
           {
             title: "Solarwinds",
-            href: "/services/cyber-security/fortra",
+            href: "/services/cyber-security/solarwind",
           },
 
           {
             title: "SPlunk",
-            href: "/services/cyber-security/fortra",
+            href: "/services/cyber-security/splunk",
           },
 
           {
             title: "Openvpn",
-            href: "/services/cyber-security/fortra",
+            href: "/services/cyber-security/openvpn",
           },
           {
             title: "sangfor",
-            href: "/services/cyber-security/fortra",
+            href: "/services/cyber-security/sangfor",
           },
           {
             title: "Crowdstrike",

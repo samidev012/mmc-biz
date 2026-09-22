@@ -4,47 +4,53 @@ import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
-const Endpoint = [
+const Infrastructure = [
   {
-    title: "Essential Endpoint Defense",
-    desc: "Simulate advanced adversaries to uncover security gaps and proactively strengthen your blue team.",
+    title: "Remote Access VPN",
+    desc: "OpenVPN Access Server delivers secure connectivity through encrypted tunnels, supporting multiple authentication methods and flexible deployment options.",
     btn: "Go To Product",
   },
   {
-    title: "Endpoint Protection with Built-In Response",
-    desc: "Conduct advanced, multi-phased penetration tests to exploit network, client-side, and web application vectors.",
+    title: "Zero Trust Network Access",
+    desc: "OpenVPN CloudConnexa verifies users and devices before granting access, minimizing exposure while improving security for hybrid work.",
     btn: "Go To Product",
   },
   {
-    title: "Full-Spectrum Detection and Investigation",
-    desc: "Use evasive tools across the attacker kill chain to emulate real-world attacks, bypass defenses, and assess resilience.",
+    title: "Access Control & Identity Integration",
+    desc: "OpenVPN integrates with identity providers to simplify user management, including multi-factor authentication and single sign-on.",
+    btn: "Go To Product",
+  },
+  {
+    title: "Secure Client Connectivity",
+    desc: "OpenVPN offers secure client apps for Windows, macOS, Linux, and mobile, enabling encrypted connections from virtually any device.",
     btn: "Go To Product",
   },
 ];
 
 const Specialized = [
   {
-    title: "Targeted Attack Detection",
-    desc: "A unified platform built to catch advanced, targeted attacks that are specifically designed to evade conventional defenses — the kind of threat that a standard endpoint tool is least likely to catch on its own.",
+    title: "Site-to-Site Connectivity",
+    desc: "OpenVPN enables encrypted connections between branch offices and data centers, keeping communication reliable while protecting data in transit.",
     btn: "Go To Product",
   },
   {
-    title: "Industrial Systems Protection",
-    desc: "Secures industrial environments through purpose-built operational technology protection while maintaining safety, reliability, and continuous production availability across critical infrastructure.",
+    title: "Centralized VPN Management",
+    desc: "Administrators configure and monitor VPN deployments from one interface, improving efficiency and ensuring consistent policies.",
     btn: "Go To Product",
   },
     {
-    title: "Threat Intelligence & Investigation Tooling",
-    desc: "Provides actionable threat intelligence, investigation tools, and secure analysis capabilities supporting restricted environments, government agencies, and critical infrastructure organizations.",
+    title: "Monitoring & Connectivity Insights",
+    desc: "OpenVPN provides visibility into connection status and network performance, supporting troubleshooting and ongoing optimization.",
     btn: "Go To Product",
   },
-    {
-    title: "Fraud and Availability Protection",
-    desc: "Prevents online fraud, protects customer services, and defends infrastructure against distributed denial-of-service attacks, ensuring continuous business availability.",
+  {
+    title: "High Availability & Scalability",
+    desc: "OpenVPN supports scalable deployments with load balancing, helping maintain uptime across distributed environments.",
     btn: "Go To Product",
   },
+    
 ];
-export default function KasperskyContent() {
+export default function SangforContent() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -86,11 +92,16 @@ export default function KasperskyContent() {
             style={{ opacity, scale }}
           >
             <h1 className="attom-hero-title animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-\7xl">
-              One Platform, Every Stage of the Threat Lifecycle
+             Secure Remote Access & Zero Trust Connectivity
             </h1>
 
             <p className="attom-hero-description">
-             Kaspersky’s portfolio scales from essential endpoint protection to full extended detection and response, alongside a set of specialized tools for industrial, fraud, and infrastructure-level threats.
+Organizations require secure connectivity that enables employees,
+contractors, and partners to access business resources from anywhere
+without compromising security. OpenVPN provides trusted VPN and Zero
+Trust connectivity solutions that help organizations protect sensitive
+data, secure remote access, and simplify network connectivity across
+on-premises, cloud, and hybrid environments.
             </p>
           </motion.div>
 
@@ -203,10 +214,15 @@ export default function KasperskyContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">The Company Behind the Portfolio</h2>
+            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">About OpenVPN</h2>
             <p className="section-description">
-            Kaspersky is a global cybersecurity company founded in 1997, with threat research and protection now deployed across more than a billion devices worldwide. Its portfolio spans personal device protection through to enterprise-grade security and services, backed by an internal threat intelligence and research capability that continuously feeds new detection logic back into the products themselves.
-            </p>
+          OpenVPN is a cybersecurity company specializing in secure networking and
+remote access solutions. Built on the widely adopted OpenVPN protocol,
+its products help organizations establish encrypted connections between
+users, devices, applications, and business networks. From small
+businesses to large enterprises, OpenVPN supports secure access,
+simplified deployment, and centralized management for modern distributed
+workforces.</p>
           </motion.div>
 
           <motion.div
@@ -218,7 +234,7 @@ export default function KasperskyContent() {
           >
             <div className="image-container">
               <Image
-                src="/images/Kaspersky.webp"
+                src="/images/Splunk.webp"
                 alt="ATTOM Building"
                 width={600}
                 height={400}
@@ -244,26 +260,27 @@ export default function KasperskyContent() {
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-            Endpoint <span className="highlight">Protection & Extended </span> Detection
-          </h2>
+           Secure Remote Access<span className="highlight"> Remote   </span> Access
+          </h2> 
           <p>
             {" "}
-           The core of the portfolio is a tiered line called Kaspersky Next <br/>that lets an organization pick a level of protection matched to its team size and security maturity, rather than being forced into a one-size-fits-all package.
+           Modern organizations need secure and reliable remote connectivity that protects users while maintaining productivity. OpenVPN provides <br/>  encrypted remote access solutions that allow employees to securely connect to business resources from virtually any location without exposing critical infrastructure.
+</p>
 
 
-          </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {Endpoint.map((E) => (
+     
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {Infrastructure.map((I) => (
               <div
-                key={E.title}
+                key={I.title}
                 className="group rounded-xl border border-line bg-black/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:shadow-[0_0_30px_-12px_rgba(0,102,255,0.5)]"
               >
                 <h3 className="mt-5 text-lg font-semibold text-signal">
-                  {E.title}
+                  {I.title}
                 </h3>
 
                 <p className="mt-2 text-sm leading-relaxed text-steel">
-                  {E.desc}
+                  {I.desc}
                 </p>
               </div>
             ))}
@@ -280,15 +297,15 @@ export default function KasperskyContent() {
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-            Specialized <span className="highlight"> Threat </span> & Infrastructure Defense
+           Network  <span className="highlight"> Connectivity   </span> & Management
           </h2>
           <p>
             {" "}
-            Beyond endpoint coverage, a set of purpose-built tools address risks that fall outside standard EDR/XDR targeted attacks, industrial environments, fraud, and availability threats.
+Managing secure connections across multiple offices, cloud platforms, and remote users requires centralized visibility and efficient administration. <br/>OpenVPN provides tools that simplify VPN deployment, monitoring, and ongoing management while maintaining secure communications.
 
 
           </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {Specialized.map((S) => (
               <div
                 key={S.title}

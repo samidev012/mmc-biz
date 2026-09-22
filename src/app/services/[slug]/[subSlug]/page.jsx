@@ -7,6 +7,10 @@ import LiquidContent from "./LiquidContent";
 import DataContent from "./DataContent";
 import FortraContent from "./FortraContent";
 import KasperskyContent from "./KasperskyContent";
+import SolarContent from "./SolarContent";
+import SplunkContent from "./SplunkContent";
+import OpenContent from "./OpenContent";
+import SangforContent from "./SangforContent";
 
 // =========================
 // ATTOM SUB PAGES
@@ -66,6 +70,18 @@ const cyberSubPages = {
 
   kaspersky: {
     title: "Kaspersky",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+  solarwind: {
+    title: "Solarwind",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+  splunk: {
+    title: "Splunk",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+  openvpn: {
+    title: "Open",
     description: "Endpoint protection and cybersecurity solutions.",
   },
 
@@ -156,6 +172,19 @@ export default async function SubPage({ params }) {
     if (subSlug === "kaspersky") {
       return <KasperskyContent />;
     } 
+    if (subSlug === "solarwind") {
+      return <SolarContent />;
+    } 
+       if (subSlug === "splunk") {
+      return <SplunkContent />;
+    } 
+    if (subSlug === "openvpn") {
+      return <OpenContent />;
+    } 
+    if (subSlug === "sangfor") {
+      return <SangforContent />;
+    } 
+   
     return (
       <div className="mx-auto max-w-6xl px-6 py-16">
         <h1 className="text-3xl font-bold text-white">

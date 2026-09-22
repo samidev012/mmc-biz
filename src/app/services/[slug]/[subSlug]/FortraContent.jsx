@@ -279,7 +279,7 @@ export default function FortraContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title">Introduction</h2>
+            <h2 className="section-title upparcase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">Introduction</h2>
             <p className="section-description">
               Fortra has partnered with MMC to expand their product in to
               Pakistan. MMC is a Global company based out of Pakistan with more
