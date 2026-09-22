@@ -8,21 +8,21 @@ const services = [
     title: 'Build a stronger digital presence', 
     description: 'Transform your online presence with strategic digital marketing, creative design, SEO, content, and social solutions that generate measurable engagement and growth.', 
     icon: ChartNoAxesCombined, 
-    image: '/images/marketing-book-file.png' // Apna image path
+    image: '/images/Marketing-Book-File.png' // Apna image path
   },
   { 
     eyebrow: 'Advanced security', 
     title: 'Protect what matters most', 
     description: 'Deploy intelligent CCTV and surveillance solutions designed to enhance visibility, strengthen security, and provide real-time insights for safer, smarter operations.', 
     icon: Eye, 
-    image: '/images/cctv-camera.png'
+    image: '/images/CCTV-Camera.png'
   },
   { 
     eyebrow: 'Enterprise infrastructure', 
     title: 'Infrastructure built for performance', 
     description: 'Equip your organization with dependable enterprise hardware and network infrastructure designed for operational speed, security, and long-term growth.', 
     icon: Network, 
-    image: '/images/circuit-board.png'
+    image: '/images/Circuit-Board.png'
   },
   { 
     eyebrow: 'Data center solutions', 
