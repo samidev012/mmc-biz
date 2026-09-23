@@ -11,6 +11,12 @@ import SolarContent from "./SolarContent";
 import SplunkContent from "./SplunkContent";
 import OpenContent from "./OpenContent";
 import SangforContent from "./SangforContent";
+import CrowdContent from "./CrowdContent";
+import FortinetContent from "./FortinetContent";
+import MicrosoftContent from "./MicrosoftContent";
+import RecordedContent from "./RecordedContent";
+import DarktraceContent from "./DarktraceContent";
+
 
 // =========================
 // ATTOM SUB PAGES
@@ -82,6 +88,27 @@ const cyberSubPages = {
   },
   openvpn: {
     title: "Open",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+  crowdstirke: {
+    title: "Crowdstrike",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+  fortinet: {
+    title: "Fortinet",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+   microsoft: {
+    title: "Microsoft",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+ 
+   "recorded-future": {
+    title: "Recorded Future",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+     darktrace: {
+    title: "Darktrace",
     description: "Endpoint protection and cybersecurity solutions.",
   },
 
@@ -183,6 +210,21 @@ export default async function SubPage({ params }) {
     } 
     if (subSlug === "sangfor") {
       return <SangforContent />;
+    } 
+     if (subSlug === "crowdstirke") {
+      return <CrowdContent />;
+    } 
+     if (subSlug === "fortinet") {
+      return <FortinetContent />;
+    } 
+     if (subSlug === "microsoft") {
+      return <MicrosoftContent />;
+    } 
+     if (subSlug === "recorded-future") {
+      return <RecordedContent />;
+    } 
+     if (subSlug === "darktrace") {
+      return <DarktraceContent />;
     } 
    
     return (

@@ -6,51 +6,51 @@ import Image from "next/image";
 
 const Infrastructure = [
   {
-    title: "Next-Generation Firewall",
-    desc: "Advanced threat detection technologies analyze network activity to identify suspicious behavior, malware, and emerging threats. Automated security intelligence helps organizations respond more effectively to cybersecurity incidents.",
+    title: "Next-Generation Firewall (NGFW)",
+    desc: "FortiGate firewalls provide application-aware security, intrusion prevention, web filtering, and deep traffic inspection against modern enterprise cyber threats effectively.",
     btn: "Go To Product",
   },
   {
-    title: "Secure Access & Zero Trust",
-    desc: "Sangfor Secure Web Gateway protects users from malicious websites, phishing attacks, and unsafe internet activity through intelligent web filtering and real-time threat detection.",
+    title: "Intrusion Prevention & Threat Intelligence",
+    desc: "FortiGuard threat intelligence identifies malicious activity, blocks known threats, and provides continuous protection against emerging cybersecurity risks worldwide.",
     btn: "Go To Product",
   },
   {
-    title: "Secure Web Gateway",
-    desc: "Sangfor Secure Access solutions verify users and devices before granting access to business applications and resources. Zero Trust principles help minimize risk while supporting secure remote and hybrid work environments.",
+    title: "Secure SD-WAN",
+    desc: "Fortinet Secure SD-WAN optimizes branch connectivity while integrating networking and security for protected enterprise communications across distributed environments.",
     btn: "Go To Product",
   },
   {
-    title: "Intelligent Threat Protection",
-    desc: "Sangfor Next-Generation Firewall combines application awareness, intrusion prevention, web filtering, and threat intelligence to protect enterprise networks from modern cyber threats while maintaining secure connectivity.",
+    title: "Web & Application Security",
+    desc: "Fortinet secures web applications and internet traffic using firewalls, secure gateways, and advanced filtering against cyberattacks and unauthorized access.",
     btn: "Go To Product",
   },
 ];
 
 const Specialized = [
   {
-    title: "Hyperconverged Infrastructure (HCI)",
-    desc: "Sangfor HCI integrates computing, storage, virtualization, and networking into a single platform, reducing infrastructure complexity while improving performance and resource utilization.",
+    title: "Zero Trust Network Access (ZTNA)",
+    desc: "Fortinet ZTNA verifies users and devices before application access, reducing attack surfaces while supporting secure remote connectivity consistently.",
     btn: "Go To Product",
   },
   {
-    title: "Cloud Platform Management",
-    desc: "Sangfor Cloud Platform enables organizations to deploy, manage, and scale private and hybrid cloud environments through centralized administration and automation.",
+    title: "Endpoint Security",
+    desc: "FortiClient protects endpoints with malware defense, VPN connectivity, endpoint visibility, and ransomware protection for secure organizational devices everywhere.",
     btn: "Go To Product",
   },
     {
-    title: "Virtual Desktop Infrastructure (VDI)",
-    desc: "Sangfor Virtual Desktop Infrastructure delivers secure virtual desktops that allow employees to access business applications from virtually any location while maintaining centralized control and security.",
+    title: "Security Operations & Analytics",
+    desc: "Fortinet Security Fabric centralizes security data, delivering analytics, threat visibility, coordinated operations, and improved organizational cybersecurity decision-making capabilities.",
     btn: "Go To Product",
   },
   {
-    title: "Centralized Management & Analytics",
-    desc: "Unified management dashboards provide visibility into infrastructure health, security status, and system performance. Analytics and reporting help administrators optimize operations and make informed infrastructure decisions.",
+    title: "Centralized Management  ",
+    desc: "FortiManager and FortiAnalyzer simplify monitoring, reporting, configuration, and policy management, improving operational efficiency, governance, and security administration.",
     btn: "Go To Product",
   },
     
 ];
-export default function SangforContent() {
+export default function FortinetContent() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -92,18 +92,16 @@ export default function SangforContent() {
             style={{ opacity, scale }}
           >
             <h1 className="attom-hero-title animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-\7xl">
-             Integrated Cybersecurity & Cloud Infrastructure Solutions
+             Enterprise Network Security & Cyber Defense Platform
             </h1>
 
             <p className="attom-hero-description">
-Modern organizations require secure, intelligent, and scalable IT
-environments to support digital transformation. Sangfor delivers
-integrated cybersecurity, cloud computing, and infrastructure solutions
-that help businesses strengthen security, simplify operations, and
-improve overall IT performance. By combining advanced technologies with
-centralized management, Sangfor enables organizations to protect
-critical assets while maintaining reliable and efficient business
-operations.
+Modern organizations require integrated security solutions that protect
+networks, users, applications, and cloud environments from evolving
+cyber threats. Fortinet delivers a comprehensive cybersecurity platform
+that combines advanced threat protection, secure networking, and
+centralized management to help organizations strengthen security posture
+while supporting business growth and digital transformation.
             </p>
           </motion.div>
 
@@ -216,15 +214,16 @@ operations.
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">About Sangfor</h2>
+            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">About Fortinet
+</h2>
             <p className="section-description">
-          Sangfor Technologies is a global provider of cybersecurity, cloud
-computing, and IT infrastructure solutions. Its portfolio includes
-network security, endpoint protection, secure access, hyperconverged
-infrastructure, and cloud platforms designed to meet the needs of modern
-enterprises. Organizations across education, healthcare, finance,
-government, and commercial sectors rely on Sangfor to improve security,
-optimize infrastructure, and support business continuity.</p>
+        Fortinet is a global cybersecurity company recognized for its broad
+portfolio of network security and infrastructure solutions. Its products
+help organizations secure networks, cloud environments, endpoints, and
+remote users through intelligent security technologies and centralized
+management. Trusted by enterprises, government agencies, healthcare
+providers, and service providers, Fortinet enables organizations to
+build resilient and scalable security architectures.</p>
           </motion.div>
 
           <motion.div
@@ -236,7 +235,7 @@ optimize infrastructure, and support business continuity.</p>
           >
             <div className="image-container">
               <Image
-                src="/images/Sangfor.webp"
+                src="/images/Fortinet.webp"
                 alt="ATTOM Building"
                 width={600}
                 height={400}
@@ -262,11 +261,13 @@ optimize infrastructure, and support business continuity.</p>
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-           Network <span className="highlight"> Security    </span> & Secure Access
+           Network  <span className="highlight">  Security & Threat   </span> Prevention
           </h2> 
           <p>
             {" "}
-        Protecting users, devices, and networks requires a comprehensive security strategy that can adapt to evolving cyber threats. <br/>Sangfor provides intelligent network security solutions that deliver visibility, access control, and advanced threat protection across distributed environments.
+Effective cybersecurity begins with strong network protection that can identify, prevent, and respond to evolving threats. <br/>Fortinet provides integrated security solutions that deliver visibility, threat intelligence, and advanced protection across enterprise networks.
+
+
 </p>
 
 
@@ -299,11 +300,13 @@ optimize infrastructure, and support business continuity.</p>
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-           Cloud  <span className="highlight">  Infrastructure    </span> & Digital Workspace
+        Secure  <span className="highlight">   Access & Security   </span> Operations
           </h2>
           <p>
             {" "}
-Organizations require flexible infrastructure that supports modern applications, virtualization, and remote collaboration. <br/>Sangfor delivers cloud and infrastructure solutions that simplify IT management while improving scalability and operational efficiency.
+Organizations require centralized security management and secure access controls to support modern hybrid work environments. <br/> Fortinet provides solutions that simplify administration, improve visibility, and strengthen organizational security.
+
+
 
 
 

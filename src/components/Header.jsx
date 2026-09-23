@@ -42,23 +42,23 @@ const sections = [
           },
           {
             title: "Crowdstrike",
-            href: "/services/cyber-security/fortra",
+            href: "/services/cyber-security/crowdstirke",
           },
           {
             title: "Fortinet",
-            href: "/services/cyber-security/fortra",
+            href: "/services/cyber-security/fortinet",
           },
           {
             title: "Microsoft",
-            href: "/services/cyber-security/fortra",
+            href: "/services/cyber-security/microsoft",
           },
           {
             title: "Recorded Future",
-            href: "/services/cyber-security/fortra",
+            href: "/services/cyber-security/recorded-future",
           },
           {
             title: "Darktrace",
-            href: "/sservices/cyber-security/fortra",
+            href: "/services/cyber-security/darktrace",
           },
         ],
       },

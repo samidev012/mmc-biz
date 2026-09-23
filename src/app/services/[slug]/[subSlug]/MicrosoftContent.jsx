@@ -6,51 +6,51 @@ import Image from "next/image";
 
 const Infrastructure = [
   {
-    title: "Next-Generation Firewall",
-    desc: "Advanced threat detection technologies analyze network activity to identify suspicious behavior, malware, and emerging threats. Automated security intelligence helps organizations respond more effectively to cybersecurity incidents.",
+    title: "Next-Generation Antivirus (NGAV)",
+    desc: "CrowdStrike Falcon Prevent uses AI-driven detection to block malware, ransomware, and fileless attacks before compromising organizational endpoints effectively.",
     btn: "Go To Product",
   },
   {
-    title: "Secure Access & Zero Trust",
-    desc: "Sangfor Secure Web Gateway protects users from malicious websites, phishing attacks, and unsafe internet activity through intelligent web filtering and real-time threat detection.",
+    title: "Endpoint Detection & Response (EDR)",
+    desc: "Falcon Insight continuously monitors endpoints, analyzes behaviors, investigates suspicious activities, and enables rapid, efficient incident response by security teams.",
     btn: "Go To Product",
   },
   {
-    title: "Secure Web Gateway",
-    desc: "Sangfor Secure Access solutions verify users and devices before granting access to business applications and resources. Zero Trust principles help minimize risk while supporting secure remote and hybrid work environments.",
+    title: "Extended Detection & Response (XDR)",
+    desc: "CrowdStrike XDR correlates endpoint, identity, cloud, and third-party security data to improve threat detection and incident response capabilities.",
     btn: "Go To Product",
   },
   {
-    title: "Intelligent Threat Protection",
-    desc: "Sangfor Next-Generation Firewall combines application awareness, intrusion prevention, web filtering, and threat intelligence to protect enterprise networks from modern cyber threats while maintaining secure connectivity.",
+    title: "Threat Intelligence & Incident Response",
+    desc: "Global threat intelligence and expert investigations help organizations understand emerging threats, accelerate response, and strengthen long-term cybersecurity resilience effectively.",
     btn: "Go To Product",
   },
 ];
 
 const Specialized = [
   {
-    title: "Hyperconverged Infrastructure (HCI)",
-    desc: "Sangfor HCI integrates computing, storage, virtualization, and networking into a single platform, reducing infrastructure complexity while improving performance and resource utilization.",
+    title: "Cloud Workload Protection",
+    desc: "Falcon Cloud Security monitors cloud workloads, identifies risks, strengthens security posture, and protects cloud resources against evolving cyber threats.",
     btn: "Go To Product",
   },
   {
-    title: "Cloud Platform Management",
-    desc: "Sangfor Cloud Platform enables organizations to deploy, manage, and scale private and hybrid cloud environments through centralized administration and automation.",
+    title: "Identity Threat Protection",
+    desc: "Identity Protection detects compromised accounts, privilege misuse, and identity-based attacks while strengthening authentication and reducing organizational security risks effectively.",
     btn: "Go To Product",
   },
     {
-    title: "Virtual Desktop Infrastructure (VDI)",
-    desc: "Sangfor Virtual Desktop Infrastructure delivers secure virtual desktops that allow employees to access business applications from virtually any location while maintaining centralized control and security.",
+    title: "Managed Detection & Response (MDR)",
+    desc: "CrowdStrike Falcon Complete provides expert-managed threat hunting, continuous monitoring, and rapid incident response for uninterrupted organizational security operations.",
     btn: "Go To Product",
   },
   {
-    title: "Centralized Management & Analytics",
-    desc: "Unified management dashboards provide visibility into infrastructure health, security status, and system performance. Analytics and reporting help administrators optimize operations and make informed infrastructure decisions.",
+    title: "Security Operations & Analytics",
+    desc: "Centralized dashboards and analytics deliver actionable insights into threats, endpoint health, and overall organizational cybersecurity posture for informed decision-making.",
     btn: "Go To Product",
   },
     
 ];
-export default function SangforContent() {
+export default function MicrosoftContent() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -92,18 +92,16 @@ export default function SangforContent() {
             style={{ opacity, scale }}
           >
             <h1 className="attom-hero-title animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-\7xl">
-             Integrated Cybersecurity & Cloud Infrastructure Solutions
+             AI-Powered Endpoint Protection & Cybersecurity Platform
             </h1>
 
             <p className="attom-hero-description">
-Modern organizations require secure, intelligent, and scalable IT
-environments to support digital transformation. Sangfor delivers
-integrated cybersecurity, cloud computing, and infrastructure solutions
-that help businesses strengthen security, simplify operations, and
-improve overall IT performance. By combining advanced technologies with
-centralized management, Sangfor enables organizations to protect
-critical assets while maintaining reliable and efficient business
-operations.
+Organizations face increasingly sophisticated cyber threats that target
+endpoints, identities, cloud workloads, and critical business assets.
+CrowdStrike delivers a cloud-native cybersecurity platform that combines
+artificial intelligence, real-time threat intelligence, and advanced
+threat detection to help organizations prevent, detect, and respond to
+cyberattacks while simplifying security operations.
             </p>
           </motion.div>
 
@@ -216,15 +214,14 @@ operations.
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">About Sangfor</h2>
+            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">About CrowdStrike   </h2>
             <p className="section-description">
-          Sangfor Technologies is a global provider of cybersecurity, cloud
-computing, and IT infrastructure solutions. Its portfolio includes
-network security, endpoint protection, secure access, hyperconverged
-infrastructure, and cloud platforms designed to meet the needs of modern
-enterprises. Organizations across education, healthcare, finance,
-government, and commercial sectors rely on Sangfor to improve security,
-optimize infrastructure, and support business continuity.</p>
+          CrowdStrike is a global cybersecurity company best known for its
+cloud-native Falcon platform. Its solutions include endpoint security,
+identity protection, cloud security, threat intelligence, and managed
+detection and response. Organizations across multiple industries rely on
+CrowdStrike to strengthen cyber resilience through continuous
+monitoring, AI-driven analytics, and proactive threat defense.</p>
           </motion.div>
 
           <motion.div
@@ -236,7 +233,7 @@ optimize infrastructure, and support business continuity.</p>
           >
             <div className="image-container">
               <Image
-                src="/images/Sangfor.webp"
+                src="/images/securing-ai-platform-hp-optim.avif"
                 alt="ATTOM Building"
                 width={600}
                 height={400}
@@ -262,11 +259,12 @@ optimize infrastructure, and support business continuity.</p>
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-           Network <span className="highlight"> Security    </span> & Secure Access
+           Endpoint <span className="highlight">  Protection   </span> & Threat Detection
           </h2> 
           <p>
             {" "}
-        Protecting users, devices, and networks requires a comprehensive security strategy that can adapt to evolving cyber threats. <br/>Sangfor provides intelligent network security solutions that deliver visibility, access control, and advanced threat protection across distributed environments.
+Modern endpoint security requires continuous visibility and intelligent protection against evolving cyber threats.<br/> CrowdStrike delivers integrated endpoint security capabilities that help organizations prevent attacks, detect malicious activity, and respond rapidly to incidents.
+
 </p>
 
 
@@ -299,11 +297,12 @@ optimize infrastructure, and support business continuity.</p>
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-           Cloud  <span className="highlight">  Infrastructure    </span> & Digital Workspace
+           Cloud  <span className="highlight">   Security    </span> & Identity Protection
           </h2>
           <p>
             {" "}
-Organizations require flexible infrastructure that supports modern applications, virtualization, and remote collaboration. <br/>Sangfor delivers cloud and infrastructure solutions that simplify IT management while improving scalability and operational efficiency.
+Modern organizations must secure cloud environments and user identities alongside endpoints.<br/> CrowdStrike provides cloud-native security capabilities that improve visibility, strengthen identity protection, and support secure digital operations.
+
 
 
 

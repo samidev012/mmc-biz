@@ -234,7 +234,7 @@ workforces.</p>
           >
             <div className="image-container">
               <Image
-                src="/images/Splunk.webp"
+                src="/images/OpenVPN.webp"
                 alt="ATTOM Building"
                 width={600}
                 height={400}
@@ -260,7 +260,7 @@ workforces.</p>
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-           Secure Remote Access<span className="highlight"> Remote   </span> Access
+           Secure <span className="highlight"> Remote   </span> Access
           </h2> 
           <p>
             {" "}
