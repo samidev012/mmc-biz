@@ -6,48 +6,44 @@ import Image from "next/image";
 
 const Infrastructure = [
   {
-    title: "Next-Generation Antivirus (NGAV)",
-    desc: "CrowdStrike Falcon Prevent uses AI-driven detection to block malware, ransomware, and fileless attacks before compromising organizational endpoints effectively.",
+    title: "Identity & Access Control",
+    desc: "Manages authentication across applications and devices, with cloud-native controls built for risk-based access decisions in real time.",
     btn: "Go To Product",
   },
   {
-    title: "Endpoint Detection & Response (EDR)",
-    desc: "Falcon Insight continuously monitors endpoints, analyzes behaviors, investigates suspicious activities, and enables rapid, efficient incident response by security teams.",
+    title: "Cross-Domain Threat Detection & Response",
+    desc: "Correlates alerts from endpoints, identities, email, and cloud apps into a single incident instead of separate ones.",
     btn: "Go To Product",
   },
   {
-    title: "Extended Detection & Response (XDR)",
-    desc: "CrowdStrike XDR correlates endpoint, identity, cloud, and third-party security data to improve threat detection and incident response capabilities.",
+    title: "Security Operations & Investigation",
+    desc: "Pulls in signal from multicloud and third-party sources so an incident can be traced across infrastructure it doesn't own.",
     btn: "Go To Product",
   },
   {
-    title: "Threat Intelligence & Incident Response",
-    desc: "Global threat intelligence and expert investigations help organizations understand emerging threats, accelerate response, and strengthen long-term cybersecurity resilience effectively.",
+    title: "AI-Assisted Analysis",
+    desc: "Layers a natural-language assistant on the security stack, with responses grounded in actual telemetry rather than generic guidance.",
     btn: "Go To Product",
   },
 ];
 
 const Specialized = [
   {
-    title: "Cloud Workload Protection",
-    desc: "Falcon Cloud Security monitors cloud workloads, identifies risks, strengthens security posture, and protects cloud resources against evolving cyber threats.",
+    title: "Data Classification & Loss Prevention",
+    desc: "A dedicated layer addressing AI agents as a distinct category, with a central control point for identity and permissions.",
     btn: "Go To Product",
   },
   {
-    title: "Identity Threat Protection",
-    desc: "Identity Protection detects compromised accounts, privilege misuse, and identity-based attacks while strengthening authentication and reducing organizational security risks effectively.",
+    title: "Insider Risk & Compliance Management",
+    desc: "Covers governance, retention, and insider risk management, the compliance side of data protection that's easy to overlook.",
     btn: "Go To Product",
   },
     {
-    title: "Managed Detection & Response (MDR)",
-    desc: "CrowdStrike Falcon Complete provides expert-managed threat hunting, continuous monitoring, and rapid incident response for uninterrupted organizational security operations.",
+    title: "Securing Autonomous AI Agents",
+    desc: "Identifies and labels sensitive data, then enforces policy to prevent it leaving through channels it shouldn't, including AI prompts.",
     btn: "Go To Product",
   },
-  {
-    title: "Security Operations & Analytics",
-    desc: "Centralized dashboards and analytics deliver actionable insights into threats, endpoint health, and overall organizational cybersecurity posture for informed decision-making.",
-    btn: "Go To Product",
-  },
+ 
     
 ];
 export default function MicrosoftContent() {
@@ -92,16 +88,11 @@ export default function MicrosoftContent() {
             style={{ opacity, scale }}
           >
             <h1 className="attom-hero-title animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-\7xl">
-             AI-Powered Endpoint Protection & Cybersecurity Platform
+             One Signal, Seen From Every Angle
             </h1>
 
             <p className="attom-hero-description">
-Organizations face increasingly sophisticated cyber threats that target
-endpoints, identities, cloud workloads, and critical business assets.
-CrowdStrike delivers a cloud-native cybersecurity platform that combines
-artificial intelligence, real-time threat intelligence, and advanced
-threat detection to help organizations prevent, detect, and respond to
-cyberattacks while simplifying security operations.
+Microsoft’s security products are built on a shared data foundation, so a suspicious login, a malware alert, and an unusual data movement can be evaluated together instead of in isolation turning individually minor signals into a clear picture of an actual threat.
             </p>
           </motion.div>
 
@@ -214,14 +205,10 @@ cyberattacks while simplifying security operations.
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">About CrowdStrike   </h2>
+            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">About Microsoft
+</h2>
             <p className="section-description">
-          CrowdStrike is a global cybersecurity company best known for its
-cloud-native Falcon platform. Its solutions include endpoint security,
-identity protection, cloud security, threat intelligence, and managed
-detection and response. Organizations across multiple industries rely on
-CrowdStrike to strengthen cyber resilience through continuous
-monitoring, AI-driven analytics, and proactive threat defense.</p>
+        Over the past several years, Microsoft has built out one of the largest security portfolios in the industry, organized around four connected pillars: identity, endpoint and cloud threat detection, security operations, and data protection. Rather than separate, disconnected tools, the products share a common signal graph meaning identity, device, and data events feed into the same correlation engine rather than requiring a security team to manually piece them together across consoles</p>
           </motion.div>
 
           <motion.div
@@ -233,7 +220,7 @@ monitoring, AI-driven analytics, and proactive threat defense.</p>
           >
             <div className="image-container">
               <Image
-                src="/images/securing-ai-platform-hp-optim.avif"
+                src="/images/Microsoft.webp"
                 alt="ATTOM Building"
                 width={600}
                 height={400}
@@ -259,11 +246,12 @@ monitoring, AI-driven analytics, and proactive threat defense.</p>
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-           Endpoint <span className="highlight">  Protection   </span> & Threat Detection
+           Identity,  <span className="highlight">  Threat Detection    </span> & Response
           </h2> 
           <p>
             {" "}
-Modern endpoint security requires continuous visibility and intelligent protection against evolving cyber threats.<br/> CrowdStrike delivers integrated endpoint security capabilities that help organizations prevent attacks, detect malicious activity, and respond rapidly to incidents.
+Identity is the most common entry point for a breach, which is why access control sits at the foundation of the stack <br/> feeding directly into the threat detection layer built on top of it.
+
 
 </p>
 
@@ -297,17 +285,18 @@ Modern endpoint security requires continuous visibility and intelligent protecti
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-           Cloud  <span className="highlight">   Security    </span> & Identity Protection
+           Data  <span className="highlight">   Protection     </span> & Governance
           </h2>
           <p>
             {" "}
-Modern organizations must secure cloud environments and user identities alongside endpoints.<br/> CrowdStrike provides cloud-native security capabilities that improve visibility, strengthen identity protection, and support secure digital operations.
+Data protection is treated as a parallel track to threat detection rather than an afterthought <br/> because most serious security incidents involve both an attacker and sensitive information at risk.
+
 
 
 
 
           </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {Specialized.map((S) => (
               <div
                 key={S.title}
