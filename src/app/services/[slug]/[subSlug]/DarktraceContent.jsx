@@ -6,48 +6,44 @@ import Image from "next/image";
 
 const Infrastructure = [
   {
-    title: "Next-Generation Antivirus (NGAV)",
-    desc: "CrowdStrike Falcon Prevent uses AI-driven detection to block malware, ransomware, and fileless attacks before compromising organizational endpoints effectively.",
+    title: "Unified Threat Correlation Engine",
+    desc: "Visualizes activity across the entire digital estate rather than relying on siloed tools, tracing an unusual connection to its cause.",
     btn: "Go To Product",
   },
   {
-    title: "Endpoint Detection & Response (EDR)",
-    desc: "Falcon Insight continuously monitors endpoints, analyzes behaviors, investigates suspicious activities, and enables rapid, efficient incident response by security teams.",
+    title: "Autonomous Threat Response Actions",
+    desc: "Once a genuine threat is identified, the platform acts directly to contain it without disrupting normal business operations.",
     btn: "Go To Product",
   },
   {
-    title: "Extended Detection & Response (XDR)",
-    desc: "CrowdStrike XDR correlates endpoint, identity, cloud, and third-party security data to improve threat detection and incident response capabilities.",
+    title: "Automated AI-Driven Investigation Tool",
+    desc: "An AI investigator explains every alert it evaluates, not just escalated ones, tailored to an organization's priorities.",
     btn: "Go To Product",
   },
   {
-    title: "Threat Intelligence & Incident Response",
-    desc: "Global threat intelligence and expert investigations help organizations understand emerging threats, accelerate response, and strengthen long-term cybersecurity resilience effectively.",
+    title: "Domain-Specific Detection Module Coverage",
+    desc: "Extends the same approach into dedicated modules for email, cloud, and identity, covering channels attackers use to gain a foothold.",
     btn: "Go To Product",
   },
 ];
 
 const Specialized = [
   {
-    title: "Cloud Workload Protection",
-    desc: "Falcon Cloud Security monitors cloud workloads, identifies risks, strengthens security posture, and protects cloud resources against evolving cyber threats.",
+    title: "Exposure & Attack Path Management",
+    desc: "Identifies vulnerabilities using an organization's own internal context, network layout, and business criticality, instead of a flat feed.",
     btn: "Go To Product",
   },
   {
-    title: "Identity Threat Protection",
-    desc: "Identity Protection detects compromised accounts, privilege misuse, and identity-based attacks while strengthening authentication and reducing organizational security risks effectively.",
+    title: "Attack Simulation & Recovery",
+    desc: "Runs simulated phishing and red/blue team exercises against the live environment, with automated recovery playbooks after an incident.",
     btn: "Go To Product",
   },
     {
-    title: "Managed Detection & Response (MDR)",
-    desc: "CrowdStrike Falcon Complete provides expert-managed threat hunting, continuous monitoring, and rapid incident response for uninterrupted organizational security operations.",
+    title: "AI Governance",
+    desc: "A dedicated capability for governing AI use across the organization, preventing data exposure without blocking adoption outright.",
     btn: "Go To Product",
   },
-  {
-    title: "Security Operations & Analytics",
-    desc: "Centralized dashboards and analytics deliver actionable insights into threats, endpoint health, and overall organizational cybersecurity posture for informed decision-making.",
-    btn: "Go To Product",
-  },
+ 
     
 ];
 export default function DarktraceContent() {
@@ -92,16 +88,11 @@ export default function DarktraceContent() {
             style={{ opacity, scale }}
           >
             <h1 className="attom-hero-title animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-\7xl">
-             AI-Powered Endpoint Protection & Cybersecurity Platform
+             An AI That Learns Your Business Before It Defends IT
             </h1>
 
             <p className="attom-hero-description">
-Organizations face increasingly sophisticated cyber threats that target
-endpoints, identities, cloud workloads, and critical business assets.
-CrowdStrike delivers a cloud-native cybersecurity platform that combines
-artificial intelligence, real-time threat intelligence, and advanced
-threat detection to help organizations prevent, detect, and respond to
-cyberattacks while simplifying security operations.
+Most detection tools are trained on what attacks generally look like elsewhere. Darktrace instead learns what’s normal for a specific organization, so it can flag what’s genuinely out of place including attack patterns nobody has seen or catalogued before.
             </p>
           </motion.div>
 
@@ -214,14 +205,9 @@ cyberattacks while simplifying security operations.
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">About CrowdStrike   </h2>
+            <h2 className="section-title uppercase animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">About Darktrace   </h2>
             <p className="section-description">
-          CrowdStrike is a global cybersecurity company best known for its
-cloud-native Falcon platform. Its solutions include endpoint security,
-identity protection, cloud security, threat intelligence, and managed
-detection and response. Organizations across multiple industries rely on
-CrowdStrike to strengthen cyber resilience through continuous
-monitoring, AI-driven analytics, and proactive threat defense.</p>
+         Darktrace is a cybersecurity company built around a self-learning AI engine rather than signature- or rule-based detection. Instead of matching activity against known attack patterns, the AI continuously studies an organization’s own digital environment to establish a baseline of normal behavior, then flags meaningful deviation from that baseline  an approach that extends to identifying novel and AI-driven attacks that wouldn’t match any existing signature. The company has been recognized as a Leader in Gartner’s Magic Quadrant for Network Detection and Response for two consecutive years.</p>
           </motion.div>
 
           <motion.div
@@ -233,7 +219,7 @@ monitoring, AI-driven analytics, and proactive threat defense.</p>
           >
             <div className="image-container">
               <Image
-                src="/images/securing-ai-platform-hp-optim.avif"
+                src="/images/Darktrace.webp"
                 alt="ATTOM Building"
                 width={600}
                 height={400}
@@ -259,11 +245,12 @@ monitoring, AI-driven analytics, and proactive threat defense.</p>
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-           Endpoint <span className="highlight">  Protection   </span> & Threat Detection
+           Detection & <span className="highlight">  Response    </span> Across the Estate
           </h2> 
           <p>
             {" "}
-Modern endpoint security requires continuous visibility and intelligent protection against evolving cyber threats.<br/> CrowdStrike delivers integrated endpoint security capabilities that help organizations prevent attacks, detect malicious activity, and respond rapidly to incidents.
+Darktrace's core strength is correlating signal across domains that are normally monitored in isolation network, cloud, email, endpoint, identity, and operational technology <br/> so an attack that spans multiple systems is recognized as one incident rather than several unrelated alerts.
+
 
 </p>
 
@@ -297,17 +284,18 @@ Modern endpoint security requires continuous visibility and intelligent protecti
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-           Cloud  <span className="highlight">   Security    </span> & Identity Protection
+           Proactive  <span className="highlight">   Resilience    </span> & Exposure Management
           </h2>
           <p>
             {" "}
-Modern organizations must secure cloud environments and user identities alongside endpoints.<br/> CrowdStrike provides cloud-native security capabilities that improve visibility, strengthen identity protection, and support secure digital operations.
+Beyond detecting and responding to active threats, a newer set of capabilities is aimed at reducing exposure before an incident happens<br/> at all, and governing the newest source of enterprise risk: AI itself.
+
 
 
 
 
           </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {Specialized.map((S) => (
               <div
                 key={S.title}
