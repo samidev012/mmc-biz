@@ -42,7 +42,7 @@ const sections = [
           },
           {
             title: "Crowdstrike",
-            href: "/services/cyber-security/crowdstirke",
+            href: "/services/cyber-security/crowdstrike",
           },
           {
             title: "Fortinet",

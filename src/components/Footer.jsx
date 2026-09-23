@@ -32,20 +32,20 @@ const columns = [
       { label: "AnyDesk", href: "/services/anydesk" },
       { label: "Zoom", href: "/services/zoom" },
       { label: "Lenovo", href: "/services/lenovo" },
-      { label: "Fortra", href: "/services/fortra" },
-      { label: "Sangfor", href: "/services/sangfor" },
-      { label: "Microsoft 365", href: "/services/microsoft-365" },
+      { label: "Fortra", href: "services/cyber-security/fortra" },
+      { label: "Sangfor", href: "services/cyber-security/sangfor" },
+      { label: "Microsoft 365", href: "services/cyber-security/microsoft" },
     ],
   },
   {
     title: "Data Center — ATTOM",
     icon: Server,
     links: [
-      { label: "Prefabricated Data Centers", href: "/services/attom" },
-      { label: "Precision Air Conditioner", href: "/services/attom" },
-      { label: "Mission Critical Power", href: "/services/attom" },
-      { label: "Liquid Cooling System", href: "/services/attom" },
-      { label: "DCIM", href: "/services/attom" },
+      { label: "Prefabricated Data Centers", href: "/services/attom/prefabricated" },
+      { label: "Precision Air Conditioner", href: "/services/attom/precision" },
+      { label: "Mission Critical Power", href: "/services/attom/mission-critical-power-system" },
+      { label: "Liquid Cooling System", href: "/services/attom/liquid-cooling-system" },
+      { label: "DCIM", href: "/services/attom/data-center-infrastructure-management" },
       { label: "TIA Certification", href: "/services/tia" },
     ],
   },
@@ -54,32 +54,33 @@ const columns = [
     icon: Award,
     twoCol: true,
     links: [
-      { label: "Fortra", href: "/services/fortra" },
-      { label: "Kaspersky", href: "/services/kaspersky" },
-      { label: "Solarwinds", href: "/services/solarwinds" },
-      { label: "Splunk", href: "/services/splunk" },
-      { label: "OpenVPN", href: "/services/openvpn" },
-      { label: "Sangfor", href: "/services/sangfor" },
-      { label: "Crowdstrike", href: "/services/crowdstrike" },
-      { label: "Fortinet", href: "/services/fortinet" },
-      { label: "Microsoft", href: "/services/microsoft-365" },
-      { label: "Recorded Future", href: "/services/recorded-future" },
-      { label: "Darktrace", href: "/services/darktrace" },
+      { label: "Fortra", href: "/services/cyber-security/fortra" },
+      { label: "Kaspersky", href: "/services/cyber-security/kaspersky" },
+      { label: "Solarwinds", href: "/services/cyber-security/solarwind" },
+      { label: "Splunk", href: "/services/cyber-security/splunk" },
+      { label: "OpenVPN", href: "/services/cyber-security/openvpn" },
+      { label: "Sangfor", href: "/services/cyber-security/sangfor" },
+      { label: "Crowdstrike", href: "/services/cyber-security/crowdstrike" },
+      { label: "Fortinet", href: "/services/cyber-security/fortinet" },
+      { label: "Microsoft", href: "/services/cyber-security/microsoft" },
+      { label: "Recorded Future", href: "/services/cyber-security/recorded-future" },
+      { label: "Darktrace", href: "/services/cyber-security/darktrace" },
     ],
   },
   {
     title: "Cyber Security Services",
     icon: ShieldCheck,
     links: [
-      { label: "SOC 24/7", href: "/services/soc" },
-      { label: "MSSP", href: "/services/mssp" },
-      { label: "Managed IT Services", href: "/services/managed-it" },
-      { label: "VAPT", href: "/services/vapt" },
-      { label: "Red Teaming", href: "/services/red-teaming" },
-      { label: "Compliance Audit", href: "/services/compliance-audit" },
+      { label: "SOC 24/7", href: "/services/cyber-security-sub/soc24-7" },
+      { label: "MSSP", href: "/services/cyber-security-sub/mssp" },
+      { label: "Managed IT Services", href: "/services/cyber-security-sub/managed-it-service" },
+      { label: "VAPT", href: "/services/cyber-security-sub/vapt" },
+      { label: "Red Teaming", href: "/services/cyber-security-sub/red-teaming" },
+      { label: "Compliance Audit", href: "/services/cyber-security/compliance-audit" },
     ],
   },
 ];
+
 const SocialX = (props) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
     <path d="M18.9 2H22l-7.6 8.7L23.3 22H16l-5.2-6.6L4.9 22H1.8l8.1-9.3L1 2h7.5l4.7 6.1L18.9 2Zm-1.2 18h1.7L7.4 4H5.6l12.1 16Z" />
@@ -105,6 +106,7 @@ const SocialInstagram = (props) => (
     <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
   </svg>
 );
+
 const socials = [
   { icon: SocialX, href: "#" },
   { icon: SocialLinkedin, href: "#" },
@@ -118,22 +120,22 @@ export default function Footer() {
       <div className="mx-auto ">
         <div className="grid gap-6 lg:grid-cols-[1fr_2.2fr]">
           <div className="rounded-2xl border border-signal/20 bg-[#0a1128]/60 p-8">
-          
-          <Link
-  href="/"
-  aria-label="MMC Home"
-  className="flex items-center"
->
-  <Image
-    src="/images/MMC.webp"
-    alt="MMC"
-    width={160}
-    height={55}
-    priority
-    className="h-auto w-[160px] object-contain"
-  />
-</Link>
-            
+
+            <Link
+              href="/"
+              aria-label="MMC Home"
+              className="flex items-center"
+            >
+              <Image
+                src="/images/MMC.webp"
+                alt="MMC"
+                width={160}
+                height={55}
+                priority
+                className="h-auto w-[160px] object-contain"
+              />
+            </Link>
+
             <p className="mt-4 text-sm leading-relaxed text-steel">
               Pakistan&apos;s multi-division ICT partner since 1995 — software,
               cybersecurity, infrastructure, surveillance and digital marketing.

@@ -96,7 +96,7 @@ const cyberSubPages = {
     title: "Open",
     description: "Endpoint protection and cybersecurity solutions.",
   },
-  crowdstirke: {
+  crowdstrike: {
     title: "Crowdstrike",
     description: "Endpoint protection and cybersecurity solutions.",
   },
@@ -254,7 +254,7 @@ export default async function SubPage({ params }) {
     if (subSlug === "sangfor") {
       return <SangforContent />;
     } 
-     if (subSlug === "crowdstirke") {
+     if (subSlug === "crowdstrike") {
       return <CrowdContent />;
     } 
      if (subSlug === "fortinet") {
