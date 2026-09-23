@@ -38,12 +38,12 @@ function PartnerGroup() {
       {partners.map((partner, index) => (
         <div
           key={`${partner.name}-${index}`}
-          className="flex h-24 w-40 shrink-0 items-center justify-center rounded-lg border border-line bg-black/40 p-4 transition-colors hover:border-signal/40"
+          className="flex h-30 w-70 shrink-0 items-center justify-center rounded-lg border border-line bg-black/40 p-4 transition-colors hover:border-signal/40"
         >
           <img
             src={partner.src}
             alt={partner.name}
-            className="max-h-12 max-w-full object-contain opacity-80 transition-opacity hover:opacity-100"
+            className="max-h-25 max-w-80 object-cover opacity-80 transition-opacity hover:opacity-100"
           />
         </div>
       ))}
@@ -51,7 +51,7 @@ function PartnerGroup() {
   );
 }
 
-export default function Partners() {
+export default function Clients() {
   return (
     <section className="border-t border-line px-6 py-20 background: linear-gradient(135deg, #0a1128 0%, #1e1b4b 100%);">
       <div className="mx-auto">
@@ -60,7 +60,7 @@ export default function Partners() {
             Our Partners
           </p>
           <h2 className="animate-fade-in-up mt-3 text-3xl font-bold text-paper transition-all uppercase duration-500 hover:tracking-wide md:text-6xl" >
-            Trusted<span className="text-signal"> Technology</span> Partners
+            Trusted <span className="text-signal">  Technology  </span> Partners 
           </h2>
         </div>
 

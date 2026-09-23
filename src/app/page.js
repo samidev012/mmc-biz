@@ -3,8 +3,7 @@ import Hero from "@/components/Hero";
 import Partners from "@/components/Partners";
 import ServicesGrid from "@/components/ServicesGrid";
 import Testimonials from "@/components/Testimonials";
-
-
+import Clients from "./clients/page";
 import FAQ from "@/components/FAQ";
 export default function Home() {
   return (
@@ -67,6 +66,7 @@ export default function Home() {
       </section>
       <ServicesGrid />
       <Testimonials />
+      <Clients />
       <FAQ />
     
     </>

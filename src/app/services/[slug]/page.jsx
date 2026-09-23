@@ -6,6 +6,8 @@ import TIAContent from "./TIAContent";
 import CctvContent from "./CctvContent";
 import CyberSecurityBrandsContent from "./CyberSecurityBrandsContent";
 import Cybersecurity from "./CyberSecurityContent";
+import AnydeskContent from "./AnydeskContent";
+import ZoomContent from "./ZoomContent";
 
 const services = {
   "cyber-security-brands": { title: "Cyber Security Brands", description: "Trusted cybersecurity solutions." },
@@ -48,6 +50,15 @@ export default async function ServicePage({ params }) {
   if (slug === "cyber-security"){
     return <Cybersecurity />
   }
+  if (slug === "anydesk"){
+    return <AnydeskContent />
+  }
+   if (slug === "zoom"){
+    return <ZoomContent />
+  }
+   
+   
+ 
 
 
   // baaki normal services

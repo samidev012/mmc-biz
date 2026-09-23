@@ -40,7 +40,7 @@ export default function Hero() {
         <span>enterprises</span>
       </h1>
       <p className="mt-10 max-w-2xl text-base leading-7 text-paper/90 sm:text-lg">
-        Software, cybersecurity, data centers, hardware, surveillance, and digital marketing—delivered to government and listed enterprises for thirty years.
+        Software, cybersecurity, data centers, hardware, surveillance, and digital marketing delivered to government and listed enterprises for thirty years.
       </p>
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 rounded-md bg-signal px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_35px_rgba(0,102,255,0.32)] transition hover:-translate-y-0.5 hover:bg-[#1978ff]">Book a discovery call <ArrowRight className="h-4 w-4" /></Link>

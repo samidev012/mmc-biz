@@ -16,6 +16,12 @@ import FortinetContent from "./FortinetContent";
 import MicrosoftContent from "./MicrosoftContent";
 import RecordedContent from "./RecordedContent";
 import DarktraceContent from "./DarktraceContent";
+import SocContent from "./SocContent";
+import MSSPContent from "./MSSPContent";
+import ManagedContent from "./ManagedContent";
+import VAPTContent from "./VAPTContent";
+import RedContent from "./RedContent";
+import ComplianceContent from "./ComplianceContent";
 
 
 // =========================
@@ -111,6 +117,8 @@ const cyberSubPages = {
     title: "Darktrace",
     description: "Endpoint protection and cybersecurity solutions.",
   },
+  
+
 
   "cyber-security-services": {
     title: "Cyber Security Services",
@@ -123,7 +131,42 @@ const cyberSubPages = {
     description:
       "Security assessment, compliance and audit services for enterprise environments.",
   },
+  
 };
+
+
+const securitySubPages = {
+  
+ 
+  "soc24-7": {
+    title: "soc24-7",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+
+  "mssp": {
+    title: "mssp",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+   "managed-it-service": {
+    title: "managed-it-service",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+
+   "vapt": {
+    title: "vapt",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+     "red-teaming": {
+    title: "red-teaming",
+    description: "Endpoint protection and cybersecurity solutions.",
+  },
+
+
+
+ 
+};
+
+
 
 // =========================
 // PAGE
@@ -226,6 +269,55 @@ export default async function SubPage({ params }) {
      if (subSlug === "darktrace") {
       return <DarktraceContent />;
     } 
+    if (subSlug === "soc24/7") {
+      return <SocContent />;
+    } 
+
+      if (subSlug === "compliance-audit") {
+      return <ComplianceContent />;
+    } 
+   
+    return (
+      <div className="mx-auto max-w-6xl px-6 py-16">
+        <h1 className="text-3xl font-bold text-white">
+          {data.title}
+        </h1>
+
+        <p className="mt-4 text-paper/70">
+          {data.description}
+        </p>
+      </div>
+    );
+  }
+  if (slug === "cyber-security-sub") {
+    const data = securitySubPages[subSlug];
+ 
+    if (!data) {
+      notFound();
+    }
+    if (subSlug === "soc24-7") {
+      return <SocContent />;
+    } 
+    if (subSlug === "mssp") {
+      return <MSSPContent />;
+    } 
+ if (subSlug === "managed-it-service") {
+      return <ManagedContent />;
+    } 
+
+    if (subSlug === "vapt") {
+      return <VAPTContent />;
+    } 
+
+    if (subSlug === "red-teaming") {
+      return <RedContent />;
+    } 
+
+  // Agar koi aur service slug aaye
+  notFound();
+}
+
+
    
     return (
       <div className="mx-auto max-w-6xl px-6 py-16">
@@ -240,6 +332,4 @@ export default async function SubPage({ params }) {
     );
   }
 
-  // Agar koi aur service slug aaye
-  notFound();
-}
+

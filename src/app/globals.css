@@ -505,11 +505,11 @@ body {
 
 .partner-mark img {
   display: block;
-  max-width: 156px;
-  max-height: 52px;
+  max-width: 250px !important;
+  max-height: 180px !important;
   width: auto;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   filter: brightness(0) invert(1);
   opacity: .94;
   transition: filter .2s, opacity .2s;
@@ -550,14 +550,7 @@ body {
   transform: scale(1.06);
 }
 
-.partner-mark img {
-  display: block;
-  width: 142px;
-  height: 64px;
-  object-fit: contain;
-  opacity: .94;
-  transition: filter .2s, opacity .2s;
-}
+
 
 .partner-mark:hover img {
   filter: drop-shadow(0 0 10px rgba(0, 102, 255, .5));
@@ -678,7 +671,7 @@ body {
   max-width: 80%;
   max-height: 60px;
 
-  object-fit: contain;
+  object-fit: Cover;
 }
 
 /* Infinite animation */
@@ -2163,4 +2156,10 @@ body {
   .infrastructure-description {
     font-size: 0.95re
   }
+}
+aside.hero-card.hero-card-left p {
+    font-size: 13px !important;
+}
+aside.hero-card.hero-card-right p {
+    font-size: 13px !important;
 }

@@ -100,7 +100,7 @@ export default function FAQ() {
               Let&apos;s build the right solution for your business.
             </p>
 
-            <p className="relative mt-4 text-sm leading-relaxed text-steel transition-colors duration-300 group-hover:text-paper/80">
+            <p className="relative mt-4 mb-10 text-sm leading-relaxed text-steel transition-colors duration-300 group-hover:text-paper/80">
               Whether you need cybersecurity, enterprise infrastructure, data
               center solutions, surveillance, hardware, software, or digital
               services, MMC can help you plan and implement the right
@@ -110,10 +110,10 @@ export default function FAQ() {
             {/* Get in Touch button */}
             <a
               href="/contact-us"
-              className="group/btn relative mt-6 inline-flex items-center gap-2 overflow-hidden rounded-md bg-signal px-6 py-3 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:gap-3 hover:bg-signal/90 hover:shadow-[0_0_20px_rgba(0,102,255,0.5)]"
+              className=""
             >
-              <span className="relative z-10">Get in Touch</span>
-              <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+              <span className="group relative mt-10 overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">Get in Touch</span>
+              
               
               {/* Animated gradient overlay */}
               <div className="absolute inset-0 -z-0 bg-gradient-to-r from-signal via-circuit to-signal opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" 

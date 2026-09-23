@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Check, Shuffle, FileText, Repeat } from "lucide-react";
+import Partners from "@/components/Partners";
 
 const partners = [
   { name: "ATTOM", logo: "/images/partners/attom.svg" },
@@ -32,7 +33,7 @@ const steps = [
 const brands = [
   {
     name: "ZKT",
-    image: "/images/brands/zkt.webp",
+    image: "/images/attom-01.jpg",
     imageSide: "right",
     features: [
       "Less than 380mm additional rack depth, Adaptable to all height types of Racks.",
@@ -43,7 +44,7 @@ const brands = [
   },
   {
     name: "HIKVISION",
-    image: "/images/brands/hikvision.webp",
+    image: "/images/attom-02.webp",
     imageSide: "left",
     features: [
       "Industry leading smart control system, with insightful sensor data and intelligent control logics.",
@@ -55,7 +56,7 @@ const brands = [
   },
   {
     name: "DAHUA",
-    image: "/images/brands/dahua.webp",
+    image: "/images/attom-03.webp",
     imageSide: "right",
     features: [
       "Less than 380mm additional rack depth, Adaptable to all height types of Racks.",
@@ -66,7 +67,7 @@ const brands = [
   },
   {
     name: "UNIVIEW",
-    image: "/images/brands/uniview.webp",
+    image: "/images/attom-04.webp",
     imageSide: "left",
     features: [
       "Industry leading smart control system, with insightful sensor data and intelligent control logics.",
@@ -78,7 +79,7 @@ const brands = [
   },
   {
     name: "VIGI",
-    image: "/images/brands/vigi.webp",
+    image: "/images/VIGI.webp",
     imageSide: "right",
     features: [
       "Less than 380mm additional rack depth, Adaptable to all height types of Racks.",
@@ -110,9 +111,9 @@ export default function CctvContent() {
             </p>
           </div>
 
-          <div className="relative min-h-[280px] bg-white/5 lg:min-h-full">
+          <div className="relative w-full min-h-[280px] bg-white/5 lg:min-h-full">
             <Image
-              src="/images/brands/cctv-hero.webp"
+              src="/images/attom-00.jpg"
               alt="CCTV & Data Center Hardware"
               fill
               className="object-contain p-8"
@@ -122,32 +123,20 @@ export default function CctvContent() {
       </section>
 
       {/* ================= TRUSTED PARTNERS STRIP ================= */}
-      <section
-        className="border-b border-line px-6 py-14"
-        style={{ background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)" }}
-      >
-        <h2 className="text-center text-2xl font-bold uppercase text-paper md:text-4xl">
-          Our Trusted <span className="text-signal">Technology</span> Partners
-        </h2>
+      <section>
+   
 
         <div className="mx-auto mt-10 flex max-w-5xl flex-wrap items-center justify-center gap-x-12 gap-y-8">
-          {partners.map((p) => (
-            <div key={p.name} className="grayscale opacity-80 transition hover:grayscale-0 hover:opacity-100">
-              <Image
-                src={p.logo}
-                alt={p.name}
-                width={120}
-                height={40}
-                className="h-8 w-auto object-contain"
-              />
-            </div>
-          ))}
+         
+            <Partners/>
+          
         </div>
       </section>
+      
 
       {/* ================= HOW WE WORK ================= */}
       <section className="border-b border-line bg-black px-6 py-16">
-        <h2 className="text-center text-2xl font-bold uppercase text-paper md:text-4xl">
+        <h2 className="animate-fade-in-up mt-3 text-3xl text-center font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
           How <span className="text-signal">We</span> Work
         </h2>
 
@@ -196,7 +185,7 @@ export default function CctvContent() {
                 ))}
               </ul>
 
-              <button className="mt-8 rounded-md bg-signal px-6 py-2.5 text-xs font-semibold uppercase tracking-wide text-white transition-colors hover:bg-signal/90">
+              <button className="group relative mt-10 overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">
                 Read More
               </button>
             </div>

@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Plus, Minus, Sparkles } from "lucide-react";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
+import VantaDotsBackground from "@/components/ParticlesBackground";
 
 const industries = [
   {
@@ -279,26 +281,16 @@ export default function Industries() {
     <main className="min-h-screen overflow-hidden bg-ink text-paper">
 
       {/* ================= HERO ================= */}
-
-      <section className="relative flex min-h-[520px] items-center justify-center overflow-hidden border-b border-line">
-
-        {/* animated background */}
-        <div className="industry-grid-bg" />
-<ParticlesBackground density={40} />
-        <div className="industry-orb industry-orb-one" />
-        <div className="industry-orb industry-orb-two" />
-
-        <div className="relative z-10 mx-auto max-w-5xl px-6 py-28 text-center">
-
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-signal">
-            <Sparkles className="h-3.5 w-3.5" />
-            Industry Solutions
+<section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
+        <VantaDotsBackground />
+        <div className="relative z-10 animate-fade-in-up">
+          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-signal/50 hover:bg-signal/20">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal shadow-[0_0_10px_rgba(0,102,255,0.8)]" />
+            Let&apos;s Talk
           </div>
-
-          <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-            INDUSTRIES
+          <h1 className="animate-fade-in-up text-5xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wider md:text-6xl" style={{ animationDelay: '100ms' }}>
+            Industries
           </h1>
-
           <div className="mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-signal to-transparent" />
 
           <p className="mx-auto mt-7 max-w-3xl text-sm leading-7 text-paper/60 sm:text-base">
@@ -314,6 +306,7 @@ export default function Industries() {
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
+        
       </section>
 
       {/* ================= INDUSTRIES ================= */}
@@ -324,15 +317,15 @@ export default function Industries() {
           <div className="h-full bg-[radial-gradient(circle_at_20%_20%,rgba(0,102,255,.16),transparent_28%),radial-gradient(circle_at_80%_60%,rgba(0,180,120,.10),transparent_28%)]" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto">
 
           <Reveal className="mb-20 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-signal">
               Where We Work
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Technology Built Around Your Industry
+            <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
+              Technology <span className="highlight">Built Around</span> Your Industry
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-paper/50">
@@ -430,125 +423,11 @@ export default function Industries() {
 
       {/* ================= FAQ ================= */}
 
-      <section className="relative border-t border-line bg-[#030a16] px-6 py-24">
-
-        <div className="mx-auto max-w-7xl">
-
-          <Reveal>
-            <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
-
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-signal">
-                  Frequently Asked Questions
-                </p>
-
-                <h2 className="mt-4 text-4xl font-bold">
-                  Have A Technology
-                  <br />
-                  <span className="text-signal">Challenge?</span>
-                </h2>
-
-                <p className="mt-5 max-w-md text-sm leading-7 text-paper/50">
-                  Let us help you identify the right technology infrastructure
-                  and security solutions for your organization.
-                </p>
-
-                <Link
-                  href="/contact-us"
-                  className="mt-7 inline-flex items-center gap-2 rounded-md bg-signal px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(0,102,255,.35)]"
-                >
-                  Get In Touch
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </div>
-
-              <div className="space-y-3">
-
-                {faqs.map((faq, index) => {
-                  const open = openFaq === index;
-
-                  return (
-                    <div
-                      key={faq.question}
-                      className={`overflow-hidden rounded-lg border transition-all duration-300 ${
-                        open
-                          ? "border-signal/60 bg-signal/5"
-                          : "border-white/10 bg-white/[0.02]"
-                      }`}
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setOpenFaq(open ? -1 : index)}
-                        className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left"
-                      >
-                        <span className="text-sm font-semibold">
-                          {faq.question}
-                        </span>
-
-                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-signal/40 text-signal">
-                          {open ? (
-                            <Minus className="h-3.5 w-3.5" />
-                          ) : (
-                            <Plus className="h-3.5 w-3.5" />
-                          )}
-                        </span>
-                      </button>
-
-                      <div
-                        className={`grid transition-all duration-300 ${
-                          open
-                            ? "grid-rows-[1fr] opacity-100"
-                            : "grid-rows-[0fr] opacity-0"
-                        }`}
-                      >
-                        <div className="overflow-hidden">
-                          <p className="px-5 pb-5 text-sm leading-7 text-paper/50">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <FAQ/>
 
       {/* ================= CTA ================= */}
 
-      <section className="relative overflow-hidden border-t border-line px-6 py-24 text-center">
-
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,102,255,.18),transparent_55%)]" />
-
-        <div className="relative mx-auto max-w-4xl">
-
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-signal">
-            Build The Future
-          </p>
-
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl lg:text-5xl">
-            Build A More
-            <span className="text-signal"> Secure & Connected </span>
-            Infrastructure
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-paper/50">
-            Partner with MMC to design technology infrastructure aligned with
-            your business requirements.
-          </p>
-
-          <Link
-            href="/contact-us"
-            className="mt-8 inline-flex items-center gap-2 rounded-md bg-signal px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(0,102,255,.45)]"
-          >
-            Start A Conversation
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
+      
 
       {/* ================= ANIMATION CSS ================= */}
 

@@ -71,32 +71,32 @@ const sections = [
         subItems: [
           {
             title: "SOC 24/7",
-            href: "/services/attom/prefabricated",
+            href: "/services/cyber-security-sub/soc24-7",
           },
           {
             title: "MSSP",
-            href: "/services/attom/precision",
+            href: "/services/cyber-security-sub/mssp",
           },
           {
             title: "Managed IT Services",
-            href: "/services/attom/mission-critical-power-system",
+            href: "/services/cyber-security-sub/managed-it-service",
           },
 
           {
             title: "VAPT",
-            href: "/services/attom/data-center-infrastructure-management",
+            href: "/services/cyber-security-sub/vapt",
           },
 
           {
             title: "Red Teaming",
-            href: "/services/attom/liquid-cooling-system",
+            href: "/services/cyber-security-sub/red-teaming",
           },
         ],
       },
       {
         title: "Cyber Security Consultancy",
         description: "Expert security consulting.",
-        href: "/services/compliance-audit",
+        href: "/services/cyber-security/compliance-audit",
         hasArrow: true,
       },
     ],
@@ -181,17 +181,17 @@ const sections = [
       {
         title: "Fortra",
         description: "Cybersecurity and data protection.",
-        href: "/services/fortra",
+        href: "/services/cyber-security/fortraa",
       },
       {
         title: "Sangfor",
         description: "Network and cloud security.",
-        href: "/services/sangfor",
+        href: "/services/cyber-security/sangfor",
       },
       {
         title: "Microsoft",
         description: "Cloud and business solutions.",
-        href: "/services/microsoft-365",
+        href: "/services/cyber-security/microsoft",
       },
     ],
   },

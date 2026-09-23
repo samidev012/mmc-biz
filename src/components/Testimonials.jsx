@@ -158,10 +158,10 @@ export default function Testimonials() {
 
         {/* CTA Button */}
         <div className="animate-fade-in-up mt-16" style={{ animationDelay: '800ms' }}>
-          <button className="group relative overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">
+          {/* <button className="group relative overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">
             <span className="relative z-10">View All Testimonials</span>
             <div className="absolute inset-0 -z-0 bg-gradient-to-r from-signal to-circuit opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-          </button>
+          </button> */}
         </div>
       </div>
 
