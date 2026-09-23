@@ -23,6 +23,9 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata = {
   metadataBase: new URL("https://mmc-biz.vercel.app"),
+   alternates: {
+    canonical: "/",   // ✅ ye line add karo
+  },
   title: {
     default: "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
     template: "%s | MMC",
@@ -61,12 +64,13 @@ export const metadata = {
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
-    description:
-      "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.",
-    images: ["/images/og-default.webp"],
-  },
+  card: "summary_large_image",
+  site: "@mmcbiz",   // ✅ ye line add karo
+  title: "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
+  description:
+    "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.",
+  images: ["/images/og-default.webp"],
+},
 };
 
 const orgSchema = {

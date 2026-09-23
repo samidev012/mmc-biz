@@ -5,10 +5,113 @@ import ServicesGrid from "@/components/ServicesGrid";
 import Testimonials from "@/components/Testimonials";
 import Clients from "./clients/page";
 import FAQ from "@/components/FAQ";
+
+
+
+
+
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mmc-biz.vercel.app/#website",
+      url: "https://mmc-biz.vercel.app",
+      name: "MMC",
+      publisher: { "@id": "https://mmc-biz.vercel.app/#organization" },
+    },
+    
+    {
+      "@type": "WebPage",
+      "@id": "https://mmc-biz.vercel.app/#webpage",
+      url: "https://mmc-biz.vercel.app",
+      name: "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
+      isPartOf: { "@id": "https://mmc-biz.vercel.app/#website" },
+      primaryImageOfPage: { "@id": "https://mmc-biz.vercel.app/#primaryimage" },
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://mmc-biz.vercel.app/#primaryimage",
+      url: "https://mmc-biz.vercel.app/images/og-default.webp",
+      width: 1200,
+      height: 630,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://mmc-biz.vercel.app",
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Which companies and industries does MMC serve?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "MMC provides technology and ICT solutions for banks, financial institutions, regulators, enterprises, corporate organizations, and other businesses that require reliable and secure technology infrastructure.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does MMC provide complete data center solutions?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes — from infrastructure planning and deployment to security, cabling, and ongoing operational support for mission-critical environments.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can MMC help improve our organization's cybersecurity?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes — MMC delivers threat protection, security monitoring, VAPT, and managed security services to strengthen your organization's security posture.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can MMC provide customized technology solutions?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes — our custom software and AI team builds tailored applications and integrations around your specific business requirements.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does MMC provide hardware and infrastructure solutions?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes — enterprise hardware, networking, and ICT infrastructure sourced and deployed for reliable, scalable environments.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How can I contact MMC for a technology solution?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Reach out through the Contact Us page or call our team directly — we'll schedule a discovery call to understand your requirements.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+
+
 export default function Home() {
   return (
     <>
-      
+       <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
+      />
       <Hero />
       <Partners />
        <section className="border-t border-line px-6 py-20" style={{ background: "linear-gradient(120deg, #0a1128, #000000 60%, #06170f)" }}>

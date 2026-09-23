@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import AttomContent from "./AttomContent"; // ✅ naya import
+import { generatePageMetadata, generateServiceSchema } from "@/lib/seo";
+import AttomContent from "./AttomContent";
 import PassiveContent from "./PassiveContent";
 import TIAContent from "./TIAContent";
 import CctvContent from "./CctvContent";
@@ -24,48 +25,120 @@ const services = {
   attom: { title: "ATTOM Products", description: "Data center hardware solutions." },
 };
 
+// ✅ Automatically har service ke liye metadata — naya service add karo, bas isi object mein
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const data = services[slug];
+
+  if (!data) return { title: "Service Not Found" };
+
+  return generatePageMetadata({
+    title: data.title,
+    description: data.description,
+    path: `/services/${slug}`,
+  });
+}
+
 export default async function ServicePage({ params }) {
   const { slug } = await params;
   const data = services[slug];
 
   if (!data) notFound();
 
-  // ✅ ATTOM ke liye poora custom component
+  // ✅ Automatically schema — koi manual kaam nahi
+  const schema = generateServiceSchema({
+    title: data.title,
+    description: data.description,
+    path: `/services/${slug}`,
+  });
+
+  const schemaScript = (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+
   if (slug === "attom") {
-    return <AttomContent />;
+    return (
+      <>
+        {schemaScript}
+        <AttomContent />
+      </>
+    );
   }
 
-  if (slug === "passive-network-services"){
-    return <PassiveContent/>
+  if (slug === "passive-network-services") {
+    return (
+      <>
+        {schemaScript}
+        <PassiveContent />
+      </>
+    );
   }
-   if (slug === "tia"){
-    return <TIAContent />
-  }
-  if (slug === "cctv-surveillance"){
-    return <CctvContent />
-  }
-  if (slug === "cyber-security-brands"){
-    return <CyberSecurityBrandsContent />
-  }
-  if (slug === "cyber-security"){
-    return <Cybersecurity />
-  }
-  if (slug === "anydesk"){
-    return <AnydeskContent />
-  }
-   if (slug === "zoom"){
-    return <ZoomContent />
-  }
-   
-   
- 
 
+  if (slug === "tia") {
+    return (
+      <>
+        {schemaScript}
+        <TIAContent />
+      </>
+    );
+  }
 
-  // baaki normal services
+  if (slug === "cctv-surveillance") {
+    return (
+      <>
+        {schemaScript}
+        <CctvContent />
+      </>
+    );
+  }
+
+  if (slug === "cyber-security-brands") {
+    return (
+      <>
+        {schemaScript}
+        <CyberSecurityBrandsContent />
+      </>
+    );
+  }
+
+  if (slug === "cyber-security") {
+    return (
+      <>
+        {schemaScript}
+        <Cybersecurity />
+      </>
+    );
+  }
+
+  if (slug === "anydesk") {
+    return (
+      <>
+        {schemaScript}
+        <AnydeskContent />
+      </>
+    );
+  }
+
+  if (slug === "zoom") {
+    return (
+      <>
+        {schemaScript}
+        <ZoomContent />
+      </>
+    );
+  }
+
+  // baaki normal services — generic fallback, schema bhi aayega automatically
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
-      <h1 className="text-3xl font-bold text-white">{data.title}</h1>
-      <p className="mt-4 text-paper/70">{data.description}</p>
-    </div>
+    <>
+      {schemaScript}
+      <div className="mx-auto max-w-6xl px-6 py-16">
+        <h1 className="text-3xl font-bold text-white">{data.title}</h1>
+        <p className="mt-4 text-paper/70">{data.description}</p>
+      </div>
+    </>
   );
 }
