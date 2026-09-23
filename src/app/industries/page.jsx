@@ -2,11 +2,56 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Plus, Minus, Sparkles } from "lucide-react";
-import ParticlesBackground from "@/components/ParticlesBackground";
-import Footer from "@/components/Footer";
+import { ArrowUpRight } from "lucide-react";
+
 import FAQ from "@/components/FAQ";
 import VantaDotsBackground from "@/components/ParticlesBackground";
+
+// =========================
+// SEO SCHEMA
+// =========================
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://mmc.biz.pk/industries/#webpage",
+      url: "https://mmc.biz.pk/industries",
+      name: "Industries We Serve | MMC",
+      description:
+        "Explore the industries served by MMC through cybersecurity, ICT, networking, data center and technology solutions.",
+      isPartOf: {
+        "@id": "https://mmc.biz.pk/#website",
+      },
+      about: {
+        "@id": "https://mmc.biz.pk/#organization",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mmc.biz.pk/industries/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://mmc.biz.pk/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Industries",
+          item: "https://mmc.biz.pk/industries",
+        },
+      ],
+    },
+  ],
+};
+
+// =========================
+// INDUSTRIES
+// =========================
 
 const industries = [
   {
@@ -220,6 +265,10 @@ const industries = [
   },
 ];
 
+// =========================
+// FAQ
+// =========================
+
 const faqs = [
   {
     question: "Have a Technology Challenge?",
@@ -242,6 +291,10 @@ const faqs = [
       "MMC can support organizations across solution planning, infrastructure deployment and technology implementation.",
   },
 ];
+
+// =========================
+// REVEAL ANIMATION
+// =========================
 
 function Reveal({ children, delay = 0, className = "" }) {
   const ref = useRef(null);
@@ -266,7 +319,9 @@ function Reveal({ children, delay = 0, className = "" }) {
   return (
     <div
       ref={ref}
-      className={`industry-reveal ${visible ? "industry-reveal-visible" : ""} ${className}`}
+      className={`industry-reveal ${
+        visible ? "industry-reveal-visible" : ""
+      } ${className}`}
       style={{ "--reveal-delay": `${delay}ms` }}
     >
       {children}
@@ -274,258 +329,278 @@ function Reveal({ children, delay = 0, className = "" }) {
   );
 }
 
+// =========================
+// PAGE
+// =========================
+
 export default function Industries() {
   const [openFaq, setOpenFaq] = useState(0);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-ink text-paper">
+    <>
+      {/* =========================
+          SEO JSON-LD SCHEMA
+      ========================= */}
 
-      {/* ================= HERO ================= */}
-<section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
-        <VantaDotsBackground />
-        <div className="relative z-10 animate-fade-in-up">
-          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-signal/50 hover:bg-signal/20">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal shadow-[0_0_10px_rgba(0,102,255,0.8)]" />
-            Let&apos;s Talk
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+      <main className="min-h-screen overflow-hidden bg-ink text-paper">
+        {/* ================= HERO ================= */}
+
+        <section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
+          <VantaDotsBackground />
+
+          <div className="relative z-10 animate-fade-in-up">
+            <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-signal/50 hover:bg-signal/20">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal shadow-[0_0_10px_rgba(0,102,255,0.8)]" />
+
+              Let&apos;s Talk
+            </div>
+
+            <h1
+              className="animate-fade-in-up text-5xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wider md:text-6xl"
+              style={{ animationDelay: "100ms" }}
+            >
+              Industries
+            </h1>
+
+            <div className="mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-signal to-transparent" />
+
+            <p className="mx-auto mt-7 max-w-3xl text-sm leading-7 text-paper/60 sm:text-base">
+              Delivering secure, scalable and intelligent technology solutions
+              designed around the unique requirements of modern industries.
+            </p>
+
+            <Link
+              href="/contact-us"
+              className="mt-8 inline-flex items-center gap-2 rounded-md bg-signal px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(0,102,255,0.45)]"
+            >
+              Talk To Our Experts
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
-          <h1 className="animate-fade-in-up text-5xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wider md:text-6xl" style={{ animationDelay: '100ms' }}>
-            Industries
-          </h1>
-          <div className="mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-signal to-transparent" />
+        </section>
 
-          <p className="mx-auto mt-7 max-w-3xl text-sm leading-7 text-paper/60 sm:text-base">
-            Delivering secure, scalable and intelligent technology solutions
-            designed around the unique requirements of modern industries.
-          </p>
+        {/* ================= INDUSTRIES ================= */}
 
-          <Link
-            href="/contact-us"
-            className="mt-8 inline-flex items-center gap-2 rounded-md bg-signal px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(0,102,255,0.45)]"
-          >
-            Talk To Our Experts
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
-        
-      </section>
+        <section className="relative bg-ink px-6 py-20 lg:px-8 lg:py-28">
+          <div className="pointer-events-none absolute inset-0 opacity-30">
+            <div className="h-full bg-[radial-gradient(circle_at_20%_20%,rgba(0,102,255,.16),transparent_28%),radial-gradient(circle_at_80%_60%,rgba(0,180,120,.10),transparent_28%)]" />
+          </div>
 
-      {/* ================= INDUSTRIES ================= */}
+          <div className="relative mx-auto">
+            <Reveal className="mb-20 text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-signal">
+                Where We Work
+              </p>
 
-      <section className="relative bg-ink px-6 py-20 lg:px-8 lg:py-28">
+              <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
+                Technology <span className="highlight">Built Around</span>{" "}
+                Your Industry
+              </h2>
 
-        <div className="pointer-events-none absolute inset-0 opacity-30">
-          <div className="h-full bg-[radial-gradient(circle_at_20%_20%,rgba(0,102,255,.16),transparent_28%),radial-gradient(circle_at_80%_60%,rgba(0,180,120,.10),transparent_28%)]" />
-        </div>
+              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-paper/50">
+                Explore how our infrastructure, cybersecurity and technology
+                solutions support organizations across different sectors.
+              </p>
+            </Reveal>
 
-        <div className="relative mx-auto">
+            <div className="space-y-20 lg:space-y-28">
+              {industries.map((industry, index) => {
+                const reverse = index % 2 !== 0;
 
-          <Reveal className="mb-20 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-signal">
-              Where We Work
-            </p>
+                return (
+                  <Reveal key={industry.title} delay={index * 40}>
+                    <article
+                      className={`group relative grid items-center gap-8 lg:grid-cols-2 lg:gap-16 ${
+                        reverse
+                          ? "lg:[&>*:first-child]:order-2"
+                          : ""
+                      }`}
+                    >
+                      {/* IMAGE */}
 
-            <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-              Technology <span className="highlight">Built Around</span> Your Industry
-            </h2>
+                      <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#07152d] p-[1px]">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-signal/0 via-signal/30 to-emerald-400/0 opacity-0 blur-xl transition duration-700 group-hover:opacity-100" />
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-paper/50">
-              Explore how our infrastructure, cybersecurity and technology
-              solutions support organizations across different sectors.
-            </p>
-          </Reveal>
+                        <div className="relative aspect-[16/9] overflow-hidden rounded-[11px]">
+                          <img
+                            src={industry.image}
+                            alt={`${industry.title} technology solutions`}
+                            className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-110"
+                          />
 
-          <div className="space-y-20 lg:space-y-28">
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#020712] via-transparent to-signal/10 opacity-70" />
 
-            {industries.map((industry, index) => {
-              const reverse = index % 2 !== 0;
+                          <div className="absolute inset-0 bg-signal/10 opacity-0 transition duration-500 group-hover:opacity-100" />
 
-              return (
-                <Reveal key={industry.title} delay={index * 40}>
-                  <article
-                    className={`group relative grid items-center gap-8 lg:grid-cols-2 lg:gap-16 ${
-                      reverse ? "lg:[&>*:first-child]:order-2" : ""
-                    }`}
-                  >
-
-                    {/* image */}
-
-                    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#07152d] p-[1px]">
-
-                      <div className="absolute -inset-1 bg-gradient-to-r from-signal/0 via-signal/30 to-emerald-400/0 opacity-0 blur-xl transition duration-700 group-hover:opacity-100" />
-
-                      <div className="relative aspect-[16/9] overflow-hidden rounded-[11px]">
-
-                        <img
-                          src={industry.image}
-                          alt={industry.title}
-                          className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-110"
-                        />
-
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#020712] via-transparent to-signal/10 opacity-70" />
-
-                        <div className="absolute inset-0 bg-signal/10 opacity-0 transition duration-500 group-hover:opacity-100" />
-
-                        <div className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-black/40 px-3 py-1.5 text-[10px] uppercase tracking-widest text-white backdrop-blur-md">
-                          Industry {String(index + 1).padStart(2, "0")}
+                          <div className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-black/40 px-3 py-1.5 text-[10px] uppercase tracking-widest text-white backdrop-blur-md">
+                            Industry{" "}
+                            {String(index + 1).padStart(2, "0")}
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* content */}
+                      {/* CONTENT */}
 
-                    <div className="relative">
+                      <div className="relative">
+                        <div className="mb-4 flex items-center gap-3">
+                          <span className="h-px w-10 bg-signal transition-all duration-500 group-hover:w-16" />
 
-                      <div className="mb-4 flex items-center gap-3">
-                        <span className="h-px w-10 bg-signal transition-all duration-500 group-hover:w-16" />
+                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-signal">
+                            Solutions
+                          </span>
+                        </div>
 
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-signal">
-                          Solutions
-                        </span>
+                        <h3 className="text-2xl font-bold transition-colors duration-300 group-hover:text-signal sm:text-3xl">
+                          {industry.title}
+                        </h3>
+
+                        <p className="mt-4 max-w-xl text-sm leading-7 text-paper/55">
+                          {industry.description}
+                        </p>
+
+                        <ul className="mt-5 space-y-2">
+                          {industry.points.map((point) => (
+                            <li
+                              key={point}
+                              className="flex items-center gap-3 text-xs text-paper/70"
+                            >
+                              <span className="h-1.5 w-1.5 rounded-full bg-signal shadow-[0_0_10px_rgba(0,102,255,.8)]" />
+
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <Link
+                          href="/contact-us"
+                          className="mt-7 inline-flex items-center gap-2 rounded-md border border-signal/50 bg-signal/5 px-5 py-2.5 text-[10px] font-bold uppercase tracking-widest text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_25px_rgba(0,102,255,.3)]"
+                        >
+                          Explore Solutions
+
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </Link>
                       </div>
-
-                      <h3 className="text-2xl font-bold transition-colors duration-300 group-hover:text-signal sm:text-3xl">
-                        {industry.title}
-                      </h3>
-
-                      <p className="mt-4 max-w-xl text-sm leading-7 text-paper/55">
-                        {industry.description}
-                      </p>
-
-                      <ul className="mt-5 space-y-2">
-                        {industry.points.map((point) => (
-                          <li
-                            key={point}
-                            className="flex items-center gap-3 text-xs text-paper/70"
-                          >
-                            <span className="h-1.5 w-1.5 rounded-full bg-signal shadow-[0_0_10px_rgba(0,102,255,.8)]" />
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <Link
-                        href="/contact-us"
-                        className="mt-7 inline-flex items-center gap-2 rounded-md border border-signal/50 bg-signal/5 px-5 py-2.5 text-[10px] font-bold uppercase tracking-widest text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_25px_rgba(0,102,255,.3)]"
-                      >
-                        Explore Solutions
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
-                    </div>
-
-                  </article>
-                </Reveal>
-              );
-            })}
-
+                    </article>
+                  </Reveal>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ================= FAQ ================= */}
+        {/* ================= FAQ ================= */}
 
-      <FAQ/>
+        <FAQ />
 
-      {/* ================= CTA ================= */}
+        {/* ================= ANIMATION CSS ================= */}
 
-      
-
-      {/* ================= ANIMATION CSS ================= */}
-
-      <style jsx global>{`
-        .industry-grid-bg {
-          position: absolute;
-          inset: 0;
-          opacity: 0.3;
-          background-image:
-            linear-gradient(rgba(0, 102, 255, 0.08) 1px, transparent 1px),
-            linear-gradient(
-              90deg,
-              rgba(0, 102, 255, 0.08) 1px,
-              transparent 1px
+        <style jsx global>{`
+          .industry-grid-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.3;
+            background-image:
+              linear-gradient(
+                rgba(0, 102, 255, 0.08) 1px,
+                transparent 1px
+              ),
+              linear-gradient(
+                90deg,
+                rgba(0, 102, 255, 0.08) 1px,
+                transparent 1px
+              );
+            background-size: 55px 55px;
+            animation: gridMove 18s linear infinite;
+            mask-image: linear-gradient(
+              to bottom,
+              black,
+              transparent 90%
             );
-          background-size: 55px 55px;
-          animation: gridMove 18s linear infinite;
-          mask-image: linear-gradient(
-            to bottom,
-            black,
-            transparent 90%
-          );
-        }
-
-        .industry-orb {
-          position: absolute;
-          width: 350px;
-          height: 350px;
-          border-radius: 50%;
-          filter: blur(90px);
-          pointer-events: none;
-        }
-
-        .industry-orb-one {
-          left: -150px;
-          top: 20%;
-          background: rgba(0, 102, 255, 0.13);
-          animation: orbFloat 8s ease-in-out infinite;
-        }
-
-        .industry-orb-two {
-          right: -150px;
-          bottom: 0;
-          background: rgba(0, 180, 120, 0.08);
-          animation: orbFloat 10s ease-in-out infinite reverse;
-        }
-
-        .industry-reveal {
-          opacity: 0;
-          transform: translateY(45px);
-          transition:
-            opacity 0.8s ease,
-            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-          transition-delay: var(--reveal-delay);
-        }
-
-        .industry-reveal-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        @keyframes gridMove {
-          from {
-            transform: translateY(0);
           }
 
-          to {
-            transform: translateY(55px);
-          }
-        }
-
-        @keyframes orbFloat {
-          0%,
-          100% {
-            transform: translate(0, 0);
-          }
-
-          50% {
-            transform: translate(30px, -30px);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .industry-grid-bg,
           .industry-orb {
-            animation: none;
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+          }
+
+          .industry-orb-one {
+            left: -150px;
+            top: 20%;
+            background: rgba(0, 102, 255, 0.13);
+            animation: orbFloat 8s ease-in-out infinite;
+          }
+
+          .industry-orb-two {
+            right: -150px;
+            bottom: 0;
+            background: rgba(0, 180, 120, 0.08);
+            animation: orbFloat 10s ease-in-out infinite reverse;
           }
 
           .industry-reveal {
-            opacity: 1;
-            transform: none;
-            transition: none;
+            opacity: 0;
+            transform: translateY(45px);
+            transition:
+              opacity 0.8s ease,
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            transition-delay: var(--reveal-delay);
           }
-        }
-      `}</style>
-      <Footer />
-    </main>
-    
-    
+
+          .industry-reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          @keyframes gridMove {
+            from {
+              transform: translateY(0);
+            }
+
+            to {
+              transform: translateY(55px);
+            }
+          }
+
+          @keyframes orbFloat {
+            0%,
+            100% {
+              transform: translate(0, 0);
+            }
+
+            50% {
+              transform: translate(30px, -30px);
+            }
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .industry-grid-bg,
+            .industry-orb {
+              animation: none;
+            }
+
+            .industry-reveal {
+              opacity: 1;
+              transform: none;
+              transition: none;
+            }
+          }
+        `}</style>
+
+        {/* ================= FOOTER ================= */}
+
+       
+      </main>
+    </>
   );
 }

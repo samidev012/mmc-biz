@@ -59,17 +59,99 @@ const brands = [
 ];
 
 export default function CyberSecurityBrandsContent() {
+  // =========================
+  // CYBER SECURITY BRANDS SCHEMA
+  // =========================
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://mmc.biz.pk/services/cyber-security-brands/#webpage",
+        url: "https://mmc.biz.pk/services/cyber-security-brands",
+        name: "Cyber Security Brands | MMC",
+        description:
+          "Explore leading cybersecurity technology brands and vendors partnered with MMC for enterprise security, threat protection, network defense and cybersecurity solutions.",
+        isPartOf: {
+          "@id": "https://mmc.biz.pk/#website",
+        },
+        about: {
+          "@type": "Thing",
+          name: "Cybersecurity Technology Brands",
+        },
+        mainEntity: {
+          "@id":
+            "https://mmc.biz.pk/services/cyber-security-brands/#brand-list",
+        },
+      },
+      {
+        "@type": "ItemList",
+        "@id":
+          "https://mmc.biz.pk/services/cyber-security-brands/#brand-list",
+        name: "Cyber Security Brands",
+        numberOfItems: brands.length,
+        itemListElement: brands.map((brand, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: brand.name,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id":
+          "https://mmc.biz.pk/services/cyber-security-brands/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://mmc.biz.pk/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: "https://mmc.biz.pk/services",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Cyber Security Brands",
+            item: "https://mmc.biz.pk/services/cyber-security-brands",
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      {/* ================= JSON-LD SCHEMA ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
       {/* ================= HERO ================= */}
       <section
         className="relative overflow-hidden px-6 py-24 text-center"
-        style={{ background: "linear-gradient(160deg, #000000, #06170f 60%, #0a1128)" }}
+        style={{
+          background:
+            "linear-gradient(160deg, #000000, #06170f 60%, #0a1128)",
+        }}
       >
         <div className="pointer-events-none absolute -left-10 top-10 opacity-10">
-          <Image src="/images/MMC.webp" alt="" width={220} height={80} />
+          <Image
+            src="/images/MMC.webp"
+            alt=""
+            width={220}
+            height={80}
+          />
         </div>
-        <h1 className="relative animate-fade-in-up transition-all duration-500 hover:tracking-wide text-4xl font-bold uppercase leading-tight text-paper md:text-7xl">
+
+        <h1 className="relative animate-fade-in-up text-4xl font-bold uppercase leading-tight text-paper transition-all duration-500 hover:tracking-wide md:text-7xl">
           Cyber Security
           <br />
           Brands
@@ -79,12 +161,14 @@ export default function CyberSecurityBrandsContent() {
       {/* ================= INTRO ================= */}
       <section className="border-b border-line bg-black px-6 py-16 text-center">
         <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-          The Names <span className="text-signal">Behind Your</span> Security Stack
+          The Names <span className="text-signal">Behind Your</span> Security
+          Stack
         </h2>
+
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-steel">
-          We Partner With The Industry&rsquo;s Leading Cybersecurity Vendors To Deliver
-          Best In Class Protection, So You&rsquo;re Never Relying On A Single Point Of
-          Failure.
+          We Partner With The Industry&rsquo;s Leading Cybersecurity Vendors To
+          Deliver Best In Class Protection, So You&rsquo;re Never Relying On A
+          Single Point Of Failure.
         </p>
       </section>
 
@@ -106,7 +190,9 @@ export default function CyberSecurityBrandsContent() {
                 />
               </div>
 
-              <p className="mt-6 text-sm leading-relaxed text-steel">{brand.desc}</p>
+              <p className="mt-6 text-sm leading-relaxed text-steel">
+                {brand.desc}
+              </p>
 
               <button className="mt-6 text-xs font-semibold uppercase tracking-wide text-signal transition-colors hover:text-signal/70">
                 Read More
@@ -117,4 +203,4 @@ export default function CyberSecurityBrandsContent() {
       </section>
     </>
   );
-}
+}s

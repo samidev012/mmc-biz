@@ -1,3 +1,42 @@
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://mmc.biz.pk/clients/#webpage",
+      url: "https://mmc.biz.pk/clients",
+      name: "Our Clients | MMC",
+      description:
+        "Explore the organizations and technology partners that work with MMC for cybersecurity, ICT, networking, data center and technology solutions.",
+      isPartOf: {
+        "@id": "https://mmc.biz.pk/#website",
+      },
+      about: {
+        "@type": "Thing",
+        name: "MMC Clients and Technology Partners",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mmc.biz.pk/clients/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://mmc.biz.pk/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Clients",
+          item: "https://mmc.biz.pk/clients",
+        },
+      ],
+    },
+  ],
+};
+import VantaDotsBackground from "@/components/ParticlesBackground";
 const partners = [
   { name: "Fortinet", src: "/images/21_Fortinet_white_300x300.png" },
   { name: "ATTOM", src: "/images/01_ATTOM_white_300x300.png" },
@@ -31,7 +70,6 @@ const partners = [
   { name: "Orient", src: "/images/30_Orient_white_300x300.png" },
 ];
 
-
 function PartnerGroup() {
   return (
     <div className="flex shrink-0 gap-4 pr-4">
@@ -53,25 +91,57 @@ function PartnerGroup() {
 
 export default function Clients() {
   return (
-    <section className="border-t border-line px-6 py-20 background: linear-gradient(135deg, #0a1128 0%, #1e1b4b 100%);">
-      <div className="mx-auto">
-        <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
-            Our Client
-          </p>
-          <h2 className="animate-fade-in-up mt-3 text-3xl font-bold text-paper transition-all uppercase duration-500 hover:tracking-wide md:text-6xl" >
-            Trusted by <span className="text-signal"> Leading </span> Organizations 
-          </h2>
-        </div>
+    <>
+      {/* ================= SEO SCHEMA ================= */}
 
-        <div className="relative mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
-          <div className="marquee-track flex w-max">
-            <PartnerGroup />
-            <PartnerGroup />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+<section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
+        <VantaDotsBackground />
+        <div className="relative z-10 animate-fade-in-up">
+          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-signal/50 hover:bg-signal/20">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal shadow-[0_0_10px_rgba(0,102,255,0.8)]" />
+            Let&apos;s Talk
+          </div>
+          <h1 className="animate-fade-in-up text-5xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wider md:text-6xl" style={{ animationDelay: '100ms' }}>
+            Clients
+          </h1>
+        </div>
+      </section>
+      {/* ================= CLIENTS ================= */}
+
+      <section
+        className="border-t border-line px-6 py-20"
+        style={{
+          background:
+            "linear-gradient(135deg, #0a1128 0%, #1e1b4b 100%)",
+        }}
+      >
+        <div className="mx-auto">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
+              Our Clients
+            </p>
+
+            <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
+              Trusted by{" "}
+              <span className="text-signal">Leading</span>{" "}
+              Organizations
+            </h2>
+          </div>
+
+          <div className="relative mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+            <div className="marquee-track flex w-max">
+              <PartnerGroup />
+              <PartnerGroup />
+            </div>
           </div>
         </div>
-        </div>
-      
-    </section>
+      </section>
+    </>
   );
 }

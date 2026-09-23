@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 const benefits = [
@@ -29,12 +28,101 @@ const benefits = [
 ];
 
 export default function TIAContent() {
+  // =========================
+  // TIA-942 SCHEMA
+  // =========================
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://mmc.biz.pk/services/tia/#service",
+        url: "https://mmc.biz.pk/services/tia",
+        name: "ANSI/TIA-942 Data Center Certification",
+        description:
+          "MMC provides ANSI/TIA-942 data center conformity audit and certification services covering architectural, electrical, mechanical, telecommunications, security, and safety requirements.",
+        provider: {
+          "@id": "https://mmc.biz.pk/#organization",
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "Pakistan",
+        },
+        serviceType: "ANSI/TIA-942 Data Center Certification and Conformity Audit",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "TIA-942 Certification Assessment Areas",
+          itemListElement: benefits.map((item, index) => ({
+            "@type": "Offer",
+            position: index + 1,
+            itemOffered: {
+              "@type": "Service",
+              name: item.title,
+              description: item.desc,
+              provider: {
+                "@id": "https://mmc.biz.pk/#organization",
+              },
+              areaServed: {
+                "@type": "Country",
+                name: "Pakistan",
+              },
+            },
+          })),
+        },
+      },
+
+      {
+        "@type": "ItemList",
+        "@id": "https://mmc.biz.pk/services/tia/#assessment-areas",
+        name: "TIA-942 Certification Assessment Areas",
+        numberOfItems: benefits.length,
+        itemListElement: benefits.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.title,
+        })),
+      },
+
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://mmc.biz.pk/services/tia/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://mmc.biz.pk/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: "https://mmc.biz.pk/services",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "ANSI/TIA-942 Data Center Certification",
+            item: "https://mmc.biz.pk/services/tia",
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      {/* ================= JSON-LD SCHEMA ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
       {/* Hero */}
       <section className="border-b border-line px-6 py-16">
         <div className="mx-auto grid overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
-
           {/* Left Content */}
           <div className="bg-gradient-to-b from-[#0a1128] to-black p-8 md:p-12">
             <h1 className="animate-fade-in-up mt-3 w-full text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
@@ -83,7 +171,6 @@ export default function TIAContent() {
               className="h-full w-full object-cover"
             />
           </div>
-
         </div>
       </section>
 
@@ -96,7 +183,6 @@ export default function TIAContent() {
         }}
       >
         <div className="mx-auto text-center">
-
           <h2 className="process-title uppercase">
             Key Advantages{" "}
             <span className="highlight uppercase">System</span> Highlights
@@ -118,14 +204,12 @@ export default function TIAContent() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
       {/* TIA-942 Certification Section */}
       <section className="who-we-are-section">
         <div className="container-split">
-
           <div
             className="content-left"
             initial={{ opacity: 0, x: -50 }}
@@ -155,7 +239,6 @@ export default function TIAContent() {
             transition={{ duration: 0.8 }}
           >
             <div className="image-container">
-
               <Image
                 src="/images/Concept-A1.webp"
                 alt="TIA-942 Data Center Infrastructure"
@@ -170,13 +253,10 @@ export default function TIAContent() {
                   high-performance data center infrastructure.
                 </p>
               </div>
-
             </div>
           </div>
-
         </div>
       </section>
     </>
   );
 }
-

@@ -89,10 +89,12 @@ function MotionBackground() {
 
   return (
     <div
-  className="absolute inset-0 overflow-hidden"
-  style={{ background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)" }}
->
-
+      className="absolute inset-0 overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
+      }}
+    >
       {/* Main glow */}
       <motion.div
         className="absolute left-1/2 top-1/2 h-[400px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal/10 blur-[120px]"
@@ -214,38 +216,118 @@ export default function ZoomContent() {
   const current = categories[activeTab];
   const Icon = current.icon;
 
+  /* =========================================================
+     ZOOM SCHEMA
+  ========================================================= */
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://mmc.biz.pk/services/zoom/#service",
+        url: "https://mmc.biz.pk/services/zoom",
+        name: "Zoom Collaboration Solutions | MMC",
+        description:
+          "MMC provides Zoom collaboration solutions for meetings, phone, chat, events, customer support, marketing, sales, and employee engagement.",
+        provider: {
+          "@id": "https://mmc.biz.pk/#organization",
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "Pakistan",
+        },
+        serviceType: "Zoom Collaboration and Communication Solutions",
+      },
+
+      {
+        "@type": "ItemList",
+        "@id": "https://mmc.biz.pk/services/zoom/#categories",
+        name: "Zoom Business Solutions",
+        numberOfItems: tabs.length,
+        itemListElement: tabs.map((tab, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: tab,
+          description: categories[tab].tagline,
+        })),
+      },
+
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://mmc.biz.pk/services/zoom/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://mmc.biz.pk/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: "https://mmc.biz.pk/services",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Zoom",
+            item: "https://mmc.biz.pk/services/zoom",
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      {/* =====================================================
+          JSON-LD SCHEMA
+      ===================================================== */}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
       {/* =====================================================
           HERO
       ===================================================== */}
 
-    <section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
+      <section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
         <VantaDotsBackground />
+
         <div className="relative z-10 animate-fade-in-up">
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-signal/50 hover:bg-signal/20">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal shadow-[0_0_10px_rgba(0,102,255,0.8)]" />
             Let&apos;s Talk
           </div>
-          <h1 className="animate-fade-in-up text-5xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wider md:text-6xl" style={{ animationDelay: '100ms' }}>
+
+          <h1
+            className="animate-fade-in-up text-5xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wider md:text-6xl"
+            style={{ animationDelay: "100ms" }}
+          >
             Zoom
           </h1>
+
           <div className="mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-signal to-transparent" />
 
           <p className="mx-auto mt-7 max-w-3xl text-sm leading-7 text-paper/60 sm:text-base">
-           One platform for meetings, phone, chat, and events built for how modern
-          teams actually work.
+            One platform for meetings, phone, chat, and events built for how
+            modern teams actually work.
           </p>
 
           <Link
             href="/contact-us"
-            className="group relative  overflow-hidden rounded-full border border-signal bg-signal/10 px-10 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]"
+            className="group relative overflow-hidden rounded-full border border-signal bg-signal/10 px-10 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]"
           >
             Talk To Our Experts
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
-        
       </section>
 
       {/* =====================================================
@@ -253,10 +335,12 @@ export default function ZoomContent() {
       ===================================================== */}
 
       <section
-  className="relative overflow-hidden px-6 py-20"
-  style={{ background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)" }}
->
-
+        className="relative overflow-hidden px-6 py-20"
+        style={{
+          background:
+            "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
+        }}
+      >
         {/* Background glow */}
         <motion.div
           className="absolute left-1/2 top-1/2 h-[400px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal/5 blur-[120px]"
@@ -272,7 +356,6 @@ export default function ZoomContent() {
         />
 
         <div className="relative z-10 mx-auto max-w-7xl text-center">
-
           {/* Heading */}
 
           <motion.div
@@ -286,11 +369,7 @@ export default function ZoomContent() {
             </span>
 
             <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-              Made For{" "}
-              <span className="text-signal">
-                Your
-              </span>{" "}
-              Workflow
+              Made For <span className="text-signal">Your</span> Workflow
             </h2>
           </motion.div>
 
@@ -324,7 +403,6 @@ export default function ZoomContent() {
           {/* Content */}
 
           <div className="mx-auto mt-10 overflow-hidden rounded-2xl border border-signal/20 bg-white/[0.02] p-8 text-left backdrop-blur-sm md:p-12">
-
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -344,11 +422,9 @@ export default function ZoomContent() {
                   duration: 0.35,
                 }}
               >
-
                 {/* Category heading */}
 
                 <div className="flex items-center gap-4">
-
                   <motion.span
                     initial={{
                       scale: 0.7,
@@ -372,15 +448,12 @@ export default function ZoomContent() {
                       {current.tagline}
                     </p>
                   </div>
-
                 </div>
 
                 {/* Points */}
 
                 <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-
                   {current.points.map((point, i) => {
-
                     const [label, ...rest] = point.split(":");
 
                     const desc = rest.join(":").trim();
@@ -416,20 +489,18 @@ export default function ZoomContent() {
                       </motion.li>
                     );
                   })}
-
                 </ul>
               </motion.div>
             </AnimatePresence>
-
           </div>
         </div>
       </section>
 
       {/* =====================================================
-          CTA
+          TESTIMONIALS
       ===================================================== */}
-    <Testimonials/>
-      
+
+      <Testimonials />
     </>
   );
 }

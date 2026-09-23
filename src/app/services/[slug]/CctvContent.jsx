@@ -91,8 +91,66 @@ const brands = [
 ];
 
 export default function CctvContent() {
+  // =========================
+  // CCTV PAGE SCHEMA
+  // =========================
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://mmc.biz.pk/services/cctv-surveillance/#service",
+        url: "https://mmc.biz.pk/services/cctv-surveillance",
+        name: "CCTV Surveillance Solutions",
+        description:
+          "MMC provides CCTV surveillance solutions, security camera installation, access control, fire alarm systems, network infrastructure and security solutions for businesses and organizations in Pakistan.",
+        provider: {
+          "@id": "https://mmc.biz.pk/#organization",
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "Pakistan",
+        },
+        serviceType: "CCTV Surveillance and Security Solutions",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id":
+          "https://mmc.biz.pk/services/cctv-surveillance/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://mmc.biz.pk/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: "https://mmc.biz.pk/services",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "CCTV Surveillance",
+            item: "https://mmc.biz.pk/services/cctv-surveillance",
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      {/* ================= JSON-LD SCHEMA ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
       {/* ================= HERO ================= */}
       <section className="border-b border-line px-6 py-16">
         <div className="mx-auto grid overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
@@ -102,12 +160,16 @@ export default function CctvContent() {
               <br />
               From Leading Brands
             </h1>
+
             <p className="mt-6 text-sm leading-relaxed text-steel">
-              Explore Our Extensive Collection Of IT Hardware Featuring World-Renowned
-              Brands Such As <strong className="text-paper">HP, Dell, Lenovo, Acer, And Epson</strong>.
-              From Powerful Laptops And Desktop Computers To Professional Monitors,
-              Printers, And Scanners, We Provide Dependable Products That Help
-              Improve Productivity And Efficiency.
+              Explore Our Extensive Collection Of IT Hardware Featuring
+              World-Renowned Brands Such As{" "}
+              <strong className="text-paper">
+                HP, Dell, Lenovo, Acer, And Epson
+              </strong>
+              . From Powerful Laptops And Desktop Computers To Professional
+              Monitors, Printers, And Scanners, We Provide Dependable Products
+              That Help Improve Productivity And Efficiency.
             </p>
           </div>
 
@@ -124,19 +186,14 @@ export default function CctvContent() {
 
       {/* ================= TRUSTED PARTNERS STRIP ================= */}
       <section>
-   
-
         <div className="mx-auto mt-10 flex max-w-5xl flex-wrap items-center justify-center gap-x-12 gap-y-8">
-         
-            <Partners/>
-          
+          <Partners />
         </div>
       </section>
-      
 
       {/* ================= HOW WE WORK ================= */}
       <section className="border-b border-line bg-black px-6 py-16">
-        <h2 className="animate-fade-in-up mt-3 text-3xl text-center font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
+        <h2 className="animate-fade-in-up mt-3 text-center text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
           How <span className="text-signal">We</span> Work
         </h2>
 
@@ -149,8 +206,14 @@ export default function CctvContent() {
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-signal/15 text-signal">
                 <step.icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-5 text-lg font-semibold text-signal">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-steel">{step.desc}</p>
+
+              <h3 className="mt-5 text-lg font-semibold text-signal">
+                {step.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-relaxed text-steel">
+                {step.desc}
+              </p>
             </div>
           ))}
         </div>
@@ -158,10 +221,15 @@ export default function CctvContent() {
 
       {/* ================= BRAND SHOWCASE (alternating) ================= */}
       {brands.map((brand) => (
-        <section key={brand.name} className="border-b border-line bg-[#050914] px-6 py-16">
+        <section
+          key={brand.name}
+          className="border-b border-line bg-[#050914] px-6 py-16"
+        >
           <div
             className={`mx-auto grid gap-8 overflow-hidden rounded-2xl border border-line lg:grid-cols-2 ${
-              brand.imageSide === "left" ? "" : "lg:[&>*:first-child]:order-2"
+              brand.imageSide === "left"
+                ? ""
+                : "lg:[&>*:first-child]:order-2"
             }`}
           >
             <div className="relative min-h-[280px] bg-white/90 lg:min-h-full">
@@ -174,12 +242,18 @@ export default function CctvContent() {
             </div>
 
             <div className="bg-gradient-to-b from-[#0a1128] to-black p-8 md:p-12">
-              <h3 className="text-3xl font-bold text-paper">{brand.name}</h3>
+              <h3 className="text-3xl font-bold text-paper">
+                {brand.name}
+              </h3>
 
               <ul className="mt-6 space-y-3">
                 {brand.features.map((f, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-steel">
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 text-sm text-steel"
+                  >
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-signal" />
+
                     <span>{f}</span>
                   </li>
                 ))}

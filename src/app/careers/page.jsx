@@ -1,4 +1,3 @@
-
 import {
   Monitor,
   Scale,
@@ -10,27 +9,120 @@ import {
   Calendar,
 } from "lucide-react";
 
+/* =========================
+   CAREERS PAGE SCHEMA
+========================= */
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://mmc.biz.pk/careers/#webpage",
+      url: "https://mmc.biz.pk/careers",
+      name: "Careers at MMC",
+      description:
+        "Explore career opportunities, professional growth, training, skill development and workplace benefits at MMC.",
+      isPartOf: {
+        "@id": "https://mmc.biz.pk/#website",
+      },
+      about: {
+        "@type": "Organization",
+        "@id": "https://mmc.biz.pk/#organization",
+        name: "MMC",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mmc.biz.pk/careers/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://mmc.biz.pk/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Careers",
+          item: "https://mmc.biz.pk/careers",
+        },
+      ],
+    },
+  ],
+};
+
 const benefits = [
-  { icon: Monitor, title: "Skill Development", desc: "Helping employees to uplift their expertise with proper guidance and training, polishing their skills and capabilities." },
-  { icon: Scale, title: "Work-Life Balance", desc: "Promoting employees' work-life balance in our diversified culture to ensure their mental and physical health." },
-  { icon: Share2, title: "Real-Life Projects", desc: "Encouraging employees to get hands-on experience in real-life projects and direct client dealing." },
-  { icon: Globe, title: "Professional Networking", desc: "Learn and grow in a supportive environment and expand your professional network for life." },
-  { icon: Minimize2, title: "Company Holidays", desc: "Two weeks worth every year. Including your birthday, of course." },
-  { icon: ShieldCheck, title: "Performance Bonuses", desc: "Company wide. Do great work, be rewarded for it — it's that simple." },
-  { icon: UserCog, title: "Training & Education", desc: "Internships, reimbursement for certs, a leadership training track, and more." },
-  { icon: Calendar, title: "Fun Events", desc: "Happy hours, get-togethers, and other fun events with the team." },
+  {
+    icon: Monitor,
+    title: "Skill Development",
+    desc: "Helping employees to uplift their expertise with proper guidance and training, polishing their skills and capabilities.",
+  },
+  {
+    icon: Scale,
+    title: "Work-Life Balance",
+    desc: "Promoting employees' work-life balance in our diversified culture to ensure their mental and physical health.",
+  },
+  {
+    icon: Share2,
+    title: "Real-Life Projects",
+    desc: "Encouraging employees to get hands-on experience in real-life projects and direct client dealing.",
+  },
+  {
+    icon: Globe,
+    title: "Professional Networking",
+    desc: "Learn and grow in a supportive environment and expand your professional network for life.",
+  },
+  {
+    icon: Minimize2,
+    title: "Company Holidays",
+    desc: "Two weeks worth every year. Including your birthday, of course.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Performance Bonuses",
+    desc: "Company wide. Do great work, be rewarded for it — it's that simple.",
+  },
+  {
+    icon: UserCog,
+    title: "Training & Education",
+    desc: "Internships, reimbursement for certs, a leadership training track, and more.",
+  },
+  {
+    icon: Calendar,
+    title: "Fun Events",
+    desc: "Happy hours, get-togethers, and other fun events with the team.",
+  },
 ];
 
 export default function Careers() {
   return (
     <>
-      {/* Hero */}
+      {/* =========================
+          SEO SCHEMA
+      ========================= */}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+      {/* =========================
+          HERO
+      ========================= */}
+
       <section className="border-b border-line px-6 py-16">
-        <div className="mx-auto grid  overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
+        <div className="mx-auto grid overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
           <div className="bg-gradient-to-b from-[#0a1128] to-black p-8 md:p-12">
-            <h1 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl w-900">
+            <h1 className="animate-fade-in-up mt-3 w-900 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
               MMC - Your{" "}
-              <span className="text-transparent" style={{ WebkitTextStroke: "1.2px #0066ff" }}>
+              <span
+                className="text-transparent"
+                style={{ WebkitTextStroke: "1.2px #0066ff" }}
+              >
                 Next Career
               </span>
               <br />
@@ -38,32 +130,34 @@ export default function Careers() {
             </h1>
 
             <p className="mt-6 text-sm leading-relaxed text-steel">
-              Passive network services are one of the most crucial aspects of network
-              installation and setup, referring to services related to network
-              infrastructure. The term &ldquo;passive&rdquo; refers to inactive
-              equipment. Passive network devices and services in computer networks do
-              not perform any activity on the signals or data passing through the
-              network. As a result, these services are limited to the installation and
-              implementation of network infrastructure, installation and setup of
-              network and server equipment, network cabling and trunking in a
-              structured manner, as well as the installation of PBX phones, electrical
-              systems, and UPS systems, without involving configuration tasks.
+              Passive network services are one of the most crucial aspects of
+              network installation and setup, referring to services related to
+              network infrastructure. The term &ldquo;passive&rdquo; refers to
+              inactive equipment. Passive network devices and services in
+              computer networks do not perform any activity on the signals or
+              data passing through the network. As a result, these services are
+              limited to the installation and implementation of network
+              infrastructure, installation and setup of network and server
+              equipment, network cabling and trunking in a structured manner,
+              as well as the installation of PBX phones, electrical systems,
+              and UPS systems, without involving configuration tasks.
             </p>
 
             <p className="mt-4 text-sm leading-relaxed text-steel">
-              MMC, with its experienced team and up-to-date knowledge in the field of
-              network infrastructure and passive services, is ready to offer these
-              services across the country. The company is always striving to meet the
-              demands of businesses for improving infrastructure, bandwidth, reliable
-              communication paths, and secure alternative communication routes to
-              ensure system stability in various conditions. MMC provides the best
-              solutions for implementing passive networks, enhancing existing
-              infrastructure, and expanding and upgrading projects with optimized
-              prices and engineered solutions.
+              MMC, with its experienced team and up-to-date knowledge in the
+              field of network infrastructure and passive services, is ready
+              to offer these services across the country. The company is always
+              striving to meet the demands of businesses for improving
+              infrastructure, bandwidth, reliable communication paths, and
+              secure alternative communication routes to ensure system
+              stability in various conditions. MMC provides the best solutions
+              for implementing passive networks, enhancing existing
+              infrastructure, and expanding and upgrading projects with
+              optimized prices and engineered solutions.
             </p>
 
-            
-           <a   href="/contact-us"
+            <a
+              href="/contact-us"
               className="mt-8 inline-block rounded-md bg-signal px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.02] hover:bg-signal/90"
             >
               Get A Free Quote
@@ -80,19 +174,27 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Growth section */}
+      {/* =========================
+          GROWTH SECTION
+      ========================= */}
+
       <section
         className="border-b border-line px-6 py-20"
-        style={{ background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)" }}
+        style={{
+          background:
+            "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
+        }}
       >
         <div className="mx-auto text-center">
-          <h1 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-            Creating Your <span className="text-signal">Pathway To Growth</span> And
+          <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
+            Creating Your{" "}
+            <span className="text-signal">Pathway To Growth</span> And
             Achievement
-          </h1>
+          </h2>
+
           <p className="mx-auto mt-5 max-w-2xl text-sm text-steel">
-            Providing a platform for freshers and professionals to accelerate their
-            career journey and reach new heights in the IT industry.
+            Providing a platform for freshers and professionals to accelerate
+            their career journey and reach new heights in the IT industry.
           </p>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -104,8 +206,14 @@ export default function Careers() {
                 <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-signal/15 text-signal transition-colors duration-300 group-hover:bg-signal group-hover:text-white">
                   <b.icon className="h-6 w-6" />
                 </span>
-                <h3 className="mt-5 text-lg font-semibold text-signal">{b.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-steel">{b.desc}</p>
+
+                <h3 className="mt-5 text-lg font-semibold text-signal">
+                  {b.title}
+                </h3>
+
+                <p className="mt-2 text-sm leading-relaxed text-steel">
+                  {b.desc}
+                </p>
               </div>
             ))}
           </div>

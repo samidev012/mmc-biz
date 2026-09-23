@@ -1,9 +1,50 @@
-
 "use client";
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://mmc.biz.pk/about-us/#webpage",
+      url: "https://mmc.biz.pk/about-us",
+      name: "About MMC",
+      description:
+        "Learn about MMC, our mission, vision, values, experience and commitment to delivering technology solutions in Pakistan.",
+      isPartOf: {
+        "@id": "https://mmc.biz.pk/#website",
+      },
+      about: {
+        "@id": "https://mmc.biz.pk/#organization",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mmc.biz.pk/about-us/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://mmc.biz.pk/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "About Us",
+          item: "https://mmc.biz.pk/about-us",
+        },
+      ],
+    },
+  ],
+};
+
 
 import { HeartHandshake, Leaf, Lightbulb, Trophy, Repeat2, Scale, BarChart3, PenLine } from "lucide-react";
 import VantaDotsBackground from "@/components/ParticlesBackground";
 import { useState } from "react";
+
+
+
+
 
 const applications = [
   { n: "01", title: "Integrity", desc: "We operate with honesty, transparency, and strong ethical principles building lasting trust with every client and partner we work with.", icon: HeartHandshake },
@@ -27,6 +68,23 @@ export default function AboutUs() {
 
   return (
     <>
+       {/* SEO Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+      {/* YOUR EXISTING WEBSITE */}
+      <main>
+        {/* Hero */}
+        {/* Values */}
+        {/* Certifications */}
+        {/* Who We Are */}
+        {/* Trusted Partner */}
+        {/* Guiding Principles */}
+      </main>
       {/* Page title */}
       <section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
         <VantaDotsBackground />
