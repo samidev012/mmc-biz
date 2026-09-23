@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { generatePageMetadata, generateServiceSchema } from "@/lib/seo";
-import { getSchemaExtras } from "@/lib/schemaData"; // ✅ naya import
+import { getSchemaExtras } from "@/lib/schemaData";
 
 import PrefabricatedContent from "./PrefabricatedContent";
 import PrecisionContent from "./PrecisionContent";
@@ -29,42 +29,114 @@ import ComplianceContent from "./ComplianceContent";
 // ATTOM SUB PAGES
 // =========================
 const attomSubPages = {
-  prefabricated: { title: "Prefabricated Data Centers", description: "Modular, rapid-deploy data center units." },
-  precision: { title: "Precision Air Conditioner", description: "Climate control for critical infrastructure." },
-  "mission-critical-power-system": { title: "Mission Critical Power System", description: "Redundant power for uninterrupted uptime." },
-  "data-center-infrastructure-management": { title: "Data Center Infrastructure Monitoring", description: "Real-time monitoring and management." },
-  "liquid-cooling-system": { title: "Liquid Cooling System", description: "High-density cooling for modern racks." },
-  "rack-systems": { title: "Attom-Data Center Rack System", description: "Enterprise-grade rack solutions." },
+  prefabricated: {
+    title: "Prefabricated Modular Data Centers",
+    description: "Factory-built, rapid-deploy modular data centers from ATTOM, engineered for fast deployment, high reliability, and flexible power and cooling configurations for modern IT environments.",
+  },
+  precision: {
+    title: "Precision Air Conditioning for Data Centers",
+    description: "Precision air conditioning systems designed for critical infrastructure, delivering stable temperature and humidity control to protect high-density IT equipment.",
+  },
+  "mission-critical-power-system": {
+    title: "Mission Critical Power Systems",
+    description: "Redundant, mission-critical power systems engineered for uninterrupted uptime, protecting critical infrastructure from outages and ensuring continuous business operations.",
+  },
+  "data-center-infrastructure-management": {
+    title: "Data Center Infrastructure Management (DCIM)",
+    description: "Real-time data center infrastructure monitoring and management tools that give complete visibility into power, cooling, and capacity across your facility.",
+  },
+  "liquid-cooling-system": {
+    title: "Liquid Cooling Systems for High-Density Racks",
+    description: "Advanced liquid cooling solutions built for high-density data center racks, delivering efficient heat management and supporting next-generation computing workloads.",
+  },
+  "rack-systems": {
+    title: "ATTOM Data Center Rack Systems",
+    description: "Enterprise-grade data center rack systems from ATTOM, designed for scalability, optimized airflow, and seamless integration with modern IT infrastructure.",
+  },
 };
 
 // =========================
 // CYBER SECURITY SUB PAGES
 // =========================
 const cyberSubPages = {
-  fortra: { title: "Fortra", description: "Cybersecurity and data protection solutions." },
-  sangfor: { title: "Sangfor", description: "Network, cloud and cybersecurity solutions." },
-  fortinet: { title: "Fortinet", description: "Advanced network security and cybersecurity solutions." },
-  kaspersky: { title: "Kaspersky", description: "Endpoint protection and cybersecurity solutions." },
-  solarwind: { title: "Solarwind", description: "Endpoint protection and cybersecurity solutions." },
-  splunk: { title: "Splunk", description: "Endpoint protection and cybersecurity solutions." },
-  openvpn: { title: "Open", description: "Endpoint protection and cybersecurity solutions." },
-  crowdstrike: { title: "Crowdstrike", description: "Endpoint protection and cybersecurity solutions." },
-  microsoft: { title: "Microsoft", description: "Endpoint protection and cybersecurity solutions." },
-  "recorded-future": { title: "Recorded Future", description: "Endpoint protection and cybersecurity solutions." },
-  darktrace: { title: "Darktrace", description: "Endpoint protection and cybersecurity solutions." },
-  "cyber-security-services": { title: "Cyber Security Services", description: "Comprehensive cybersecurity services for protecting critical infrastructure and business systems." },
-  "compliance-audit": { title: "Compliance & Audit", description: "Security assessment, compliance and audit services for enterprise environments." },
+  fortra: {
+    title: "Fortra Cybersecurity & Data Protection",
+    description: "Fortra delivers data protection, offensive security testing, and infrastructure defense solutions to help organizations strengthen their cybersecurity posture.",
+  },
+  sangfor: {
+    title: "Sangfor Network, Cloud & Cybersecurity Solutions",
+    description: "Sangfor provides network security, cloud computing, and secure access solutions, helping organizations build resilient and scalable IT infrastructure.",
+  },
+  fortinet: {
+    title: "Fortinet Advanced Network Security",
+    description: "Fortinet delivers firewalls, SD-WAN, and an integrated security fabric platform to protect networks against evolving and sophisticated cyber threats.",
+  },
+  kaspersky: {
+    title: "Kaspersky Endpoint Protection & Threat Intelligence",
+    description: "Kaspersky offers advanced endpoint protection, global threat intelligence, and antivirus technology to defend organizations against modern cyber threats.",
+  },
+  solarwind: {
+    title: "SolarWinds Network Monitoring & IT Management",
+    description: "SolarWinds provides network monitoring and infrastructure observability tools that help IT teams maintain full visibility and control across their environments.",
+  },
+  splunk: {
+    title: "Splunk SIEM & Security Analytics Platform",
+    description: "Splunk's data platform powers SIEM and operational analytics, enabling organizations to detect threats faster and respond with greater confidence.",
+  },
+  openvpn: {
+    title: "OpenVPN Secure Networking & Zero Trust Access",
+    description: "OpenVPN delivers secure networking through VPN technology and zero trust network access, protecting remote and hybrid workforces at scale.",
+  },
+  crowdstrike: {
+    title: "CrowdStrike Cloud-Native Endpoint Security",
+    description: "CrowdStrike's cloud-native platform delivers endpoint detection, response, and threat intelligence to stop breaches before they can cause damage.",
+  },
+  microsoft: {
+    title: "Microsoft Enterprise Security Solutions",
+    description: "Microsoft delivers enterprise-grade security through its Defender and Sentinel platforms, helping organizations protect data, identities, and cloud environments.",
+  },
+  "recorded-future": {
+    title: "Recorded Future Threat Intelligence Solutions",
+    description: "Recorded Future delivers real-time threat intelligence, giving security teams the insights they need to stay ahead of evolving global cyber threats.",
+  },
+  darktrace: {
+    title: "Darktrace AI-Driven Cybersecurity Solutions",
+    description: "Darktrace uses AI-driven technology for autonomous threat detection across networks, cloud, and email, stopping attacks before they can spread.",
+  },
+  "cyber-security-services": {
+    title: "Cybersecurity Services for Enterprise Protection",
+    description: "Comprehensive cybersecurity services designed to protect critical infrastructure and business systems from evolving and sophisticated digital threats.",
+  },
+  "compliance-audit": {
+    title: "Cybersecurity Compliance & Audit Services",
+    description: "Comprehensive security assessment, compliance, and audit services designed to help enterprise environments meet regulatory and industry standards.",
+  },
 };
 
 // =========================
 // SECURITY SERVICES SUB PAGES
 // =========================
 const securitySubPages = {
-  "soc24-7": { title: "SOC 24/7", description: "Endpoint protection and cybersecurity solutions." },
-  mssp: { title: "MSSP", description: "Endpoint protection and cybersecurity solutions." },
-  "managed-it-service": { title: "Managed IT Service", description: "Endpoint protection and cybersecurity solutions." },
-  vapt: { title: "VAPT", description: "Endpoint protection and cybersecurity solutions." },
-  "red-teaming": { title: "Red Teaming", description: "Endpoint protection and cybersecurity solutions." },
+  "soc24-7": {
+    title: "24/7 Security Operations Center (SOC) Services",
+    description: "Round-the-clock security operations center services providing continuous threat monitoring, detection, and rapid incident response for your organization.",
+  },
+  mssp: {
+    title: "Managed Security Service Provider (MSSP)",
+    description: "Comprehensive managed security services delivering proactive threat monitoring, detection, and response to strengthen your organization's security posture.",
+  },
+  "managed-it-service": {
+    title: "Managed IT Services for Growing Businesses",
+    description: "Reliable managed IT services covering infrastructure support, monitoring, and maintenance, helping organizations run secure and efficient operations.",
+  },
+  vapt: {
+    title: "Vulnerability Assessment & Penetration Testing",
+    description: "Comprehensive vulnerability assessment and penetration testing services that identify security gaps before attackers can exploit them.",
+  },
+  "red-teaming": {
+    title: "Red Teaming & Adversary Simulation Services",
+    description: "Advanced red teaming services that simulate real-world attacks, testing your organization's detection and response capabilities under realistic conditions.",
+  },
 };
 
 // ✅ Konsa data-object use karna hai, slug ke hisaab se decide karta hai
