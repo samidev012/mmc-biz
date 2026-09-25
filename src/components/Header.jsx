@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import NextImage from "next/image";
+import { Bell } from "lucide-react";
 
 const sections = [
   {
@@ -13,53 +15,18 @@ const sections = [
         description: "Trusted cybersecurity solutions.",
         href: "/services/cyber-security-brands",
         hasArrow: true,
-         subItems: [
-          {
-            title: "Fortra",
-            href: "/services/cyber-security/fortra",
-          },
-          {
-            title: "Kaspersky",
-            href: "/services/cyber-security/kaspersky",
-          },
-          {
-            title: "Solarwinds",
-            href: "/services/cyber-security/solarwind",
-          },
-
-          {
-            title: "SPlunk",
-            href: "/services/cyber-security/splunk",
-          },
-
-          {
-            title: "Openvpn",
-            href: "/services/cyber-security/openvpn",
-          },
-          {
-            title: "sangfor",
-            href: "/services/cyber-security/sangfor",
-          },
-          {
-            title: "Crowdstrike",
-            href: "/services/cyber-security/crowdstrike",
-          },
-          {
-            title: "Fortinet",
-            href: "/services/cyber-security/fortinet",
-          },
-          {
-            title: "Microsoft",
-            href: "/services/cyber-security/microsoft",
-          },
-          {
-            title: "Recorded Future",
-            href: "/services/cyber-security/recorded-future",
-          },
-          {
-            title: "Darktrace",
-            href: "/services/cyber-security/darktrace",
-          },
+        subItems: [
+          { title: "Fortra", href: "/services/cyber-security/fortra" },
+          { title: "Kaspersky", href: "/services/cyber-security/kaspersky" },
+          { title: "Solarwinds", href: "/services/cyber-security/solarwind" },
+          { title: "SPlunk", href: "/services/cyber-security/splunk" },
+          { title: "Openvpn", href: "/services/cyber-security/openvpn" },
+          { title: "sangfor", href: "/services/cyber-security/sangfor" },
+          { title: "Crowdstrike", href: "/services/cyber-security/crowdstrike" },
+          { title: "Fortinet", href: "/services/cyber-security/fortinet" },
+          { title: "Microsoft", href: "/services/cyber-security/microsoft" },
+          { title: "Recorded Future", href: "/services/cyber-security/recorded-future" },
+          { title: "Darktrace", href: "/services/cyber-security/darktrace" },
         ],
       },
 
@@ -69,28 +36,11 @@ const sections = [
         href: "/services/cyber-security",
         hasArrow: true,
         subItems: [
-          {
-            title: "SOC 24/7",
-            href: "/services/cyber-security-sub/soc24-7",
-          },
-          {
-            title: "MSSP",
-            href: "/services/cyber-security-sub/mssp",
-          },
-          {
-            title: "Managed IT Services",
-            href: "/services/cyber-security-sub/managed-it-service",
-          },
-
-          {
-            title: "VAPT",
-            href: "/services/cyber-security-sub/vapt",
-          },
-
-          {
-            title: "Red Teaming",
-            href: "/services/cyber-security-sub/red-teaming",
-          },
+          { title: "SOC 24/7", href: "/services/cyber-security-sub/soc24-7" },
+          { title: "MSSP", href: "/services/cyber-security-sub/mssp" },
+          { title: "Managed IT Services", href: "/services/cyber-security-sub/managed-it-service" },
+          { title: "VAPT", href: "/services/cyber-security-sub/vapt" },
+          { title: "Red Teaming", href: "/services/cyber-security-sub/red-teaming" },
         ],
       },
       {
@@ -110,34 +60,13 @@ const sections = [
         description: "Data center hardware solutions.",
         href: "/services/attom",
         hasArrow: true,
-        // ✅ ATTOM KE ANDAR SUB-MENU
         subItems: [
-          {
-            title: "Prefabricated Data Centers",
-            href: "/services/attom/prefabricated",
-          },
-          {
-            title: "Precision Air Conditioner",
-            href: "/services/attom/precision",
-          },
-          {
-            title: "Mission Critical Power System",
-            href: "/services/attom/mission-critical-power-system",
-          },
-
-          {
-            title: "Data Center Infrastructure Monitoring",
-            href: "/services/attom/data-center-infrastructure-management",
-          },
-
-          {
-            title: "Liquid Cooling System",
-            href: "/services/attom/liquid-cooling-system",
-          },
-          {
-            title: "Attom-Data Center Rack System",
-            href: "/services/attom/networking",
-          },
+          { title: "Prefabricated Data Centers", href: "/services/attom/prefabricated" },
+          { title: "Precision Air Conditioner", href: "/services/attom/precision" },
+          { title: "Mission Critical Power System", href: "/services/attom/mission-critical-power-system" },
+          { title: "Data Center Infrastructure Monitoring", href: "/services/attom/data-center-infrastructure-management" },
+          { title: "Liquid Cooling System", href: "/services/attom/liquid-cooling-system" },
+          { title: "Attom-Data Center Rack System", href: "/services/attom/networking" },
         ],
       },
       {
@@ -207,7 +136,7 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSubMenu, setActiveSubMenu] = useState(null); // ✅ SUB-MENU STATE
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
 
   const closeTimer = useRef(null);
   const companyTimer = useRef(null);
@@ -221,7 +150,7 @@ export default function Header() {
   const closeServices = () => {
     closeTimer.current = setTimeout(() => {
       setServicesOpen(false);
-      setActiveSubMenu(null); // ✅ SUB-MENU BHI CLOSE HOGA
+      setActiveSubMenu(null);
     }, 200);
   };
 
@@ -252,30 +181,28 @@ export default function Header() {
   };
 
   return (
-    <header
-      className="sticky top-0 z-50 border-b border-line bg-ink/95 backdrop-blur"
-      style={{
-        background: "linear-gradient(120deg, #0a1128, #000000 60%, #06170f)",
-      }}
-    >
-      <div className="mx-auto flex items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50 px-4 pt-4 border-white/10 bg-white/[0.06] px-4 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] backdrop-blur-2xl ">
+      {/* ================= FLOATING PILL NAVBAR ================= */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-white/[0.06] px-4 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] backdrop-blur-2xl before:absolute before:inset-0  before:from-white/[0.08]  before:pointer-events-none"
+      >
         {/* ================= LOGO ================= */}
-        <Link href="/" aria-label="MMC Home" className="flex items-center">
+        <Link href="/" aria-label="MMC Home" className="flex items-center gap-2 pl-1">
           <NextImage
             src="/images/MMC.webp"
             alt="MMC"
-            width={160}
-            height={55}
+            width={150}
+            height={50}
             priority
-            className="h-auto w-[160px] object-cover"
+            className="h-auto w-[120px] object-contain"
           />
         </Link>
 
         {/* ================= DESKTOP NAV ================= */}
-        <nav
-          className="hidden items-center gap-8 uppercase lg:flex"
-          aria-label="Main navigation"
-        >
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
           {/* ================= SERVICES ================= */}
           <div
             className="relative"
@@ -284,111 +211,132 @@ export default function Header() {
           >
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
-              className="flex items-center gap-1 text-sm font-medium uppercase text-paper/90 transition-colors hover:text-signal"
+              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium uppercase transition-colors duration-300 ${
+                servicesOpen ? "text-white" : "text-paper/70 hover:text-white"
+              }`}
             >
-              Services
-              <span
-                className={`text-xs transition-transform duration-300 ${
-                  servicesOpen ? "rotate-180" : ""
-                }`}
+              {servicesOpen && (
+                <motion.span
+                  layoutId="nav-pill"
+                  className="absolute inset-0 rounded-full bg-signal"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">Services</span>
+              <motion.span
+                animate={{ rotate: servicesOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="relative z-10 text-[10px]"
               >
                 ▼
-              </span>
+              </motion.span>
             </button>
 
             {/* ================= MEGA MENU ================= */}
-            {servicesOpen && (
-              <div
-                className="mega-menu-wrapper"
-                onMouseEnter={openServices}
-                onMouseLeave={closeServices}
-              >
-                <div className="mega-menu">
-                  <div className="mega-menu-grid">
-                    {sections.map((section, sectionIndex) => (
-                      <div
-                        key={section.title}
-                        className={`mega-menu-column mega-column-${sectionIndex}`}
-                      >
-                        <p className="mega-menu-title">{section.title}</p>
-                        <div className="mega-menu-line" />
+            <AnimatePresence>
+              {servicesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.97 }}
+                  transition={{ duration: 0.2 }}
+                  className="mega-menu-wrapper"
+                  onMouseEnter={openServices}
+                  onMouseLeave={closeServices}
+                >
+                  <div  className="mega-menu mt-3 overflow-hidden rounded-2xl border border-white/10 bg-ink/50 shadow-2xl backdrop-blur-2xl">
+                    <div className="mega-menu-grid">
+                      {sections.map((section, sectionIndex) => (
+                        <div
+                          key={section.title}
+                          className={`mega-menu-column mega-column-${sectionIndex}`}
+                        >
+                          <p className="mega-menu-title text-signal">{section.title}</p>
+                          <div className="mega-menu-line bg-signal/20" />
 
-                        <div className="mega-menu-items">
-                          {section.items.map((item, itemIndex) => {
-                            const itemKey = `${sectionIndex}-${itemIndex}`;
-                            const hasSubItems =
-                              item.subItems && item.subItems.length > 0;
+                          <div className="mega-menu-items">
+                            {section.items.map((item, itemIndex) => {
+                              const itemKey = `${sectionIndex}-${itemIndex}`;
+                              const hasSubItems =
+                                item.subItems && item.subItems.length > 0;
 
-                            return (
-                              <div
-                                key={itemKey}
-                                className="relative"
-                                onMouseEnter={() =>
-                                  hasSubItems && openSubMenu(itemKey)
-                                }
-                                onMouseLeave={() =>
-                                  hasSubItems && closeSubMenu()
-                                }
-                              >
-                                <Link
-                                  href={item.href}
-                                  className="mega-menu-item"
-                                  style={{
-                                    animationDelay: `${itemIndex * 70}ms`,
-                                  }}
+                              return (
+                                <div
+                                  key={itemKey}
+                                  className="relative"
+                                  onMouseEnter={() =>
+                                    hasSubItems && openSubMenu(itemKey)
+                                  }
+                                  onMouseLeave={() =>
+                                    hasSubItems && closeSubMenu()
+                                  }
                                 >
-                                  <span className="mega-menu-content">
-                                    <span className="mega-menu-item-title">
-                                      <span>{item.title}</span>
-                                      {item.hasArrow && (
-                                        <span className="mega-menu-arrow">
-                                          →
-                                        </span>
-                                      )}
-                                    </span>
-                                    <span className="mega-menu-description">
-                                      {item.description}
-                                    </span>
-                                  </span>
-                                </Link>
-
-                                {/* ✅ SUB-MENU DROPDOWN */}
-                                {hasSubItems && activeSubMenu === itemKey && (
-                                  <div
-                                    className="absolute left-full top-0 ml-2 w-80 z-50 rounded-md border border-line bg-ink shadow-xl"
-                                    onMouseEnter={() => openSubMenu(itemKey)}
-                                    onMouseLeave={closeSubMenu}
+                                  <Link
+                                    href={item.href}
+                                    className="mega-menu-item rounded-lg transition-colors duration-200 hover:bg-signal/10"
+                                    style={{
+                                      animationDelay: `${itemIndex * 70}ms`,
+                                    }}
                                   >
-                                    <div className="p-2">
-                                      {item.subItems.map(
-                                        (subItem, subIndex) => (
-                                          <Link
-                                            key={subIndex}
-                                            href={subItem.href}
-                                            className="block rounded px-5 py-1 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
-                                          >
-                                            <div className="font-medium">
-                                              {subItem.title}
-                                            </div>
-                                            <div className="text-xs text-paper/60">
-                                              {subItem.description}
-                                            </div>
-                                          </Link>
-                                        ),
-                                      )}
-                                    </div>
-                                  </div>
-                                )}
-                              </div>
-                            );
-                          })}
+                                    <span className="mega-menu-content">
+                                      <span className="mega-menu-item-title">
+                                        <span>{item.title}</span>
+                                        {item.hasArrow && (
+                                          <span className="mega-menu-arrow text-signal">
+                                            →
+                                          </span>
+                                        )}
+                                      </span>
+                                      <span className="mega-menu-description">
+                                        {item.description}
+                                      </span>
+                                    </span>
+                                  </Link>
+
+                                  {/* ✅ SUB-MENU DROPDOWN */}
+                                  <AnimatePresence>
+                                    {hasSubItems && activeSubMenu === itemKey && (
+                                      <motion.div
+                                        initial={{ opacity: 0, x: -8 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -8 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="absolute left-full top-0 ml-2 w-80 z-50 rounded-xl border border-white/10 bg-ink/60 shadow-2xl backdrop-blur-2xl"
+                                        onMouseEnter={() => openSubMenu(itemKey)}
+                                        onMouseLeave={closeSubMenu}
+                                      >
+                                        <div className="p-2">
+                                          {item.subItems.map(
+                                            (subItem, subIndex) => (
+                                              <Link
+                                                key={subIndex}
+                                                href={subItem.href}
+                                                className="block rounded-lg px-5 py-1 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
+                                              >
+                                                <div className="font-medium">
+                                                  {subItem.title}
+                                                </div>
+                                                <div className="text-xs text-paper/60">
+                                                  {subItem.description}
+                                                </div>
+                                              </Link>
+                                            ),
+                                          )}
+                                        </div>
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
+                              );
+                            })}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </div>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* ================= OTHER NAV LINKS ================= */}
@@ -396,7 +344,7 @@ export default function Header() {
             <Link
               key={href}
               href={href}
-              className="text-18 font-medium uppercase text-paper/90 transition-colors hover:text-signal"
+              className="rounded-full px-4 py-2 text-sm font-medium uppercase text-paper/70 transition-colors duration-300 hover:text-white"
             >
               {label}
             </Link>
@@ -410,85 +358,125 @@ export default function Header() {
           >
             <button
               onClick={() => setCompanyOpen(!companyOpen)}
-              className="flex items-center gap-1 text-sm font-medium uppercase text-paper/90 transition-colors hover:text-signal"
+              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium uppercase transition-colors duration-300 ${
+                companyOpen ? "text-white" : "text-paper/70 hover:text-white"
+              }`}
             >
-              Company
-              <span
-                className={`text-xs transition-transform duration-300 ${
-                  companyOpen ? "rotate-180" : ""
-                }`}
+              {companyOpen && (
+                <motion.span
+                  layoutId="nav-pill-company"
+                  className="absolute inset-0 rounded-full bg-signal"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">Company</span>
+              <motion.span
+                animate={{ rotate: companyOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="relative z-10 text-[10px]"
               >
                 ▼
-              </span>
+              </motion.span>
             </button>
 
-            {companyOpen && (
-              <div className="absolute right-0 top-full z-50 pt-1">
-                <div className="w-44 rounded-md border border-line bg-ink py-2 shadow-xl">
-                  <Link
-                    href="/about-us"
-                    className="block px-4 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
-                  >
-                    About Us
-                  </Link>
-                  <Link
-                    href="/contact-us"
-                    className="block px-4 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
-                  >
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
-            )}
+            <AnimatePresence>
+              {companyOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.97 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute right-0 top-full z-50 mt-3"
+                >
+                  <div className="w-44 overflow-hidden rounded-xl border border-white/10 bg-ink/60 py-2 shadow-2xl backdrop-blur-2xl">
+                    <Link
+                      href="/about-us"
+                      className="block px-4 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
+                    >
+                      About Us
+                    </Link>
+                    <Link
+                      href="/contact-us"
+                      className="block px-4 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
+                    >
+                      Contact Us
+                    </Link>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </nav>
 
-        {/* ================= BUSINESS PARTNER ================= */}
-        <Link
-          href="/contact-us"
-          className="group relative  overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]"
-        >
-          Business Partner
-        </Link>
+        {/* ================= RIGHT SIDE: BELL + CTA ================= */}
+        <div className="flex items-center gap-3">
+          <button
+            aria-label="Notifications"
+            className="relative hidden h-9 w-9 items-center justify-center rounded-full text-paper/70 transition-colors hover:text-white lg:flex"
+          >
+            <Bell className="h-4 w-4" />
+            <motion.span
+              animate={{ scale: [1, 1.3, 1] }}
+              transition={{ duration: 1.6, repeat: Infinity }}
+              className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-signal"
+            />
+          </button>
 
-        {/* ================= MOBILE BUTTON ================= */}
-        <button
-          className="text-paper lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? "✕" : "☰"}
-        </button>
-      </div>
+          {/* ================= BUSINESS PARTNER ================= */}
+          <Link
+            href="/contact-us"
+            className="group relative hidden overflow-hidden rounded-full border border-signal bg-signal/10 px-6 py-2.5 text-sm font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)] lg:inline-flex"
+          >
+            <span className="relative z-10">Business Partner</span>
+          </Link>
+
+          {/* ================= MOBILE BUTTON ================= */}
+          <button
+            className="text-paper lg:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? "✕" : "☰"}
+          </button>
+        </div>
+      </motion.div>
 
       {/* ================= MOBILE MENU ================= */}
-      {mobileOpen && (
-        <nav className="flex flex-col border-t border-line bg-ink px-6 py-4 lg:hidden">
-          <Link href="/services" onClick={closeMobile} className="py-2 text-sm">
-            Services
-          </Link>
-          {navLinks.map(([label, href]) => (
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.nav
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="mx-auto mt-2 flex max-w-7xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink/50 px-6 py-4 backdrop-blur-2xl lg:hidden"
+          >
+            <Link href="/services" onClick={closeMobile} className="py-2 text-sm">
+              Services
+            </Link>
+            {navLinks.map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={closeMobile}
+                className="py-2 text-sm"
+              >
+                {label}
+              </Link>
+            ))}
+            <Link href="/about-us" onClick={closeMobile} className="py-2 text-sm">
+              About Us
+            </Link>
             <Link
-              key={href}
-              href={href}
+              href="/contact-us"
               onClick={closeMobile}
               className="py-2 text-sm"
             >
-              {label}
+              Contact Us
             </Link>
-          ))}
-          <Link href="/about-us" onClick={closeMobile} className="py-2 text-sm">
-            About Us
-          </Link>
-          <Link
-            href="/contact-us"
-            onClick={closeMobile}
-            className="py-2 text-sm"
-          >
-            Contact Us
-          </Link>
-        </nav>
-      )}
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

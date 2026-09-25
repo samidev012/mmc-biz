@@ -17,7 +17,7 @@ button,
 li,
 nav {
   font-family: var(--font-body), sans-serif;
-  font-size: 18px !important;
+  font-size: 16px !important;
 }
 
 /* =========================================
@@ -35,7 +35,6 @@ nav {
 
 .mega-menu {
   width: 100%;
-  max-width: 75%;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: white;
@@ -95,6 +94,7 @@ nav {
 
 .mega-menu-item:hover .mega-menu-item-title span {
   color: black;
+  
 }
 
 .mega-menu-arrow {
@@ -111,7 +111,6 @@ nav {
   text-transform: capitalize !important;
 }
 
-/* ARROW */
 
 .mega-menu-arrow {
   width: 14px;
@@ -126,7 +125,7 @@ nav {
   transition:
     color 0.25s ease,
     transform 0.25s ease;
-}
+} 
 
 
 /* =========================================
