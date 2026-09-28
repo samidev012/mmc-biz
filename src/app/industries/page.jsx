@@ -56,7 +56,7 @@ const schema = {
 const industries = [
   {
     title: "Banking",
-    image: "/images/banking.png",
+    image: "/images/Banking.png",
     description:
       "Secure, scalable technology solutions designed for banks and financial institutions.",
     points: [
@@ -67,7 +67,7 @@ const industries = [
   },
   {
     title: "Finance",
-    image: "/images/finance.png",
+    image: "/images/Finance.png",
     description:
       "Technology infrastructure that helps financial organizations operate securely and efficiently.",
     points: [
