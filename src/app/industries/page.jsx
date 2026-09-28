@@ -78,7 +78,7 @@ const industries = [
   },
   {
     title: "Healthcare",
-    image: "/images/healthcare.png",
+    image: "/images/Healthcare.png",
     description:
       "Reliable technology solutions supporting modern healthcare environments and critical operations.",
     points: [
@@ -89,7 +89,7 @@ const industries = [
   },
   {
     title: "Government",
-    image: "/images/government.png",
+    image: "/images/Government.png",
     description:
       "Secure and resilient technology infrastructure for government organizations and public institutions.",
     points: [
@@ -100,7 +100,7 @@ const industries = [
   },
   {
     title: "Energy",
-    image: "/images/energy.png",
+    image: "/images/Energy.png",
     description:
       "Technology solutions designed for the demanding infrastructure requirements of the energy sector.",
     points: [
@@ -111,7 +111,7 @@ const industries = [
   },
   {
     title: "Manufacturing",
-    image: "/images/manufacturing.png",
+    image: "/images/Manufacturing.png",
     description:
       "Connected and secure infrastructure helping manufacturing organizations improve operations.",
     points: [
@@ -122,7 +122,7 @@ const industries = [
   },
   {
     title: "Education",
-    image: "/images/education.png",
+    image: "/images/Education.png",
     description:
       "Reliable digital infrastructure for educational institutions, campuses and learning environments.",
     points: [
@@ -133,7 +133,7 @@ const industries = [
   },
   {
     title: "Fashion",
-    image: "/images/fashion.png",
+    image: "/images/Fashion.png",
     description:
       "Technology solutions supporting modern fashion businesses, retail operations and digital workflows.",
     points: [
@@ -144,7 +144,7 @@ const industries = [
   },
   {
     title: "Logistics",
-    image: "/images/logistics.png",
+    image: "/images/Logistics.png",
     description:
       "Connected infrastructure helping logistics organizations manage operations, security and connectivity.",
     points: [
@@ -155,7 +155,7 @@ const industries = [
   },
   {
     title: "Real Estate",
-    image: "/images/real-estate.png",
+    image: "/images/Real-Estate.png",
     description:
       "Technology infrastructure for connected buildings, commercial spaces and modern property operations.",
     points: [
@@ -166,7 +166,7 @@ const industries = [
   },
   {
     title: "Travel",
-    image: "/images/travel.png",
+    image: "/images/Travel.png",
     description:
       "Technology solutions helping travel organizations deliver secure and connected experiences.",
     points: [
@@ -177,7 +177,7 @@ const industries = [
   },
   {
     title: "Retail",
-    image: "/images/retail.png",
+    image: "/images/Retail.png",
     description:
       "Secure and scalable technology infrastructure supporting modern retail environments.",
     points: [
@@ -188,7 +188,7 @@ const industries = [
   },
   {
     title: "Agriculture",
-    image: "/images/agriculture.png",
+    image: "/images/Agriculture.png",
     description:
       "Connected technology infrastructure supporting smarter agricultural operations and facilities.",
     points: [
@@ -199,7 +199,7 @@ const industries = [
   },
   {
     title: "Automotive",
-    image: "/images/automotive.png",
+    image: "/images/Automotive.png",
     description:
       "Technology infrastructure supporting automotive businesses, facilities and connected operations.",
     points: [
@@ -210,7 +210,7 @@ const industries = [
   },
   {
     title: "FMCG",
-    image: "/images/supermarket.png",
+    image: "/images/Supermarket.png",
     description:
       "Reliable technology solutions helping FMCG organizations connect their operations securely.",
     points: [
@@ -221,7 +221,7 @@ const industries = [
   },
   {
     title: "Insurance",
-    image: "/images/insurance.png",
+    image: "/images/Insurance.png",
     description:
       "Secure infrastructure and technology solutions for insurance organizations and their digital operations.",
     points: [
@@ -232,7 +232,7 @@ const industries = [
   },
   {
     title: "Telecom",
-    image: "/images/telecom.png",
+    image: "/images/Telecom.png",
     description:
       "High-performance infrastructure supporting modern telecommunications and connected environments.",
     points: [
@@ -243,7 +243,7 @@ const industries = [
   },
   {
     title: "Oil & Gas",
-    image: "/images/oil&gas.png",
+    image: "/images/Oil&Gas.png",
     description:
       "Resilient technology infrastructure for critical oil and gas operations and facilities.",
     points: [
@@ -254,7 +254,7 @@ const industries = [
   },
   {
     title: "Technology",
-    image: "/images/technology.png",
+    image: "/images/Technology.png",
     description:
       "Modern infrastructure solutions for technology companies and digitally driven organizations.",
     points: [
