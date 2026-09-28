@@ -161,9 +161,9 @@ export default function ContactUs() {
                   <c.icon className="h-5 w-5" />
                 </span>
 
-                <h3 className="mt-4 text-sm font-semibold text-paper">
+                <h2 className="mt-4 text-sm font-semibold text-paper">
                   {c.title}
-                </h3>
+                </h2>
 
                 {c.lines.map((l) => (
                   <p

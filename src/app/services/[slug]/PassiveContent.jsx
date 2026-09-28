@@ -179,9 +179,9 @@ const schema = {
                 key={b.title}
                 className="group rounded-xl border border-line bg-black/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:shadow-[0_0_30px_-12px_rgba(0,102,255,0.5)]"
               >
-                <h3 className="mt-5 text-lg font-semibold text-signal">
+                <h2 className="mt-5 text-lg font-semibold text-signal">
                   {b.title}
-                </h3>
+                </h2>
 
                 <p className="mt-2 text-sm leading-relaxed text-steel">
                   {b.desc}
@@ -327,9 +327,9 @@ const schema = {
                 key={bb.title}
                 className="group rounded-xl border border-line bg-black/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:shadow-[0_0_30px_-12px_rgba(0,102,255,0.5)]"
               >
-                <h3 className="mt-5 text-lg font-semibold text-signal">
+                <h2 className="mt-5 text-lg font-semibold text-signal">
                   {bb.title}
-                </h3>
+                </h2>
               </div>
             ))}
           </div>
