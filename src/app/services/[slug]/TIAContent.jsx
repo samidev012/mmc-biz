@@ -31,85 +31,52 @@ export default function TIAContent() {
   // =========================
   // TIA-942 SCHEMA
   // =========================
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Service",
-        "@id": "https://mmc.biz.pk/services/tia/#service",
-        url: "https://mmc.biz.pk/services/tia",
-        name: "ANSI/TIA-942 Data Center Certification",
-        description:
-          "MMC provides ANSI/TIA-942 data center conformity audit and certification services covering architectural, electrical, mechanical, telecommunications, security, and safety requirements.",
-        provider: {
-          "@id": "https://mmc.biz.pk/#organization",
-        },
-        areaServed: {
-          "@type": "Country",
-          name: "Pakistan",
-        },
-        serviceType: "ANSI/TIA-942 Data Center Certification and Conformity Audit",
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "TIA-942 Certification Assessment Areas",
-          itemListElement: benefits.map((item, index) => ({
-            "@type": "Offer",
-            position: index + 1,
-            itemOffered: {
-              "@type": "Service",
-              name: item.title,
-              description: item.desc,
-              provider: {
-                "@id": "https://mmc.biz.pk/#organization",
-              },
-              areaServed: {
-                "@type": "Country",
-                name: "Pakistan",
-              },
-            },
-          })),
-        },
-      },
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    
 
-      {
-        "@type": "ItemList",
-        "@id": "https://mmc.biz.pk/services/tia/#assessment-areas",
-        name: "TIA-942 Certification Assessment Areas",
-        numberOfItems: benefits.length,
-        itemListElement: benefits.map((item, index) => ({
+    {
+      "@type": "ItemList",
+      "@id": "https://mmc.biz.pk/services/tia/#assessment-areas",
+      name: "TIA-942 Certification Assessment Areas",
+      description:
+        "Key areas assessed as part of MMC's ANSI/TIA-942 data center conformity assessment and certification services.",
+      numberOfItems: benefits.length,
+      itemListElement: benefits.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.title,
+        description: item.desc,
+      })),
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://mmc.biz.pk/services/tia/#breadcrumb",
+      itemListElement: [
+        {
           "@type": "ListItem",
-          position: index + 1,
-          name: item.title,
-        })),
-      },
-
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://mmc.biz.pk/services/tia/#breadcrumb",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://mmc.biz.pk/",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Services",
-            item: "https://mmc.biz.pk/services",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: "ANSI/TIA-942 Data Center Certification",
-            item: "https://mmc.biz.pk/services/tia",
-          },
-        ],
-      },
-    ],
-  };
-
+          position: 1,
+          name: "Home",
+          item: "https://mmc.biz.pk/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://mmc.biz.pk/services",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "ANSI/TIA-942 Data Center Certification",
+          item: "https://mmc.biz.pk/services/tia",
+        },
+      ],
+    },
+  ],
+};
   return (
     <>
       {/* ================= JSON-LD SCHEMA ================= */}

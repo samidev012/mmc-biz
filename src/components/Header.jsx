@@ -278,7 +278,7 @@ export default function Header() {
                                       animationDelay: `${itemIndex * 70}ms`,
                                     }}
                                   >
-                                    <span className="mega-menu-content">
+                                    <span className="mega-menu-content py-2 px-3 hover:py-2 hover:px-3">
                                       <span className="mega-menu-item-title">
                                         <span>{item.title}</span>
                                         {item.hasArrow && (
@@ -297,11 +297,11 @@ export default function Header() {
                                   <AnimatePresence>
                                     {hasSubItems && activeSubMenu === itemKey && (
                                       <motion.div
-                                        initial={{ opacity: 0, x: -8 }}
+                                        initial={{ opacity: 0, x: 0 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         exit={{ opacity: 0, x: -8 }}
                                         transition={{ duration: 0.2 }}
-                                        className="absolute left-full top-0 ml-2 w-80 z-50 rounded-xl border border-white/10 bg-ink/60 shadow-2xl backdrop-blur-2xl"
+                                        className="absolute left-full top-0 ml-2 w-80 z-50 rounded-xl border  bg-ink/20 shadow-2xl backdrop-blur-2xl"
                                         onMouseEnter={() => openSubMenu(itemKey)}
                                         onMouseLeave={closeSubMenu}
                                       >
@@ -311,9 +311,9 @@ export default function Header() {
                                               <Link
                                                 key={subIndex}
                                                 href={subItem.href}
-                                                className="block rounded-lg px-5 py-1 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
+                                                className="block rounded-lg px-5 py-1 text-sm transition-colors  hover:bg-signal/10 hover:text-signal"
                                               >
-                                                <div className="font-medium">
+                                                <div className="font-medium text-black">
                                                   {subItem.title}
                                                 </div>
                                                 <div className="text-xs text-paper/60">

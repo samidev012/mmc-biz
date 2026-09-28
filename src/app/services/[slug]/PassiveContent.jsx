@@ -46,85 +46,56 @@ export default function PassiveContent() {
   // =========================
   // PASSIVE NETWORK SERVICES SCHEMA
   // =========================
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Service",
-        "@id": "https://mmc.biz.pk/services/passive-network-services/#service",
-        url: "https://mmc.biz.pk/services/passive-network-services",
-        name: "Passive Network Services | MMC",
-        description:
-          "MMC provides passive network services including site surveys, network infrastructure design, structured cabling, rack installation, network testing, and data center infrastructure solutions across Pakistan.",
-        provider: {
-          "@id": "https://mmc.biz.pk/#organization",
-        },
-        areaServed: {
-          "@type": "Country",
-          name: "Pakistan",
-        },
-        serviceType: "Passive Network and Structured Cabling Services",
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Passive Network Services",
-          itemListElement: benefits.map((service, index) => ({
-            "@type": "Offer",
-            position: index + 1,
-            itemOffered: {
-              "@type": "Service",
-              name: service.title,
-              description: service.desc,
-              provider: {
-                "@id": "https://mmc.biz.pk/#organization",
-              },
-              areaServed: {
-                "@type": "Country",
-                name: "Pakistan",
-              },
-            },
-          })),
-        },
-      },
-      {
-        "@type": "ItemList",
-        "@id":
-          "https://mmc.biz.pk/services/passive-network-services/#services",
-        name: "Passive Network Services",
-        numberOfItems: benefits.length,
-        itemListElement: benefits.map((service, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: service.title,
-        })),
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id":
-          "https://mmc.biz.pk/services/passive-network-services/#breadcrumb",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://mmc.biz.pk/",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Services",
-            item: "https://mmc.biz.pk/services",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: "Passive Network Services",
-            item: "https://mmc.biz.pk/services/passive-network-services",
-          },
-        ],
-      },
-    ],
-  };
+ // =========================
+// PASSIVE NETWORK SERVICES SCHEMA
+// =========================
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
 
+    {
+      "@type": "ItemList",
+      "@id":
+        "https://mmc.biz.pk/services/passive-network-services/#service-process",
+      name: "Passive Network Service Process",
+      description:
+        "The passive network service process provided by MMC, from site assessment and infrastructure design to cabling, rack installation, and network testing.",
+      numberOfItems: benefits.length,
+      itemListElement: benefits.map((service, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: service.title,
+        description: service.desc,
+      })),
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id":
+        "https://mmc.biz.pk/services/passive-network-services/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://mmc.biz.pk/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://mmc.biz.pk/services",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Passive Network Services",
+          item: "https://mmc.biz.pk/services/passive-network-services",
+        },
+      ],
+    },
+  ],
+};
   return (
     <>
       {/* ================= JSON-LD SCHEMA ================= */}

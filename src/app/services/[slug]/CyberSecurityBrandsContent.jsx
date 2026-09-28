@@ -142,14 +142,7 @@ export default function CyberSecurityBrandsContent() {
             "linear-gradient(160deg, #000000, #06170f 60%, #0a1128)",
         }}
       >
-        <div className="pointer-events-none absolute -left-10 top-10 opacity-10">
-          <Image
-            src="/images/MMC.webp"
-            alt=""
-            width={220}
-            height={80}
-          />
-        </div>
+       
 
         <h1 className="relative animate-fade-in-up text-4xl font-bold uppercase leading-tight text-paper transition-all duration-500 hover:tracking-wide md:text-7xl">
           Cyber Security
