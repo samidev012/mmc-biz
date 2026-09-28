@@ -103,7 +103,7 @@ export default function AboutUs() {
       <section className="px-6 py-20" style={{ background: "linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)" }}>
         <div className="mx-auto">
           <h2 className="animate-fade-in text-center text-6xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-widest">
-            Applications
+            
           </h2>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">

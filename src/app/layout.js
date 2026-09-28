@@ -2,6 +2,7 @@ import { Poppins, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SITE_URL } from "@/lib/seo";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,64 +22,52 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
 });
 
+const DEFAULT_TITLE =
+  "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises";
+const DEFAULT_DESC =
+  "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.";
+
+// NOTE: yahan alternates/canonical aur openGraph.url nahi hai.
+// Har page apna canonical khud deta hai (lib/seo.js ke through).
 export const metadata = {
-  metadataBase: new URL("https://mmc-biz.vercel.app"),
-   alternates: {
-    canonical: "/",   // ✅ ye line add karo
-  },
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
+    default: DEFAULT_TITLE,
     template: "%s | MMC",
   },
-  description:
-    "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.",
-  keywords: [
-    "ICT solutions Pakistan",
-    "cybersecurity Pakistan",
-    "data center Pakistan",
-    "CCTV surveillance Pakistan",
-    "MMC",
-  ],
-  icons: {
-    icon: "/Favicon.png",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  description: DEFAULT_DESC,
+  icons: { icon: "/Favicon.png" },
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "en_PK",
-    url: "https://mmc-biz.vercel.app",
     siteName: "MMC",
-    title: "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
-    description:
-      "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESC,
     images: [
       {
         url: "/images/og-default.webp",
         width: 1200,
         height: 630,
-        alt: "MMC - ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
+        alt: DEFAULT_TITLE,
       },
     ],
   },
   twitter: {
-  card: "summary_large_image",
-  site: "@mmcbiz",   // ✅ ye line add karo
-  title: "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
-  description:
-    "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.",
-  images: ["/images/og-default.webp"],
-},
+    card: "summary_large_image",
+    site: "@mmcbiz",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESC,
+    images: ["/images/og-default.webp"],
+  },
 };
 
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "MMC",
-  url: "https://mmc-biz.vercel.app",
-  logo: "https://mmc-biz.vercel.app/images/MMC.webp",
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/MMC.webp`,
   description:
     "Pakistan's multi-division ICT partner since 1995 — software, cybersecurity, infrastructure, surveillance and digital marketing.",
   address: {
@@ -101,10 +90,14 @@ export default function RootLayout({ children }) {
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(orgSchema).replace(/</g, "\\u003c"),
+          }}
         />
       </head>
-      <body className={`${poppins.variable} ${inter.variable} ${plexMono.variable} font-body antialiased`}>
+      <body
+        className={`${poppins.variable} ${inter.variable} ${plexMono.variable} font-body antialiased`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />

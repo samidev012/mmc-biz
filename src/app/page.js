@@ -1,259 +1,177 @@
+import Hero from "@/components/Hero";
+import Partners from "@/components/Partners";
+import ServicesGrid from "@/components/ServicesGrid";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
+import { buildMetadata, SITE_URL } from "@/lib/seo";
 
-  import Hero from "@/components/Hero";
-  import Partners from "@/components/Partners";
-  import ServicesGrid from "@/components/ServicesGrid";
-  import Testimonials from "@/components/Testimonials";
+const HOME_TITLE =
+  "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises";
+const HOME_DESC =
+  "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.";
 
-  import FAQ from "@/components/FAQ";
-  
+export const metadata = buildMetadata({
+  title: { absolute: HOME_TITLE },
+  description: HOME_DESC,
+  path: "/",
+});
 
-
-
-
-
-  const homepageSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://mmc-biz.vercel.app/#website",
-        url: "https://mmc-biz.vercel.app",
-        name: "MMC",
-        publisher: { "@id": "https://mmc-biz.vercel.app/#organization" },
-      },
-      
-      {
-        "@type": "WebPage",
-        "@id": "https://mmc-biz.vercel.app/#webpage",
-        url: "https://mmc-biz.vercel.app",
-        name: "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises",
-        isPartOf: { "@id": "https://mmc-biz.vercel.app/#website" },
-        primaryImageOfPage: { "@id": "https://mmc-biz.vercel.app/#primaryimage" },
-      },
-      {
-        "@type": "ImageObject",
-        "@id": "https://mmc-biz.vercel.app/#primaryimage",
-        url: "https://mmc-biz.vercel.app/images/og-default.webp",
-        width: 1200,
-        height: 630,
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://mmc-biz.vercel.app",
-          },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Which companies and industries does MMC serve?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "MMC provides technology and ICT solutions for banks, financial institutions, regulators, enterprises, corporate organizations, and other businesses that require reliable and secure technology infrastructure.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Does MMC provide complete data center solutions?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes — from infrastructure planning and deployment to security, cabling, and ongoing operational support for mission-critical environments.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can MMC help improve our organization's cybersecurity?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes — MMC delivers threat protection, security monitoring, VAPT, and managed security services to strengthen your organization's security posture.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can MMC provide customized technology solutions?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes — our custom software and AI team builds tailored applications and integrations around your specific business requirements.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Does MMC provide hardware and infrastructure solutions?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes — enterprise hardware, networking, and ICT infrastructure sourced and deployed for reliable, scalable environments.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "How can I contact MMC for a technology solution?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Reach out through the Contact Us page or call our team directly — we'll schedule a discovery call to understand your requirements.",
-            },
-          },
-        ],
-      },
-    ],
-  };
-
-const partners = [
-  { name: "Fortinet", src: "/images/21_Fortinet_white_300x300.png" },
-  { name: "ATTOM", src: "/images/01_ATTOM_white_300x300.png" },
-  { name: "Lenovo", src: "/images/02_Lenovo_white_300x300.png" },
-  { name: "Fortra", src: "/images/03_Fortra_white_300x300.png" },
-  { name: "HP", src: "/images/04_HP_white_300x300.png" },
-  { name: "Dell", src: "/images/05_Dell_white_300x300.png" },
-  { name: "H3C", src: "/images/06_H3C_white_300x300.png" },
-  { name: "Acer", src: "/images/07_Acer_white_300x300.png" },
-  { name: "Hikvision", src: "/images/08_Hikvision_white_300x300.png" },
-  { name: "Microsoft", src: "/images/09_Microsoft_white_300x300.png" },
-  { name: "Adobe", src: "/images/10_Adobe_white_300x300.png" },
-  { name: "AnyDesk", src: "/images/11_AnyDesk_white_300x300.png" },
-  { name: "Kaspersky", src: "/images/12_Kaspersky_white_300x300.png" },
-  { name: "Sophos", src: "/images/13_Sophos_white_300x300.png" },
-  { name: "Zoho", src: "/images/14_Zoho_white_300x300.png" },
-  { name: "Zoom", src: "/images/15_Zoom_white_300x300.png" },
-  { name: "Vivanco", src: "/images/16_Vivanco_white_300x300.png" },
-  { name: "Premium Line", src: "/images/17_Premium_Line_white_300x300.png" },
-  { name: "D-Link", src: "/images/18_D-Link_white_300x300.png" },
-  { name: "Commin", src: "/images/19_Commin_white_300x300.png" },
-  { name: "Cisco", src: "/images/20_Cisco_white_300x300.png" },
-  { name: "Sanforte", src: "/images/22_Sanforte_white_300x300.png" },
-  { name: "Juniper Networks", src: "/images/23_Juniper_Networks_white_300x300.png" },
-  { name: "Honeywell", src: "/images/24_Honeywell_white_300x300.png" },
-  { name: "Haier", src: "/images/25_Haier_white_300x300.png" },
-  { name: "TCL", src: "/images/26_TCL_white_300x300.png" },
-  { name: "Samsung", src: "/images/27_Samsung_white_300x300.png" },
-  { name: "Palwan", src: "/images/28_Palwan_white_300x300.png" },
-  { name: "PEL", src: "/images/29_PEL_white_300x300.png" },
-  { name: "Orient", src: "/images/30_Orient_white_300x300.png" },
+const faqs = [
+  {
+    q: "Which companies and industries does MMC serve?",
+    a: "MMC provides technology and ICT solutions for banks, financial institutions, regulators, enterprises, corporate organizations, and other businesses that require reliable and secure technology infrastructure.",
+  },
+  {
+    q: "Does MMC provide complete data center solutions?",
+    a: "Yes — from infrastructure planning and deployment to security, cabling, and ongoing operational support for mission-critical environments.",
+  },
+  {
+    q: "Can MMC help improve our organization's cybersecurity?",
+    a: "Yes — MMC delivers threat protection, security monitoring, VAPT, and managed security services to strengthen your organization's security posture.",
+  },
+  {
+    q: "Can MMC provide customized technology solutions?",
+    a: "Yes — our custom software and AI team builds tailored applications and integrations around your specific business requirements.",
+  },
+  {
+    q: "Does MMC provide hardware and infrastructure solutions?",
+    a: "Yes — enterprise hardware, networking, and ICT infrastructure sourced and deployed for reliable, scalable environments.",
+  },
+  {
+    q: "How can I contact MMC for a technology solution?",
+    a: "Reach out through the Contact Us page or call our team directly — we'll schedule a discovery call to understand your requirements.",
+  },
 ];
 
-function PartnerGroup() {
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "MMC",
+      inLanguage: "en-PK",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: HOME_TITLE,
+      description: HOME_DESC,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      primaryImageOfPage: { "@id": `${SITE_URL}/#primaryimage` },
+    },
+    {
+      "@type": "ImageObject",
+      "@id": `${SITE_URL}/#primaryimage`,
+      url: `${SITE_URL}/images/og-default.webp`,
+      width: 1200,
+      height: 630,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map(({ q, a }) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    },
+  ],
+};
+
+const pillars = [
+  {
+    title: "Our Mission",
+    text: "To empower organizations with secure, reliable, and innovative technology solutions that improve operational efficiency, strengthen digital resilience, and support sustainable business growth.",
+  },
+  {
+    title: "Our Vision",
+    text: "To become a trusted technology partner for organizations across Pakistan by delivering world-class ICT solutions, exceptional service, and innovative digital capabilities.",
+  },
+  {
+    title: "Why Choose Us",
+    text: "We combine industry experience, technical expertise, trusted technology partnerships, and customer-focused support to deliver solutions built around your organization's real business requirements.",
+  },
+];
+
+export default function Home() {
   return (
-    <div className="flex shrink-0 gap-4 pr-4">
-      {partners.map((partner, index) => (
-        <div
-          key={`${partner.name}-${index}`}
-          className="flex h-30 w-70 shrink-0 items-center justify-center rounded-lg border border-line bg-black/40 p-4 transition-colors hover:border-signal/40"
-        >
-          <img
-            src={partner.src}
-            alt={partner.name}
-            className="max-h-25 max-w-80 object-cover opacity-80 transition-opacity hover:opacity-100"
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homepageSchema).replace(/</g, "\\u003c"),
+        }}
+      />
 
+      <Hero />
+      <Partners />
 
-
-
-
-  export default function Home() {
-    return (
-      <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
-        />
-        <Hero />
-        <Partners />
-        <section className="border-t border-line px-6 py-20" style={{ background: "linear-gradient(120deg, #0a1128, #000000 60%, #06170f)" }}>
-          <div className="mx-auto text-center">
-            <p className="animate-fade-in text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
-              Who We Are
-            </p>
-            
-            <h2 className="animate-fade-in-up mt-3 text-3xl uppercase font-bold text-paper transition-all duration-500 hover:tracking-wide md:text-6xl" style={{ animationDelay: '100ms' }}>
-              Technology <span className="text-signal">That Moves</span> Your Business Forward
-            </h2>
-            
-            <p className="animate-fade-in-up mx-auto w-3/4 max-w-4xl mt-5 text-sm leading-relaxed text-steel" style={{ animationDelay: '200ms' }}>
-              MMC is a technology solutions and ICT services provider helping organizations
-              build secure, connected, and future-ready digital environments. From
-              enterprise infrastructure and cybersecurity to data centers, surveillance,
-              software integration, and digital solutions, we combine technical expertise
-              with trusted technologies to solve complex business challenges.
-            </p>
-
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {["Our Mission", "Our Vision", "Why Choose Us"].map((title, idx) => {
-                const descriptions = [
-                  "To empower organizations with secure, reliable, and innovative technology solutions that improve operational efficiency, strengthen digital resilience, and support sustainable business growth.",
-                  "To become a trusted technology partner for organizations across Pakistan by delivering world-class ICT solutions, exceptional service, and innovative digital capabilities.",
-                  "We combine industry experience, technical expertise, trusted technology partnerships, and customer-focused support to deliver solutions built around your organization's real business requirements."
-                ];
-                
-                return (
-                  <div 
-                    key={title}
-                    className="group relative overflow-hidden rounded-xl border border-line bg-black/40 p-6 text-left transition-all duration-500 hover:-translate-y-2 hover:border-circuit/50 hover:bg-black/60 hover:shadow-[0_10px_40px_rgba(40,167,69,0.2)]"
-                    style={{ 
-                      animation: `fade-in-up 0.6s ease-out forwards`,
-                      animationDelay: `${idx * 150 + 300}ms`,
-                      opacity: 0
-                    }}
-                  >
-                    <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-circuit/5 blur-2xl transition-all duration-500 group-hover:bg-circuit/10" />
-                    
-                    <h3 className="relative text-lg font-semibold text-paper transition-colors duration-300 group-hover:text-circuit">
-                      {title}
-                    </h3>
-                    
-                    <p className="relative mt-3 text-sm text-steel transition-colors duration-300 group-hover:text-paper/80">
-                      {descriptions[idx]}
-                    </p>
-
-                    <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-circuit to-signal transition-all duration-500 group-hover:w-full" />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-        <ServicesGrid />
-        <Testimonials />
-        <section
+      <section
         className="border-t border-line px-6 py-20"
         style={{
           background:
-            "linear-gradient(135deg, #0a1128 0%, #1e1b4b 100%)",
+            "linear-gradient(120deg, #0a1128, #000000 60%, #06170f)",
         }}
       >
-        <div className="mx-auto">
-          <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
-              Our Clients
-            </p>
+        <div className="mx-auto max-w-7xl text-center">
+          <p className="animate-fade-in text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
+            Who We Are
+          </p>
 
-            <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
-              Trusted by{" "}
-              <span className="text-signal">Leading</span>{" "}
-              Organizations
-            </h2>
-          </div>
+          <h2
+            className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl"
+            style={{ animationDelay: "100ms" }}
+          >
+            Technology <span className="text-signal">That Moves</span> Your
+            Business Forward
+          </h2>
 
-          <div className="relative mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
-            <div className="marquee-track flex w-max">
-              <PartnerGroup />
-              <PartnerGroup />
-            </div>
+          <p
+            className="animate-fade-in-up mx-auto mt-5 w-3/4 max-w-4xl text-sm leading-relaxed text-steel"
+            style={{ animationDelay: "200ms" }}
+          >
+            MMC is a technology solutions and ICT services provider helping
+            organizations build secure, connected, and future-ready digital
+            environments. From enterprise infrastructure and cybersecurity to
+            data centers, surveillance, software integration, and digital
+            solutions, we combine technical expertise with trusted technologies
+            to solve complex business challenges.
+          </p>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {pillars.map(({ title, text }, idx) => (
+              <div
+                key={title}
+                className="group relative overflow-hidden rounded-xl border border-line bg-black/40 p-6 text-left transition-all duration-500 hover:-translate-y-2 hover:border-circuit/50 hover:bg-black/60 hover:shadow-[0_10px_40px_rgba(40,167,69,0.2)]"
+                style={{
+                  animation: "fade-in-up 0.6s ease-out forwards",
+                  animationDelay: `${idx * 150 + 300}ms`,
+                  opacity: 0,
+                }}
+              >
+                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-circuit/5 blur-2xl transition-all duration-500 group-hover:bg-circuit/10" />
+
+                <h3 className="relative text-lg font-semibold text-paper transition-colors duration-300 group-hover:text-circuit">
+                  {title}
+                </h3>
+
+                <p className="relative mt-3 text-sm text-steel transition-colors duration-300 group-hover:text-paper/80">
+                  {text}
+                </p>
+
+                <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-circuit to-signal transition-all duration-500 group-hover:w-full" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
-        <FAQ />
-      
-      </>
-    );
-  }
+
+      <ServicesGrid />
+      <Testimonials />
+      <FAQ />
+    </>
+  );
+}
