@@ -43,8 +43,8 @@ export default function Hero() {
         Software, cybersecurity, data centers, hardware, surveillance, and digital marketing delivered to government and listed enterprises for thirty years.
       </p>
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-        <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 rounded-md bg-signal px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_35px_rgba(0,102,255,0.32)] transition hover:-translate-y-0.5 hover:bg-[#1978ff]">Book a discovery call <ArrowRight className="h-4 w-4" /></Link>
-        <Link href="/services" className="inline-flex items-center justify-center gap-2 rounded-md border border-paper/80 px-6 py-3.5 text-sm font-bold text-paper transition hover:border-signal hover:bg-signal/10">Explore our divisions <ChevronRight className="h-4 w-4" /></Link>
+        <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_35px_rgba(0,102,255,0.32)] transition hover:-translate-y-0.5 hover:bg-[#1978ff]">Book a discovery call </Link>
+        <Link href="/services" className="group relative hidden overflow-hidden rounded-full border border-signal bg-signal/10 px-6 py-2.5 text-sm font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)] lg:inline-flex">Explore our divisions</Link>
       </div>
       <div className="mt-14 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-steel"><span className="h-px w-10 bg-line" />Trusted technology delivery<span className="h-px w-10 bg-line" /></div>
     </div>

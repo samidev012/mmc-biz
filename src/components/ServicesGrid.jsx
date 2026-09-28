@@ -124,7 +124,7 @@ export default function ServicesSection() {
 
                 <Link 
                   href="/services" 
-                  className="service-link mt-6 inline-flex items-center gap-2 text-sm font-semibold text-signal transition-all duration-300 hover:gap-3 hover:text-circuit"
+                  className="group relative mt-10 hidden overflow-hidden rounded-full border border-signal bg-signal/10 px-6 py-2.5 text-sm font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)] lg:inline-flex"
                 >
                   Explore service 
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" />

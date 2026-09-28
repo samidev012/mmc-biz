@@ -210,7 +210,7 @@ const industries = [
   },
   {
     title: "FMCG",
-    image: "/images/Supermarket.png",
+    image: "/images/SuperMarket.png",
     description:
       "Reliable technology solutions helping FMCG organizations connect their operations securely.",
     points: [
