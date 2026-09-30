@@ -43,9 +43,6 @@ import VantaDotsBackground from "@/components/ParticlesBackground";
 import { useState } from "react";
 
 
-
-
-
 const applications = [
   { n: "01", title: "Integrity", desc: "We operate with honesty, transparency, and strong ethical principles building lasting trust with every client and partner we work with.", icon: HeartHandshake },
   { n: "02", title: "Sustainability", desc: "We're committed to sustainable practices across our operations and solutions, helping build a better future for our communities and environment.", icon: Leaf },
@@ -100,18 +97,18 @@ export default function AboutUs() {
       </section>
 
       {/* Applications */}
-      <section className="px-6 py-20" style={{ background: "linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)" }}>
+      <section className="theme-bg-strip px-6 py-20">
         <div className="mx-auto">
           <h2 className="animate-fade-in text-center text-6xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-widest">
-            
+
           </h2>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {applications.map((a, idx) => (
               <div
                 key={a.n}
-                className="group relative overflow-hidden rounded-xl border border-line bg-black/40 p-6 transition-all duration-500 hover:border-signal/50 hover:bg-black/60 hover:shadow-[0_0_30px_rgba(0,102,255,0.15)]"
-                style={{ 
+                className="group relative overflow-hidden rounded-xl border border-line bg-white/70 p-6 shadow-sm transition-all duration-500 hover:border-signal/50 hover:bg-white hover:shadow-[0_0_30px_rgba(0,102,255,0.15)] dark:bg-black/40 dark:shadow-none dark:hover:bg-black/60"
+                style={{
                   animation: `fade-in-up 0.6s ease-out forwards`,
                   animationDelay: `${idx * 100}ms`,
                   opacity: 0
@@ -120,10 +117,10 @@ export default function AboutUs() {
                 onMouseLeave={() => setHoveredApp(null)}
               >
                 {/* Animated border glow */}
-                <div className="absolute inset-0 -z-10 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" 
-                     style={{ background: 'radial-gradient(circle at center, rgba(0,102,255,0.3), transparent 70%)' }} 
+                <div className="absolute inset-0 -z-10 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100"
+                     style={{ background: 'radial-gradient(circle at center, rgba(0,102,255,0.3), transparent 70%)' }}
                 />
-                
+
                 {/* Hover gradient overlay */}
                 <div className="absolute inset-0 -z-10 translate-y-full bg-gradient-to-t from-signal/10 to-transparent transition-transform duration-500 group-hover:translate-y-0" />
 
@@ -133,11 +130,11 @@ export default function AboutUs() {
                   </span>
                   <a.icon className={`h-5 w-5 text-signal transition-all duration-500 ${hoveredApp === idx ? 'rotate-12 scale-125' : ''}`} />
                 </div>
-                
+
                 <h3 className="mt-4 text-xl font-semibold text-paper transition-all duration-300 group-hover:text-signal">
                   {a.title}
                 </h3>
-                
+
                 <p className="mt-2 text-sm text-steel transition-all duration-300 group-hover:text-paper/80">
                   {a.desc}
                 </p>
@@ -150,10 +147,10 @@ export default function AboutUs() {
 
           <div className="mt-16 grid grid-cols-2 gap-8 border-t border-line/50 pt-12 sm:grid-cols-4">
             {certifications.map((c, idx) => (
-              <div 
-                key={c} 
+              <div
+                key={c}
                 className="group flex items-center justify-center transition-all duration-300 hover:scale-110"
-                style={{ 
+                style={{
                   animation: `fade-in 0.8s ease-out forwards`,
                   animationDelay: `${idx * 100 + 500}ms`,
                   opacity: 0
@@ -170,16 +167,16 @@ export default function AboutUs() {
       </section>
 
       {/* Who we are */}
-      <section className="border-t border-line px-6 py-20" style={{ background: "linear-gradient(120deg, #0a1128, #000000 60%, #06170f)" }}>
+      <section className="theme-bg-diag border-t border-line px-6 py-20">
         <div className="mx-auto text-center">
           <p className="animate-fade-in text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
             Who We Are
           </p>
-          
+
           <h2 className="animate-fade-in-up mt-3 text-3xl font-bold text-paper uppercase transition-all duration-500 hover:tracking-wide md:text-6xl" style={{ animationDelay: '100ms' }}>
             Technology <span className="text-signal">That Moves</span> Your Business Forward
           </h2>
-          
+
           <p className="animate-fade-in-up mx-auto w-3/4 max-w-4xl mt-5 text-sm leading-relaxed text-steel" style={{ animationDelay: '200ms' }}>
             MMC is a technology solutions and ICT services provider helping organizations
             build secure, connected, and future-ready digital environments. From
@@ -195,23 +192,23 @@ export default function AboutUs() {
                 "To become a trusted technology partner for organizations across Pakistan by delivering world-class ICT solutions, exceptional service, and innovative digital capabilities.",
                 "We combine industry experience, technical expertise, trusted technology partnerships, and customer-focused support to deliver solutions built around your organization's real business requirements."
               ];
-              
+
               return (
-                <div 
+                <div
                   key={title}
-                  className="group relative overflow-hidden rounded-xl border border-line bg-black/40 p-6 text-left transition-all duration-500 hover:-translate-y-2 hover:border-circuit/50 hover:bg-black/60 hover:shadow-[0_10px_40px_rgba(40,167,69,0.2)]"
-                  style={{ 
+                  className="group relative overflow-hidden rounded-xl border border-line bg-white/70 p-6 text-left shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-circuit/50 hover:bg-white hover:shadow-[0_10px_40px_rgba(40,167,69,0.2)] dark:bg-black/40 dark:shadow-none dark:hover:bg-black/60"
+                  style={{
                     animation: `fade-in-up 0.6s ease-out forwards`,
                     animationDelay: `${idx * 150 + 300}ms`,
                     opacity: 0
                   }}
                 >
                   <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-circuit/5 blur-2xl transition-all duration-500 group-hover:bg-circuit/10" />
-                  
+
                   <h3 className="relative text-lg font-semibold text-paper transition-colors duration-300 group-hover:text-circuit">
                     {title}
                   </h3>
-                  
+
                   <p className="relative mt-3 text-sm text-steel transition-colors duration-300 group-hover:text-paper/80">
                     {descriptions[idx]}
                   </p>
@@ -225,12 +222,12 @@ export default function AboutUs() {
       </section>
 
       {/* Banner ribbon */}
-      <section className="border-t border-line px-6 py-16 text-center" style={{ background: "linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)" }}>
+      <section className="theme-bg-strip border-t border-line px-6 py-16 text-center">
         <h2 className="animate-fade-in mx-auto text-2xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
           Your trusted <span className="text-signal">partner</span> in digital transformation,
           helping <span className="text-signal">you stay ahead</span> of the competition
         </h2>
-        
+
         <p className="animate-fade-in-up mx-auto mt-5 max-w-4xl text-sm leading-relaxed text-steel" style={{ animationDelay: '200ms' }}>
           For over three decades, MMC has helped Pakistan&apos;s banks, regulators, and
           enterprises navigate an ever-changing technology landscape. From infrastructure
@@ -241,7 +238,7 @@ export default function AboutUs() {
       </section>
 
       {/* Guiding Principles */}
-      <section className="border-t border-line px-6 py-20" style={{ background: "linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d)" }}>
+      <section className="theme-bg-strip border-t border-line px-6 py-20">
         <div className="mx-auto grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="animate-fade-in">
             <h2 className="text-6xl font-bold uppercase leading-tight text-paper transition-all duration-500 hover:tracking-widest">
@@ -249,7 +246,7 @@ export default function AboutUs() {
               <br />
               <span className="text-signal">Principles</span>
             </h2>
-            
+
             <p className="mt-5 text-sm leading-relaxed text-steel">
               Our work is an act of Ibadah — worship through excellence, honesty, and
               service. We believe that building beneficial things with integrity is a
@@ -261,8 +258,8 @@ export default function AboutUs() {
             {principles.map((p, idx) => (
               <div
                 key={p.title}
-                className="group relative overflow-hidden rounded-xl border border-line bg-black/40 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-signal/50 hover:bg-black/60 hover:shadow-[0_10px_40px_rgba(0,102,255,0.2)]"
-                style={{ 
+                className="group relative overflow-hidden rounded-xl border border-line bg-white/70 p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-signal/50 hover:bg-white hover:shadow-[0_10px_40px_rgba(0,102,255,0.2)] dark:bg-black/40 dark:shadow-none dark:hover:bg-black/60"
+                style={{
                   animation: `fade-in-up 0.6s ease-out forwards`,
                   animationDelay: `${idx * 100}ms`,
                   opacity: 0
@@ -276,11 +273,11 @@ export default function AboutUs() {
                 <span className={`relative flex h-10 w-10 items-center justify-center rounded-full bg-signal/15 text-signal transition-all duration-500 group-hover:scale-110 group-hover:bg-signal/25 group-hover:shadow-[0_0_20px_rgba(0,102,255,0.5)] ${hoveredPrinciple === idx ? 'rotate-12' : ''}`}>
                   <p.icon className="h-5 w-5 transition-transform duration-500 group-hover:scale-110" />
                 </span>
-                
+
                 <h3 className="relative mt-4 font-semibold text-paper transition-colors duration-300 group-hover:text-signal">
                   {p.title}
                 </h3>
-                
+
                 <p className="relative mt-2 text-sm text-steel transition-colors duration-300 group-hover:text-paper/80">
                   {p.desc}
                 </p>

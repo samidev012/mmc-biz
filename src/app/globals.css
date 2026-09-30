@@ -1,13 +1,28 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --color-ink: #000000;
-  --color-paper: #e6f0fa;
-  --color-steel: #9a9a9a;
-  --color-line: #2a2a2a;
-  --color-signal: #0066ff;
+:root {
+  --paper: 15 23 42;
+  --ink: 255 255 255;
+  --signal: 0 102 255;
+}
+
+.dark {
+  --paper: 230 240 250;
+  --ink: 0 0 0;
+  --signal: 0 102 255;
+}
+
+@theme inline {
+  --color-ink: rgb(var(--ink));
+  --color-paper: rgb(var(--paper));
+  --color-signal: rgb(var(--signal));
+  --color-steel: rgb(var(--steel));
+  --color-line: rgb(var(--line));
   --color-circuit: #28a745;
 }
+
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), sans-serif;
 }
@@ -21,7 +36,7 @@ nav {
 }
 
 /* =========================================
-   SERVICES MEGA MENU
+   SERVICES MEGA MENU (original design)
 ========================================= */
 .mega-menu-wrapper {
   position: fixed;
@@ -35,6 +50,9 @@ nav {
 
 .mega-menu {
   width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: white;
@@ -94,13 +112,6 @@ nav {
 
 .mega-menu-item:hover .mega-menu-item-title span {
   color: black;
-  
-}
-
-.mega-menu-arrow {
-  height: 14px;
-  width: 14px;
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .mega-menu-description {
@@ -111,38 +122,24 @@ nav {
   text-transform: capitalize !important;
 }
 
-
 .mega-menu-arrow {
   width: 14px;
   height: 14px;
-
   flex-shrink: 0;
-
   color: #7d8798;
-
   transform: rotate(-90deg);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
 
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-} 
-
-
-/* =========================================
-   HOVER
-========================================= */
-
+/* HOVER */
 .mega-menu-item:hover {
   transform: translateX(5px);
 }
 
 .mega-menu-item:hover .mega-menu-icon {
   border-color: rgba(0, 102, 255, 0.8);
-
   background: rgba(0, 102, 255, 0.15);
-
-  box-shadow:
-    0 0 18px rgba(0, 102, 255, 0.18);
+  box-shadow: 0 0 18px rgba(0, 102, 255, 0.18);
 }
 
 .mega-menu-item:hover .mega-menu-item-title {
@@ -153,11 +150,7 @@ nav {
   color: #3d8bff;
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
-
+/* TABLET */
 @media (max-width: 1100px) {
   .mega-menu {
     padding: 35px 30px;
@@ -172,11 +165,7 @@ nav {
   }
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
-
+/* MOBILE */
 @media (max-width: 1023px) {
   .mega-menu-wrapper {
     display: none;
@@ -192,8 +181,13 @@ html {
 
 body {
   min-height: 100vh;
+  background-color: rgb(var(--ink));
+  color: rgb(var(--paper));
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark body {
   background: radial-gradient(ellipse 1200px 600px at 50% 0%, rgba(0, 102, 255, 0.18), transparent 70%), #000;
-  color: #e6f0fa;
 }
 
 ::selection {
@@ -2161,4 +2155,460 @@ aside.hero-card.hero-card-left p {
 }
 aside.hero-card.hero-card-right p {
     font-size: 13px !important;
+}
+
+
+
+
+
+
+
+/* =====================================================================
+   LIGHT MODE OVERRIDES
+   Paste this at the VERY END of globals.css.
+   Har rule sirf light mode (html:not(.dark)) par lagti hai,
+   dark mode ki koi rule change nahi hoti.
+===================================================================== */
+
+/* ---------- BODY ---------- */
+html:not(.dark) body {
+  background:
+    radial-gradient(ellipse 1200px 600px at 50% 0%, rgba(0, 102, 255, 0.10), transparent 70%),
+    #f8fafc;
+  color: #0f172a;
+}
+
+/* ---------- HERO ---------- */
+html:not(.dark) .hero-section {
+  background-image:
+    radial-gradient(circle at 50% 42%, rgba(0, 102, 255, .10), transparent 31%),
+    radial-gradient(circle at 1px 1px, rgba(0, 102, 255, .16) 1px, transparent 1.3px);
+}
+
+html:not(.dark) .hero-section::before {
+  background:
+    linear-gradient(90deg, #f8fafc 0%, transparent 20%, transparent 80%, #f8fafc 100%),
+    linear-gradient(0deg, #f8fafc 0%, transparent 24%, transparent 78%, #f8fafc 100%);
+}
+
+html:not(.dark) .hero-orb {
+  opacity: .18;
+}
+
+html:not(.dark) .hero-pill {
+  color: #0b3d91;
+  background: rgba(0, 102, 255, .08);
+  border-color: rgba(0, 102, 255, .35);
+}
+
+html:not(.dark) .hero-outline {
+  text-shadow: none;
+}
+
+html:not(.dark) .hero-card {
+  color: #334155;
+  background: rgba(255, 255, 255, .85);
+  border-color: rgba(0, 102, 255, .25);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, .12);
+}
+
+html:not(.dark) .hero-card>strong {
+  color: #64748b;
+}
+
+html:not(.dark) .hero-card-row {
+  border-bottom-color: rgba(15, 23, 42, .08);
+}
+
+/* ---------- PARTNER MARQUEE ---------- */
+html:not(.dark) .partner-section {
+  background: linear-gradient(105deg, #f8fafc 0%, #eaf1fb 50%, #f8fafc 100%);
+}
+
+html:not(.dark) .partner-mark img {
+  filter: brightness(0);
+  opacity: .7;
+}
+
+html:not(.dark) .partner-mark:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+/* ---------- PARTNERS GRID ---------- */
+html:not(.dark) .partners-section {
+  background:
+    radial-gradient(circle at 8% 88%, rgba(24, 159, 71, .10), transparent 25%),
+    radial-gradient(circle at 92% 4%, rgba(0, 102, 255, .12), transparent 35%),
+    linear-gradient(107deg, #f8fafc 0%, #eef3fa 48%, #e6eefb 100%) !important;
+}
+
+html:not(.dark) .partners-heading h2 {
+  color: #0f172a;
+}
+
+html:not(.dark) .partner-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+/* ---------- ABOUT ---------- */
+html:not(.dark) .about-panel {
+  border-color: rgba(15, 23, 42, .12);
+  background:
+    radial-gradient(circle at 8% 88%, rgba(24, 159, 71, .10), transparent 25%),
+    radial-gradient(circle at 92% 4%, rgba(0, 102, 255, .14), transparent 35%),
+    linear-gradient(107deg, #ffffff 0%, #f4f7fc 48%, #eaf1fb 100%);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, .08);
+}
+
+html:not(.dark) .about-panel::after {
+  background: none;
+}
+
+html:not(.dark) .about-card {
+  background: rgba(255, 255, 255, .8);
+  border-color: rgba(15, 23, 42, .12);
+}
+
+html:not(.dark) .about-card:hover {
+  background: #ffffff;
+  border-color: rgba(0, 102, 255, .5);
+}
+
+html:not(.dark) .about-card-0 {
+  background: rgba(40, 167, 69, .10);
+}
+
+html:not(.dark) .about-card-2 {
+  background: rgba(0, 102, 255, .08);
+}
+
+html:not(.dark) .about-card h3 {
+  color: #0f172a;
+}
+
+html:not(.dark) .about-card p {
+  color: rgba(15, 23, 42, .75);
+}
+
+/* ---------- SERVICES ---------- */
+html:not(.dark) .service-row {
+  background: #ffffff;
+  border-color: rgba(18, 112, 235, .30);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, .08);
+}
+
+html:not(.dark) .service-copy {
+  background: linear-gradient(135deg, #eef4fd, #ffffff);
+}
+
+html:not(.dark) .service-copy h3 {
+  color: #0f172a;
+}
+
+html:not(.dark) .service-description {
+  color: #475569;
+}
+
+html:not(.dark) .service-copy b {
+  color: rgba(15, 23, 42, .25);
+}
+/* .service-visual (icon wale animated panels) dono modes mein dark hi rehte hain */
+
+/* ---------- ATTOM PAGE (base) ---------- */
+html:not(.dark) .attom-page {
+  background: linear-gradient(180deg, #f1f5fb 0%, #ffffff 50%, #eef8f2 100%);
+  color: #0f172a;
+}
+
+html:not(.dark) .attom-hero-bg-animation {
+  background:
+    radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.10) 0%, transparent 50%);
+}
+
+html:not(.dark) .attom-hero-title {
+  color: #0f172a !important;
+}
+
+html:not(.dark) .attom-hero-description {
+  color: #475569;
+}
+
+/* ---------- CONTACT FORM ---------- */
+html:not(.dark) .contact-form-card {
+  background: #ffffff;
+  border-color: rgba(14, 165, 233, 0.3);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, .10);
+}
+
+html:not(.dark) .form-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .form-subtitle {
+  color: #64748b;
+}
+
+html:not(.dark) .form-input {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+html:not(.dark) .form-input:focus {
+  background: #ffffff;
+  border-color: #0ea5e9;
+}
+
+html:not(.dark) .form-input::placeholder {
+  color: #94a3b8;
+}
+
+html:not(.dark) .btn-submit {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+html:not(.dark) .btn-submit:hover {
+  background: #1e293b;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .25);
+}
+
+/* ---------- WHO WE ARE ---------- */
+html:not(.dark) .who-we-are-section {
+  background: linear-gradient(180deg, #f1f5fb 0%, #ffffff 100%);
+}
+
+html:not(.dark) .section-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .section-description {
+  color: #475569;
+}
+
+html:not(.dark) .image-container {
+  box-shadow: 0 30px 80px rgba(15, 23, 42, .18);
+}
+/* .image-overlay / .overlay-text image ke upar hain, dark+white text hi rehta hai */
+
+/* ---------- AWARD ---------- */
+html:not(.dark) .award-section {
+  background: linear-gradient(135deg, #eef4fd 0%, #e8ecfa 100%);
+}
+
+html:not(.dark) .award-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .award-description {
+  color: #475569;
+}
+
+html:not(.dark) .btn-secondary {
+  color: #0f172a;
+  border-color: rgba(15, 23, 42, .3);
+}
+
+html:not(.dark) .btn-secondary:hover {
+  border-color: #0ea5e9;
+  background: rgba(14, 165, 233, .08);
+}
+
+/* ---------- PRODUCTS ---------- */
+html:not(.dark) .products-section {
+  background: #f8fafc;
+}
+
+html:not(.dark) .product-card {
+  background: #ffffff;
+  border-color: rgba(14, 165, 233, 0.25);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
+}
+
+html:not(.dark) .product-card:hover {
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(14, 165, 233, 0.18);
+}
+
+html:not(.dark) .product-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .product-description {
+  color: #475569;
+}
+
+/* ---------- INNOVATION ---------- */
+html:not(.dark) .innovation-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef4fd 100%);
+}
+
+html:not(.dark) .innovation-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .innovation-subtitle {
+  color: #475569;
+}
+
+html:not(.dark) .feature-card {
+  background: #ffffff;
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
+}
+
+html:not(.dark) .feature-description {
+  color: #475569;
+}
+
+/* ---------- PROCESS ---------- */
+html:not(.dark) .process-section {
+  background: #eef4fd;
+}
+
+html:not(.dark) .process-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .process-card {
+  background: #ffffff;
+  border-color: rgba(14, 165, 233, 0.25);
+}
+
+html:not(.dark) .process-card:hover {
+  background: #ffffff;
+  box-shadow: 0 15px 40px rgba(14, 165, 233, 0.15);
+}
+
+html:not(.dark) .process-step-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .process-step-description {
+  color: #475569;
+}
+
+/* ---------- CTA ---------- */
+html:not(.dark) .cta-section {
+  background: linear-gradient(135deg, #e8ecfa 0%, #eef4fd 100%);
+}
+
+html:not(.dark) .cta-container {
+  background: #ffffff;
+  border-color: rgba(14, 165, 233, 0.3);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, .08);
+}
+
+html:not(.dark) .cta-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .cta-description {
+  color: #475569;
+}
+
+/* ---------- FAQ ---------- */
+html:not(.dark) .faq-section {
+  background: #f8fafc;
+}
+
+html:not(.dark) .faq-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .faq-item {
+  background: #ffffff;
+  border-color: rgba(14, 165, 233, 0.25);
+}
+
+html:not(.dark) .faq-question {
+  color: #0f172a;
+}
+
+html:not(.dark) .faq-question:hover {
+  color: #0ea5e9;
+}
+
+html:not(.dark) .faq-answer {
+  color: #475569;
+}
+
+/* ---------- FINAL CTA ---------- */
+html:not(.dark) .final-cta-section {
+  background: linear-gradient(135deg, #eef4fd 0%, #e8ecfa 100%);
+}
+
+html:not(.dark) .final-cta-card {
+  background: #ffffff;
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, .08);
+}
+
+html:not(.dark) .final-cta-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .final-cta-description {
+  color: #475569;
+}
+
+/* ---------- INFRASTRUCTURE ---------- */
+html:not(.dark) .infrastructure-section {
+  background: linear-gradient(135deg, #eef4fd 0%, #e8ecfa 100%);
+}
+
+html:not(.dark) .infrastructure-title {
+  color: #0f172a;
+}
+
+html:not(.dark) .infrastructure-description {
+  color: #475569;
+}
+/* .infrastructure-image-overlay / overlay-text image ke upar hain, waise hi rehte hain */
+
+
+
+
+/* =====================================================================
+   THEME-AWARE SECTION BACKGROUNDS
+   (FAQ, Testimonials, About page, Footer mein use hoti hain)
+===================================================================== */
+
+/* Radial (FAQ, Testimonials) */
+.theme-bg-radial {
+  background: radial-gradient(ellipse at 60% 40%, #eaf1fb 0%, #f4f7fc 50%, #ffffff 100%);
+}
+.dark .theme-bg-radial {
+  background: radial-gradient(ellipse at 60% 40%, #0a1a2e 0%, #060d1a 50%, #000000 100%);
+}
+
+/* Horizontal strip (About page sections) */
+.theme-bg-strip {
+  background: linear-gradient(90deg, #eef8f2, #eef4fd 60%, #e6eefb);
+}
+.dark .theme-bg-strip {
+  background: linear-gradient(90deg, #06170f, #0a1128 60%, #001a3d);
+}
+
+/* Diagonal (About: Who we are) */
+.theme-bg-diag {
+  background: linear-gradient(120deg, #eef4fd, #ffffff 60%, #eef8f2);
+}
+.dark .theme-bg-diag {
+  background: linear-gradient(120deg, #0a1128, #000000 60%, #06170f);
+}
+
+/* Footer */
+.theme-bg-footer {
+  background: linear-gradient(to bottom, #f1f5fb, #e6eefb);
+}
+.dark .theme-bg-footer {
+  background: linear-gradient(to bottom, #050914, #000000);
+}
+
+html:not(.dark) .logo-adaptive {
+  filter: invert(1) hue-rotate(180deg);
 }

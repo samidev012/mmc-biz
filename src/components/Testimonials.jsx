@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Star, Quote } from "lucide-react";
@@ -33,15 +32,10 @@ export default function Testimonials() {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
-    <section
-      className="relative overflow-hidden border-t border-line px-6 py-24"
-      style={{
-        background: "radial-gradient(ellipse at 60% 40%, #0a1a2e 0%, #060d1a 50%, #000000 100%)"
-      }}
-    >
+    <section className="theme-bg-radial relative overflow-hidden border-t border-line px-6 py-24">
       {/* Animated grid background */}
       <div className="pointer-events-none absolute inset-0 opacity-20">
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
@@ -54,8 +48,8 @@ export default function Testimonials() {
         />
       </div>
 
-      {/* Fade edges */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+      {/* Fade edges (theme-aware) */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink via-transparent to-ink" />
 
       {/* Floating orbs */}
       <div className="pointer-events-none absolute left-1/4 top-1/4 h-96 w-96 animate-float-slow rounded-full bg-signal/5 blur-3xl" />
@@ -65,14 +59,14 @@ export default function Testimonials() {
         <p className="animate-fade-in text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
           Testimonial
         </p>
-        
+
         <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl" style={{ animationDelay: '100ms' }}>
           <span className="text-paper">What Our </span>
           <span className="relative inline-block text-signal">
             Clients Are
             <span className="absolute -bottom-2 left-0 h-0.5 w-0 bg-signal transition-all duration-700 group-hover:w-full" />
-          </span> 
-          Saying
+          </span>{" "}
+          <span className="text-paper">Saying</span>
         </h2>
 
         <p className="animate-fade-in-up mx-auto mt-5 max-w-xl text-steel" style={{ animationDelay: '200ms' }}>
@@ -86,10 +80,10 @@ export default function Testimonials() {
               key={t.name}
               className={`group relative flex flex-col overflow-hidden rounded-2xl border p-8 text-left transition-all duration-500 ${
                 t.featured
-                  ? "border-signal bg-gradient-to-b from-signal/10 to-black shadow-[0_0_50px_-15px_rgba(0,102,255,0.5)] md:-translate-y-4 hover:shadow-[0_0_70px_-10px_rgba(0,102,255,0.7)]"
-                  : "border-line bg-black/40 hover:-translate-y-2 hover:border-signal/40 hover:shadow-[0_10px_40px_rgba(0,102,255,0.2)]"
+                  ? "border-signal bg-gradient-to-b from-signal/10 to-white shadow-[0_0_50px_-15px_rgba(0,102,255,0.5)] hover:shadow-[0_0_70px_-10px_rgba(0,102,255,0.7)] md:-translate-y-4 dark:to-black"
+                  : "border-line bg-white/70 shadow-sm hover:-translate-y-2 hover:border-signal/40 hover:shadow-[0_10px_40px_rgba(0,102,255,0.2)] dark:bg-black/40 dark:shadow-none"
               }`}
-              style={{ 
+              style={{
                 animation: `fade-in-up 0.6s ease-out forwards`,
                 animationDelay: `${idx * 150 + 300}ms`,
                 opacity: 0
@@ -110,18 +104,18 @@ export default function Testimonials() {
 
               {/* Quote text */}
               <p className="relative mt-4 flex-1 text-sm leading-relaxed text-steel transition-colors duration-300 group-hover:text-paper/90">
-                <span className="absolute -left-2 top-0 text-4xl font-serif text-signal/10">"</span>
+                <span className="absolute -left-2 top-0 text-4xl font-serif text-signal/10">&quot;</span>
                 {t.quote}
-                <span className="text-4xl font-serif text-signal/10">"</span>
+                <span className="text-4xl font-serif text-signal/10">&quot;</span>
               </p>
 
               {/* Animated stars */}
               <div className="mt-6 flex items-center gap-1">
                 {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star 
-                    key={i} 
+                  <Star
+                    key={i}
                     className={`h-4 w-4 fill-amber-400 text-amber-400 transition-all duration-300 ${hoveredCard === idx ? 'scale-110' : ''}`}
-                    style={{ 
+                    style={{
                       transitionDelay: `${i * 50}ms`,
                       animation: hoveredCard === idx ? `star-pulse 0.6s ease-in-out ${i * 0.1}s` : 'none'
                     }}

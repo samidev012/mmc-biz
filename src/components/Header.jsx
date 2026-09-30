@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NextImage from "next/image";
-import { Bell } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 
 const sections = [
   {
@@ -19,9 +19,9 @@ const sections = [
           { title: "Fortra", href: "/services/cyber-security/fortra/" },
           { title: "Kaspersky", href: "/services/cyber-security/kaspersky/" },
           { title: "Solarwinds", href: "/services/cyber-security/solarwind/" },
-          { title: "SPlunk", href: "/services/cyber-security/splunk/" },
+          { title: "Splunk", href: "/services/cyber-security/splunk/" },
           { title: "Openvpn", href: "/services/cyber-security/openvpn/" },
-          { title: "sangfor", href: "/services/cyber-security/sangfor/" },
+          { title: "Sangfor", href: "/services/cyber-security/sangfor/" },
           { title: "Crowdstrike", href: "/services/cyber-security/crowdstrike/" },
           { title: "Fortinet", href: "/services/cyber-security/fortinet/" },
           { title: "Microsoft", href: "/services/cyber-security/microsoft/" },
@@ -29,7 +29,6 @@ const sections = [
           { title: "Darktrace", href: "/services/cyber-security/darktrace/" },
         ],
       },
-
       {
         title: "Cyber Security Services",
         description: "End-to-end security solutions.",
@@ -51,7 +50,6 @@ const sections = [
       },
     ],
   },
-
   {
     title: "Data Center",
     items: [
@@ -81,7 +79,6 @@ const sections = [
       },
     ],
   },
-
   {
     title: "CCTV & Surveillance",
     items: [
@@ -92,7 +89,6 @@ const sections = [
       },
     ],
   },
-
   {
     title: "Value Added Partners",
     items: [
@@ -138,10 +134,39 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
 
+  const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState("dark");
+  const [mounted, setMounted] = useState(false);
+
   const closeTimer = useRef(null);
   const companyTimer = useRef(null);
   const subMenuTimer = useRef(null);
 
+  /* ================= SCROLL DETECT ================= */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /* ================= THEME INIT ================= */
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+    setMounted(true);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch (e) {}
+    document.documentElement.classList.toggle("dark", next === "dark");
+  };
+
+  /* ================= MENU HANDLERS ================= */
   const openServices = () => {
     clearTimeout(closeTimer.current);
     setServicesOpen(true);
@@ -176,18 +201,24 @@ export default function Header() {
     }, 200);
   };
 
-  const closeMobile = () => {
-    setMobileOpen(false);
-  };
+  const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 border-white/10 bg-white/[0.06] px-4 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] backdrop-blur-2xl ">
-      {/* ================= FLOATING PILL NAVBAR ================= */}
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ease-out ${
+        scrolled ? "px-4 pt-3" : "px-0 pt-0"
+      }`}
+    >
+      {/* ================= NAVBAR (full width -> pill on scroll) ================= */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-white/[0.06] px-4 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] backdrop-blur-2xl before:absolute before:inset-0  before:from-white/[0.08]  before:pointer-events-none"
+        className={`relative mx-auto flex w-full items-center justify-between border backdrop-blur-2xl transition-all duration-500 ease-out ${
+          scrolled
+            ? "max-w-7xl rounded-[40px] border-black/10 bg-white/75 px-4 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.15)] dark:border-white/10 dark:bg-white/[0.06] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+            : "max-w-[1920px] rounded-[0px] border-transparent border-b-black/10 bg-white/60 px-6 py-4 dark:border-b-white/10 dark:bg-white/[0.04] lg:px-10"
+        }`}
       >
         {/* ================= LOGO ================= */}
         <Link href="/" aria-label="MMC Home" className="flex items-center gap-2 pl-1">
@@ -197,7 +228,7 @@ export default function Header() {
             width={150}
             height={50}
             priority
-            className="h-auto w-[120px] object-contain"
+            className="logo-adaptive h-auto w-[120px] object-contain"
           />
         </Link>
 
@@ -212,7 +243,9 @@ export default function Header() {
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
               className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium uppercase transition-colors duration-300 ${
-                servicesOpen ? "text-white" : "text-paper/70 hover:text-white"
+                servicesOpen
+                  ? "text-white"
+                  : "text-paper/70 hover:text-signal"
               }`}
             >
               {servicesOpen && (
@@ -244,7 +277,7 @@ export default function Header() {
                   onMouseEnter={openServices}
                   onMouseLeave={closeServices}
                 >
-                  <div  className="mega-menu mt-3 overflow-hidden rounded-2xl border border-white/10 bg-ink/50 shadow-2xl backdrop-blur-2xl">
+                  <div className="mega-menu mt-3 overflow-hidden rounded-2xl border border-white/10 bg-ink/50 shadow-2xl backdrop-blur-2xl">
                     <div className="mega-menu-grid">
                       {sections.map((section, sectionIndex) => (
                         <div
@@ -278,7 +311,7 @@ export default function Header() {
                                       animationDelay: `${itemIndex * 70}ms`,
                                     }}
                                   >
-                                    <span className="mega-menu-content py-2 px-3 hover:py-2 hover:px-3">
+                                    <span className="mega-menu-content px-3 py-2">
                                       <span className="mega-menu-item-title">
                                         <span>{item.title}</span>
                                         {item.hasArrow && (
@@ -293,7 +326,7 @@ export default function Header() {
                                     </span>
                                   </Link>
 
-                                  {/* ✅ SUB-MENU DROPDOWN */}
+                                  {/* ================= SUB-MENU ================= */}
                                   <AnimatePresence>
                                     {hasSubItems && activeSubMenu === itemKey && (
                                       <motion.div
@@ -301,27 +334,20 @@ export default function Header() {
                                         animate={{ opacity: 1, x: 0 }}
                                         exit={{ opacity: 0, x: -8 }}
                                         transition={{ duration: 0.2 }}
-                                        className="absolute left-full top-0 ml-2 w-80 z-50 rounded-xl border  bg-ink/20 shadow-2xl backdrop-blur-2xl"
+                                        className="absolute left-full top-0 z-50 ml-2 w-80 rounded-xl border border-black/10 bg-white shadow-2xl"
                                         onMouseEnter={() => openSubMenu(itemKey)}
                                         onMouseLeave={closeSubMenu}
                                       >
                                         <div className="p-2">
-                                          {item.subItems.map(
-                                            (subItem, subIndex) => (
-                                              <Link
-                                                key={subIndex}
-                                                href={subItem.href}
-                                                className="block rounded-lg px-5 py-1 text-sm transition-colors  hover:bg-signal/10 hover:text-signal"
-                                              >
-                                                <div className="font-medium text-black">
-                                                  {subItem.title}
-                                                </div>
-                                                <div className="text-xs text-paper/60">
-                                                  {subItem.description}
-                                                </div>
-                                              </Link>
-                                            ),
-                                          )}
+                                          {item.subItems.map((subItem) => (
+                                            <Link
+                                              key={subItem.href}
+                                              href={subItem.href}
+                                              className="block rounded-lg px-5 py-1.5 text-sm text-black transition-colors hover:bg-signal/10 hover:text-signal"
+                                            >
+                                              {subItem.title}
+                                            </Link>
+                                          ))}
                                         </div>
                                       </motion.div>
                                     )}
@@ -344,7 +370,7 @@ export default function Header() {
             <Link
               key={href}
               href={href}
-              className="rounded-full px-4 py-2 text-sm font-medium uppercase text-paper/70 transition-colors duration-300 hover:text-white"
+              className="rounded-full px-4 py-2 text-sm font-medium uppercase text-paper/70 transition-colors duration-300 hover:text-signal"
             >
               {label}
             </Link>
@@ -359,7 +385,9 @@ export default function Header() {
             <button
               onClick={() => setCompanyOpen(!companyOpen)}
               className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium uppercase transition-colors duration-300 ${
-                companyOpen ? "text-white" : "text-paper/70 hover:text-white"
+                companyOpen
+                  ? "text-white"
+                  : "text-paper/70 hover:text-signal"
               }`}
             >
               {companyOpen && (
@@ -388,7 +416,7 @@ export default function Header() {
                   transition={{ duration: 0.2 }}
                   className="absolute right-0 top-full z-50 mt-3"
                 >
-                  <div className="w-44 overflow-hidden rounded-xl border border-white/10 bg-ink/60 py-2 shadow-2xl backdrop-blur-2xl">
+                  <div className="w-44 overflow-hidden rounded-xl border border-black/10 bg-ink/95 py-2 text-paper shadow-2xl backdrop-blur-2xl dark:border-white/10">
                     <Link
                       href="/about-us"
                       className="block px-4 py-2 text-sm transition-colors hover:bg-signal/10 hover:text-signal"
@@ -408,18 +436,31 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* ================= RIGHT SIDE: BELL + CTA ================= */}
+        {/* ================= RIGHT SIDE: THEME TOGGLE + CTA ================= */}
         <div className="flex items-center gap-3">
           <button
-            aria-label="Notifications"
-            className="relative hidden h-9 w-9 items-center justify-center rounded-full text-paper/70 transition-colors hover:text-white lg:flex"
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+            className="relative flex h-9 w-9 items-center justify-center rounded-full text-paper/70 transition-colors hover:bg-signal/10 hover:text-signal"
           >
-            <Bell className="h-4 w-4" />
-            <motion.span
-              animate={{ scale: [1, 1.3, 1] }}
-              transition={{ duration: 1.6, repeat: Infinity }}
-              className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-signal"
-            />
+            <AnimatePresence mode="wait" initial={false}>
+              {mounted && (
+                <motion.span
+                  key={theme}
+                  initial={{ opacity: 0, rotate: -90, scale: 0.6 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.6 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex"
+                >
+                  {theme === "dark" ? (
+                    <Sun className="h-4 w-4" />
+                  ) : (
+                    <Moon className="h-4 w-4" />
+                  )}
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
 
           {/* ================= BUSINESS PARTNER ================= */}
@@ -449,7 +490,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="mx-auto mt-2 flex max-w-7xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink/50 px-6 py-4 backdrop-blur-2xl lg:hidden"
+            className="mx-auto mt-2 flex max-w-7xl flex-col overflow-hidden rounded-2xl border border-black/10 bg-ink/95 px-6 py-4 text-paper backdrop-blur-2xl dark:border-white/10 lg:hidden"
           >
             <Link href="/services" onClick={closeMobile} className="py-2 text-sm">
               Services
@@ -467,11 +508,7 @@ export default function Header() {
             <Link href="/about-us" onClick={closeMobile} className="py-2 text-sm">
               About Us
             </Link>
-            <Link
-              href="/contact-us"
-              onClick={closeMobile}
-              className="py-2 text-sm"
-            >
+            <Link href="/contact-us" onClick={closeMobile} className="py-2 text-sm">
               Contact Us
             </Link>
           </motion.nav>

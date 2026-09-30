@@ -116,10 +116,10 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-gradient-to-b from-[#050914] to-black px-6 py-16 text-paper">
+    <footer className="theme-bg-footer border-t border-line px-6 py-16 text-paper">
       <div className="mx-auto ">
         <div className="grid gap-6 lg:grid-cols-[1fr_2.2fr]">
-          <div className="rounded-2xl border border-signal/20 bg-[#0a1128]/60 p-8">
+          <div className="rounded-2xl border border-signal/20 bg-white/70 p-8 shadow-sm dark:bg-[#0a1128]/60 dark:shadow-none">
 
             <Link
               href="/"
@@ -132,7 +132,7 @@ export default function Footer() {
                 width={160}
                 height={55}
                 priority
-                className="h-auto w-[160px] object-contain"
+               className="logo-adaptive h-auto w-[160px] object-contain"
               />
             </Link>
 
@@ -173,7 +173,7 @@ export default function Footer() {
 
           <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {columns.map((col) => (
-              <div key={col.title} className="rounded-2xl border border-line bg-[#0a1128]/40 p-6 transition-colors hover:border-signal/40">
+              <div key={col.title} className="rounded-2xl border border-line bg-white/70 p-6 shadow-sm transition-colors hover:border-signal/40 dark:bg-[#0a1128]/40 dark:shadow-none">
                 <p className="flex items-center gap-2 text-sm font-semibold text-signal">
                   <col.icon className="h-4 w-4" />
                   {col.title.toUpperCase()}

@@ -46,7 +46,7 @@ export default function Hero() {
         <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_35px_rgba(0,102,255,0.32)] transition hover:-translate-y-0.5 hover:bg-[#1978ff]">Book a discovery call </Link>
         <Link href="/services" className="group relative hidden overflow-hidden rounded-full border border-signal bg-signal/10 px-6 py-2.5 text-sm font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)] lg:inline-flex">Explore our divisions</Link>
       </div>
-      <div className="mt-14 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-steel"><span className="h-px w-10 bg-line" />Trusted technology delivery<span className="h-px w-10 bg-line" /></div>
+      <div className="mt-14 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-paper/50"><span className="h-px w-10 bg-paper/25" />Trusted technology delivery<span className="h-px w-10 bg-paper/25" /></div>
     </div>
   </section>;
 }

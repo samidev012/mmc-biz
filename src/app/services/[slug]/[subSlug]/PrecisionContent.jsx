@@ -68,7 +68,7 @@ export default function PrecisionContent() {
                 className="group rounded-xl border border-line bg-black/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:shadow-[0_0_30px_-12px_rgba(0,102,255,0.5)]"
               >
                
-                <h3 className="mt-5 text-lg font-semibold text-signal">{b.title}</h3>
+                <h2 className="mt-5 text-lg font-semibold text-signal">{b.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{b.desc}</p>
                 <button className="group relative mt-9 overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">{b.btn}</button>
               </div>

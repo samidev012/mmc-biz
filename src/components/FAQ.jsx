@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -36,15 +35,10 @@ export default function FAQ() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section
-      className="relative overflow-hidden border-t border-line px-6 py-24"
-      style={{
-        background: "radial-gradient(ellipse at 60% 40%, #0a1a2e 0%, #060d1a 50%, #000000 100%)",
-      }}
-    >
+    <section className="theme-bg-radial relative overflow-hidden border-t border-line px-6 py-24">
       {/* Animated grid background */}
       <div className="pointer-events-none absolute inset-0 opacity-10">
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
@@ -57,8 +51,8 @@ export default function FAQ() {
         />
       </div>
 
-      {/* Fade edges */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+      {/* Fade edges (theme-aware) */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink via-transparent to-ink" />
 
       {/* Floating orbs */}
       <div className="pointer-events-none absolute left-1/3 top-1/3 h-96 w-96 animate-float-slow rounded-full bg-signal/5 blur-3xl" />
@@ -78,9 +72,9 @@ export default function FAQ() {
             <span className="text-paper">Questions</span>
           </h2>
 
-          <div 
-            className="group relative mt-8 overflow-hidden rounded-2xl border border-signal/40 bg-gradient-to-b from-[#0a1128]/60 to-black p-8 transition-all duration-500 hover:border-signal/60 hover:shadow-[0_0_40px_rgba(0,102,255,0.25)]"
-            style={{ 
+          <div
+            className="group relative mt-8 overflow-hidden rounded-2xl border border-signal/40 bg-gradient-to-b from-white to-[#eef4fd] p-8 transition-all duration-500 hover:border-signal/60 hover:shadow-[0_0_40px_rgba(0,102,255,0.25)] dark:from-[#0a1128]/60 dark:to-black"
+            style={{
               animation: 'fade-in-up 0.8s ease-out forwards',
               animationDelay: '200ms',
               opacity: 0
@@ -88,7 +82,7 @@ export default function FAQ() {
           >
             {/* Animated glow */}
             <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-signal/10 blur-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-            
+
             {/* Corner accent */}
             <div className="absolute left-0 top-0 h-0 w-0 border-l-0 border-t-0 border-signal transition-all duration-500 group-hover:h-16 group-hover:w-16 group-hover:border-l-2 group-hover:border-t-2" />
 
@@ -113,11 +107,11 @@ export default function FAQ() {
               className=""
             >
               <span className="group relative mt-10 overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">Get in Touch</span>
-              
-              
+
+
               {/* Animated gradient overlay */}
-              <div className="absolute inset-0 -z-0 bg-gradient-to-r from-signal via-circuit to-signal opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" 
-                   style={{ backgroundSize: '200% 100%', animation: 'gradient-shift 3s ease infinite' }} 
+              <div className="absolute inset-0 -z-0 bg-gradient-to-r from-signal via-circuit to-signal opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100"
+                   style={{ backgroundSize: '200% 100%', animation: 'gradient-shift 3s ease infinite' }}
               />
             </a>
 
@@ -133,10 +127,10 @@ export default function FAQ() {
             const isHovered = hoveredIndex === i;
 
             return (
-              <div 
+              <div
                 key={f.q}
                 className="group/faq"
-                style={{ 
+                style={{
                   animation: `fade-in-left 0.6s ease-out forwards`,
                   animationDelay: `${i * 100 + 300}ms`,
                   opacity: 0
@@ -147,8 +141,8 @@ export default function FAQ() {
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className={`relative flex w-full items-center gap-4 overflow-hidden rounded-xl px-6 py-4 text-left transition-all duration-500 ${
-                    isOpen 
-                      ? 'bg-signal shadow-[0_0_30px_rgba(0,102,255,0.3)]' 
+                    isOpen
+                      ? 'bg-signal shadow-[0_0_30px_rgba(0,102,255,0.3)]'
                       : 'bg-signal/80 hover:bg-signal hover:shadow-[0_0_20px_rgba(0,102,255,0.2)]'
                   }`}
                 >
@@ -180,10 +174,10 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="relative overflow-hidden rounded-xl border border-line bg-black/60 px-6 py-5 transition-all duration-300 hover:border-signal/30 hover:bg-black/80">
+                    <div className="relative overflow-hidden rounded-xl border border-line bg-white/80 px-6 py-5 transition-all duration-300 hover:border-signal/30 hover:bg-white dark:bg-black/60 dark:hover:bg-black/80">
                       {/* Gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-br from-signal/5 via-transparent to-circuit/5 opacity-0 transition-opacity duration-500 hover:opacity-100" />
-                      
+
                       {/* Answer text */}
                       <p className="relative text-sm leading-relaxed text-steel transition-colors duration-300 hover:text-paper/90">
                         {f.a}
