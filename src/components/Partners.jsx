@@ -26,7 +26,6 @@ const partners = [
   { name: "Haier", src: "/images/25_Haier_white_300x300.png" },
   { name: "TCL", src: "/images/26_TCL_white_300x300.png" },
   { name: "Samsung", src: "/images/27_Samsung_white_300x300.png" },
-  { name: "Palwan", src: "/images/28_Palwan_white_300x300.png" },
   { name: "PEL", src: "/images/29_PEL_white_300x300.png" },
   { name: "Orient", src: "/images/30_Orient_white_300x300.png" },
 ];
@@ -38,7 +37,7 @@ function PartnerGroup() {
       {partners.map((partner, index) => (
         <div
           key={`${partner.name}-${index}`}
-          className="flex h-30 w-70 shrink-0 items-center justify-center rounded-lg border border-line bg-black/40 p-4 transition-colors hover:border-signal/40"
+          className="bg-[linear-gradient(135deg,#002452d1,#031022)] flex h-30 w-70 shrink-0 items-center justify-center rounded-lg border  transition-all duration-700 group-hover:w-full p-4 transition-colors"
         >
           <img
             src={partner.src}

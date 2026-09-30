@@ -242,7 +242,7 @@ export default function Header() {
           >
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
-              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium uppercase transition-colors duration-300 ${
+              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-16 font-medium uppercase transition-colors duration-300 ${
                 servicesOpen
                   ? "text-white"
                   : "text-paper/70 hover:text-signal"

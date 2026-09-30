@@ -218,9 +218,7 @@ Passing an audit and actually being secure aren’t always the same thing. Compl
       {/* ================= FORTRA SOLUTIONS SECTION ================= */}
       <section
         className="border-b border-line px-6 py-10"
-        style={{
-          background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
-        }}
+        
       >
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 mb-5 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
@@ -240,7 +238,7 @@ A compliance audit is a structured assessment of an organization's systems, proc
             {Infrastructure.map((I) => (
               <div
                 key={I.title}
-                className="group rounded-xl border border-line bg-black/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:shadow-[0_0_30px_-12px_rgba(0,102,255,0.5)]"
+                className="group rounded-xl border border-line  p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:shadow-[0_0_30px_-12px_rgba(0,102,255,0.5)]"
               >
                 <h3 className="mt-5 text-lg font-semibold text-signal">
                   {I.title}
