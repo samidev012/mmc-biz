@@ -108,103 +108,132 @@ const SocialInstagram = (props) => (
 );
 
 const socials = [
-  { icon: SocialX, href: "#" },
-  { icon: SocialLinkedin, href: "#" },
-  { icon: SocialFacebook, href: "#" },
-  { icon: SocialInstagram, href: "#" },
+  { icon: SocialX, href: "#", label: "X" },
+  { icon: SocialLinkedin, href: "#", label: "LinkedIn" },
+  { icon: SocialFacebook, href: "#", label: "Facebook" },
+  { icon: SocialInstagram, href: "#", label: "Instagram" },
 ];
+
+const iconWrap =
+  "flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-signal/15 text-signal";
 
 export default function Footer() {
   return (
-    <footer className="theme-bg-footer border-t border-line px-6 py-16 text-paper">
-      <div className="mx-auto ">
-        <div className="grid gap-6 lg:grid-cols-[1fr_2.2fr]">
-          <div className="rounded-2xl border border-signal/20 bg-white/70 p-8 shadow-sm dark:bg-[#0a1128]/60 dark:shadow-none">
-
-            <Link
-              href="/"
-              aria-label="MMC Home"
-              className="flex items-center"
-            >
+    <footer className="theme-bg-footer  py-10 text-paper ">
+      <div className="mx-auto  overflow-hidden rounded-3xl bg-white/70 shadow-sm dark:bg-[#0a1128]/60 dark:shadow-none">
+        {/* Top: brand + CTA */}
+        <div className="flex flex-col gap-6 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+            <Link href="/" aria-label="MMC Home" className="flex items-center">
               <Image
                 src="/images/MMC.webp"
                 alt="MMC"
                 width={160}
                 height={55}
                 priority
-               className="logo-adaptive h-auto w-[160px] object-contain"
+                className="logo-adaptive h-auto w-[160px] object-contain"
               />
             </Link>
-
-            <p className="mt-4 text-sm leading-relaxed text-steel">
-              Pakistan&apos;s multi-division ICT partner since 1995 — software,
-              cybersecurity, infrastructure, surveillance and digital marketing.
-            </p>
-
-            <div className="mt-6 space-y-3 text-16">
-              <a href="tel:+923111555053" className="flex items-center gap-3 text-paper/90 hover:text-signal">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-signal/15 text-signal">
-                  <Phone className="h-3.5 w-3.5" />
-                </span>
-                +92 311 1555053
-              </a>
-              <a href="mailto:info@mmc.biz.pk" className="flex items-center gap-3 text-paper/90 hover:text-signal">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-signal/15 text-signal">
-                  <Mail className="h-3.5 w-3.5" />
-                </span>
-                info@mmc.biz.pk
-              </a>
-              <p className="flex items-center gap-3 text-paper/90">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-signal/15 text-signal">
-                  <MapPin className="h-3.5 w-3.5" />
-                </span>
-                C-10, Block-9, Gulshan-e-Iqbal, Karachi.
-              </p>
-            </div>
-
-            <div className="mt-6 flex gap-3">
-              {socials.map((s, i) => (
-                <a key={i} href={s.href} className="flex h-9 w-9 items-center justify-center rounded-full border border-signal/30 text-paper/80 transition-colors hover:border-signal hover:bg-signal hover:text-white">
-                  <s.icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
+            <p className="max-w-xl text-left text-sm leading-relaxed text-steel">
+  Pakistan&apos;s multi-division ICT partner since 1995 software,
+  cybersecurity, infrastructure, surveillance and digital marketing.
+</p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {columns.map((col) => (
-              <div key={col.title} className="rounded-2xl border border-line bg-white/70 p-6 shadow-sm transition-colors hover:border-signal/40 dark:bg-[#0a1128]/40 dark:shadow-none">
-                <p className="flex items-center gap-2 text-sm font-semibold text-signal">
-                  <col.icon className="h-4 w-4" />
-                  {col.title.toUpperCase()}
-                </p>
-                <ul className={`mt-4 gap-x-4 gap-y-2.5 text-sm ${col.twoCol ? "grid grid-cols-2" : "space-y-2.5"}`}>
-                  {col.links.map((l) => (
-                    <li key={l.label}>
-                      <Link href={l.href} className="text-paper/85 hover:text-signal">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <Link
+            href="/contact-us/"
+            className="inline-flex w-fit items-center justify-center rounded-full bg-gradient-to-r from-signal to-cyan-500 px-6 py-2.5 text-sm font-medium text-white transition hover:brightness-110"
+          >
+            Talk to our team
+          </Link>
+        </div>
+
+        {/* Link columns: tinted band instead of borders */}
+        <div className="grid gap-x-6 gap-y-8 bg-black/[0.03] p-6 sm:grid-cols-2 sm:p-8 lg:grid-cols-3 xl:grid-cols-7 dark:bg-white/[0.03]">
+          {columns.map((col) => (
+            <div key={col.title} className={col.twoCol ? "xl:col-span-2" : ""}>
+              <p className="flex items-center gap-2 text-sm font-semibold text-paper">
+                <col.icon className="h-4 w-4 text-signal" />
+                {col.title}
+              </p>
+              <ul
+                className={`mt-4 gap-x-4 gap-y-2.5 text-sm ${
+                  col.twoCol ? "grid grid-cols-2" : "space-y-2.5"
+                }`}
+              >
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      href={l.href}
+                      className="inline-block text-paper/80 transition hover:translate-x-0.5 hover:text-signal"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Contact + socials */}
+        <div className="flex flex-col gap-5 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-3 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8">
+            <a href="tel:+923111555053" className="flex items-center gap-3 text-paper/90 hover:text-signal">
+              <span className={iconWrap}>
+                <Phone className="h-3.5 w-3.5" />
+              </span>
+              +92 311 1555053
+            </a>
+            <a href="mailto:info@mmc.biz.pk" className="flex items-center gap-3 text-paper/90 hover:text-signal">
+              <span className={iconWrap}>
+                <Mail className="h-3.5 w-3.5" />
+              </span>
+              info@mmc.biz.pk
+            </a>
+            <p className="flex items-center gap-3 text-left text-sm text-paper/90">
+  <span className={iconWrap}>
+    <MapPin className="h-3.5 w-3.5" />
+  </span>
+  C-10, Block-9, Gulshan-e-Iqbal, Karachi.
+</p>
+          </div>
+
+          <div className="flex gap-3">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-signal/10 text-paper/80 transition-colors hover:bg-signal hover:text-white"
+              >
+                <s.icon className="h-4 w-4" />
+              </a>
             ))}
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-line pt-6 sm:flex-row">
+        {/* Bottom bar */}
+        <div className="flex flex-col items-center justify-between gap-4 bg-black/[0.03] px-6 py-4 text-xs text-steel sm:flex-row sm:px-8 dark:bg-white/[0.03]">
           <div className="flex items-center gap-2">
             <span className="font-mono text-sm font-semibold text-paper">MMC</span>
-            <span className="text-xs text-steel">
-              © {new Date().getFullYear()} MMC. All rights reserved.
-            </span>
+            <span>© {new Date().getFullYear()} MMC. All rights reserved.</span>
           </div>
-          <div className="flex gap-6 text-xs text-steel">
+
+          <Link
+            href="/services/cyber-security-sub/soc24-7/"
+            className="inline-flex items-center gap-2 rounded-full bg-signal/10 px-3 py-1 text-paper/90 hover:text-signal"
+          >
+            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+            SOC 24/7 online
+          </Link>
+
+          <div className="flex gap-6">
             <Link href="/privacy-policy" className="hover:text-signal">
               Privacy policy
             </Link>
             <Link href="/terms" className="hover:text-signal">
-              Terms & conditions
+              Terms &amp; conditions
             </Link>
           </div>
         </div>

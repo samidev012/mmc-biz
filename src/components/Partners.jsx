@@ -33,7 +33,7 @@ const partners = [
 
 function PartnerGroup() {
   return (
-    <div className="flex shrink-0 gap-4 pr-4">
+    <div className="flex shrink-0 gap-4 pr-4 ">
       {partners.map((partner, index) => (
         <div
           key={`${partner.name}-${index}`}
@@ -52,7 +52,7 @@ function PartnerGroup() {
 
 export default function Clients() {
   return (
-    <section className="border-t border-line px-6 py-20 background: linear-gradient(135deg, #0a1128 0%, #1e1b4b 100%);">
+    <section className=" px-6 py-20 theme-bg-diag px-6 py-20">
       <div className="mx-auto">
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-circuit">

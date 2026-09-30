@@ -54,7 +54,7 @@ export default function Hero() {
 
         <h1 className="hero-title mt-7 sm:mt-9 md:mt-10">
           <span>ICT for Pakistan&apos;s</span>
-          <span className="hero-outline mt-3 sm:mt-4">
+          <span className="highlight mt-3 sm:mt-4">
             banks, regulators
           </span>
           <span>enterprises</span>

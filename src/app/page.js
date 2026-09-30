@@ -205,7 +205,7 @@ export default function Home() {
           Who We Are (theme-aware)
       ================================================= */}
 
-      <section className="theme-bg-diag border-t border-line px-6 py-20">
+      <section className="theme-bg-diag px-6 py-20">
         <div className="mx-auto text-center">
           <p className="animate-fade-in text-xs font-semibold uppercase tracking-[0.2em] text-circuit">
             Who We Are

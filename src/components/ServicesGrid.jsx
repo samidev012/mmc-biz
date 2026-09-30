@@ -85,7 +85,7 @@ function ServiceVisual({ image, title }) {
 
 export default function ServicesSection() {
   return (
-    <section className="services-section bg-ink px-0 py-0 sm:px-8" id="services">
+    <section className="services-section bg-ink px-0 py-10 sm:px-8" id="services">
       <div className="mx-auto max-w-[118rem]">
         <div className="mx-auto max-w-4xl text-center">
           <p className="services-eyebrow">Our solutions</p>

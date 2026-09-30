@@ -35,7 +35,7 @@ export default function FAQ() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="theme-bg-radial relative overflow-hidden border-t border-line px-6 py-24">
+    <section className="theme-bg-radial relative overflow-hidden px-6 py-24">
       {/* Animated grid background */}
       <div className="pointer-events-none absolute inset-0 opacity-10">
         <div
