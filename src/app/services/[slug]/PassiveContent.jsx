@@ -107,7 +107,7 @@ const schema = {
       />
 
       {/* ================= HERO ================= */}
-      <section className="border-b border-line px-6 py-16">
+      <section className=" px-6 py-16">
         <div className="mx-auto grid overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
           {/* Left Content */}
           <div className="bg-gradient-to-b from-[#0a1128] to-black p-8 md:p-12">
@@ -147,7 +147,7 @@ const schema = {
 
             <a
               href="/contact-us"
-              className="mt-8 inline-block rounded-md bg-signal px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.02] hover:bg-signal/90"
+              className="group relative hidden overflow-hidden rounded-full border border-signal bg-signal/10 px-6 py-2.5 text-sm font-semibold mt-10 text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)] lg:inline-flex"
             >
               Get A Free Quote
             </a>
@@ -166,7 +166,7 @@ const schema = {
 
       {/* ================= NETWORK SERVICES ================= */}
       <section
-        className="border-b border-line px-6 py-20"
+        className=" px-6 py-20"
         style={{
           background:
             "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
@@ -270,7 +270,7 @@ const schema = {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="infrastructure-title">
+            <h2 className="infrastructure-title uppercase">
               Building Reliable Passive Network & Data Center Infrastructure
             </h2>
 
@@ -314,7 +314,7 @@ const schema = {
 
       {/* ================= BENEFITS ================= */}
       <section
-        className="border-b border-line px-6 py-20"
+        className=" px-6 py-20"
         style={{
           background:
             "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",

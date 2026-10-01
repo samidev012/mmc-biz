@@ -245,7 +245,7 @@ troubleshooting, and support long-term infrastructure reliability.</p>
 
       {/* ================= FORTRA SOLUTIONS SECTION ================= */}
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}
@@ -283,7 +283,7 @@ troubleshooting, and support long-term infrastructure reliability.</p>
       
     
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}

@@ -198,7 +198,7 @@ export default function AnydeskContent() {
           HERO
       ========================= */}
 
-      <section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
+      <section className="relative overflow-hidden px-6 py-24 text-center">
         <VantaDotsBackground />
 
         <div className="relative z-10 animate-fade-in-up">
@@ -237,7 +237,7 @@ export default function AnydeskContent() {
       ========================= */}
 
       <section
-        className="border-b border-line px-6 py-16"
+        className="px-6 py-16"
         style={{
           background:
             "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",

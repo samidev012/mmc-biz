@@ -135,15 +135,7 @@ export default function CyberSecurityBrandsContent() {
       />
 
       {/* ================= HERO ================= */}
-      <section
-        className="relative overflow-hidden px-6 py-24 text-center"
-        style={{
-          background:
-            "linear-gradient(160deg, #000000, #06170f 60%, #0a1128)",
-        }}
-      >
-       
-
+      <section className="theme-bg-growth relative overflow-hidden px-6 py-24 text-center">
         <h1 className="relative animate-fade-in-up text-4xl font-bold uppercase leading-tight text-paper transition-all duration-500 hover:tracking-wide md:text-7xl">
           Cyber Security
           <br />
@@ -152,7 +144,7 @@ export default function CyberSecurityBrandsContent() {
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="border-b border-line bg-black px-6 py-16 text-center">
+      <section className="bg-ink px-6 py-16 text-center">
         <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
           The Names <span className="text-signal">Behind Your</span> Security
           Stack
@@ -166,20 +158,21 @@ export default function CyberSecurityBrandsContent() {
       </section>
 
       {/* ================= BRANDS GRID ================= */}
-      <section className="bg-black px-6 py-16">
+      <section className="bg-ink px-6 py-16">
         <div className="mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {brands.map((brand) => (
             <div
               key={brand.name}
-              className="group flex flex-col items-center rounded-xl border border-line bg-white/[0.03] px-8 py-12 text-center transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:bg-signal/5"
+              className="group flex flex-col items-center rounded-xl border border-line bg-white/70 px-8 py-12 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:bg-signal/5 dark:bg-white/[0.03] dark:shadow-none"
             >
               <div className="flex h-14 items-center">
+                {/* Dark mode: safed logo | Light mode: dark logo */}
                 <Image
                   src={brand.logo}
                   alt={brand.name}
                   width={300}
                   height={150}
-                  className="h-30 w-50 object-cover brightness-0 invert"
+                  className="h-30 w-50 object-cover brightness-0 dark:invert"
                 />
               </div>
 

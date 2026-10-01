@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import {
-  ArrowUpRight,
   Users,
   Headset,
   Megaphone,
@@ -297,7 +296,7 @@ export default function ZoomContent() {
           HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
+      <section className="relative overflow-hidden px-6 py-24 text-center">
         <VantaDotsBackground />
 
         <div className="relative z-10 animate-fade-in-up">
@@ -315,17 +314,17 @@ export default function ZoomContent() {
 
           <div className="mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-signal to-transparent" />
 
-          <p className="mx-auto mt-7 max-w-3xl text-sm leading-7 text-paper/60 sm:text-base">
+          <p className="mx-auto my-10 max-w-3xl text-sm leading-7 text-paper/60 sm:text-base">
             One platform for meetings, phone, chat, and events built for how
             modern teams actually work.
           </p>
 
           <Link
             href="/contact-us"
-            className="group relative overflow-hidden rounded-full border border-signal bg-signal/10 px-10 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]"
+            className="group relative overflow-hidden min-w-[200px] rounded-full border border-signal bg-signal/10 px-10 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]"
           >
             Talk To Our Experts
-            <ArrowUpRight className="h-4 w-4" />
+           
           </Link>
         </div>
       </section>

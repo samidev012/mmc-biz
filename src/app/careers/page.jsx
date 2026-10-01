@@ -114,9 +114,9 @@ export default function Careers() {
           HERO
       ========================= */}
 
-      <section className="border-b border-line px-6 py-16">
+      <section className=" px-6 py-16">
         <div className="mx-auto grid overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
-          <div className="bg-gradient-to-b from-[#0a1128] to-black p-8 md:p-12">
+          <div className="bg-gradient-to-b from-white to-[#eef4fd] p-8 md:p-12 dark:from-[#0a1128] dark:to-black">
             <h1 className="animate-fade-in-up mt-3 w-900 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
               MMC - Your{" "}
               <span
@@ -158,7 +158,7 @@ export default function Careers() {
 
             <a
               href="/contact-us"
-              className="mt-8 inline-block rounded-md bg-signal px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:scale-[1.02] hover:bg-signal/90"
+              className="group relative hidden overflow-hidden mt-10 rounded-full border border-signal bg-signal/10 px-6 py-2.5 text-sm font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)] lg:inline-flex"
             >
               Get A Free Quote
             </a>
@@ -178,13 +178,7 @@ export default function Careers() {
           GROWTH SECTION
       ========================= */}
 
-      <section
-        className="border-b border-line px-6 py-20"
-        style={{
-          background:
-            "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
-        }}
-      >
+      <section className="theme-bg-growth  px-6 py-20">
         <div className="mx-auto text-center">
           <h2 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
             Creating Your{" "}
@@ -201,7 +195,7 @@ export default function Careers() {
             {benefits.map((b) => (
               <div
                 key={b.title}
-                className="group rounded-xl border border-line bg-black/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:shadow-[0_0_30px_-12px_rgba(0,102,255,0.5)]"
+                className="group rounded-xl border border-line bg-white/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-signal/50 hover:shadow-[0_0_30px_-12px_rgba(0,102,255,0.5)] dark:bg-black/40 dark:shadow-none"
               >
                 <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-signal/15 text-signal transition-colors duration-300 group-hover:bg-signal group-hover:text-white">
                   <b.icon className="h-6 w-6" />

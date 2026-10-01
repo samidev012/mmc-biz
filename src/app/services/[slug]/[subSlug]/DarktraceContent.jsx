@@ -238,7 +238,7 @@ Most detection tools are trained on what attacks generally look like elsewhere. 
 
       {/* ================= FORTRA SOLUTIONS SECTION ================= */}
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}
@@ -277,7 +277,7 @@ Darktrace's core strength is correlating signal across domains that are normally
       
     
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}

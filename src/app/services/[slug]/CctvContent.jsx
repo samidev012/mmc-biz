@@ -152,7 +152,7 @@ export default function CctvContent() {
       />
 
       {/* ================= HERO ================= */}
-      <section className="border-b border-line px-6 py-16">
+      <section className="px-6 py-16">
         <div className="mx-auto grid overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
           <div className="bg-gradient-to-b from-[#0a1128] to-black p-8 md:p-12">
             <h1 className="text-3xl font-bold uppercase leading-tight text-paper md:text-5xl">
@@ -192,7 +192,7 @@ export default function CctvContent() {
       </section>
 
       {/* ================= HOW WE WORK ================= */}
-      <section className="border-b border-line bg-black px-6 py-16">
+      <section className=" bg-black px-6 py-16">
         <h2 className="animate-fade-in-up mt-3 text-center text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl">
           How <span className="text-signal">We</span> Work
         </h2>
@@ -223,7 +223,7 @@ export default function CctvContent() {
       {brands.map((brand) => (
         <section
           key={brand.name}
-          className="border-b border-line bg-[#050914] px-6 py-16"
+          className=" bg-[#050914] px-6 py-16"
         >
           <div
             className={`mx-auto grid gap-8 overflow-hidden rounded-2xl border border-line lg:grid-cols-2 ${

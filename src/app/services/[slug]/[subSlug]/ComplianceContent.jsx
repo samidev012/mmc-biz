@@ -217,7 +217,7 @@ Passing an audit and actually being secure aren’t always the same thing. Compl
 
       {/* ================= FORTRA SOLUTIONS SECTION ================= */}
       <section
-        className="border-b border-line px-6 py-10"
+        className=" px-6 py-10"
         
       >
         <div className="mx-auto text-center">

@@ -221,7 +221,7 @@ Combines systematic vulnerability scanning with hands-on penetration testing to 
 
       {/* ================= FORTRA SOLUTIONS SECTION ================= */}
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}
@@ -255,7 +255,7 @@ Combines systematic vulnerability scanning with hands-on penetration testing to 
       
     
       <section
-        className="border-b border-line px-6 py-10"
+        className=" px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}
@@ -285,7 +285,7 @@ Combines systematic vulnerability scanning with hands-on penetration testing to 
       </section>
 
       <section
-        className="border-b border-line px-6 py-10"
+        className=" px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}

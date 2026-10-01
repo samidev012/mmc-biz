@@ -76,7 +76,7 @@ function PartnerGroup() {
       {partners.map((partner, index) => (
         <div
           key={`${partner.name}-${index}`}
-          className="flex h-30 w-70 shrink-0 items-center justify-center rounded-lg border border-line bg-black/40 p-4 transition-colors hover:border-signal/40"
+          className="bg-[linear-gradient(135deg,#002452d1,#031022)] flex h-30 w-70 shrink-0 items-center justify-center rounded-lg border  transition-all duration-700 group-hover:w-full p-4 transition-color"
         >
           <img
             src={partner.src}
@@ -100,7 +100,7 @@ export default function Clients() {
           __html: JSON.stringify(schema),
         }}
       />
-<section className="relative overflow-hidden border-b border-line px-6 py-24 text-center">
+<section className="relative overflow-hidden px-6 py-24 text-center">
         <VantaDotsBackground />
         <div className="relative z-10 animate-fade-in-up">
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-4 py-2 text-xs font-semibold tracking-wide text-signal backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-signal/50 hover:bg-signal/20">
@@ -115,11 +115,8 @@ export default function Clients() {
       {/* ================= CLIENTS ================= */}
 
       <section
-        className="border-t border-line px-6 py-20"
-        style={{
-          background:
-            "linear-gradient(135deg, #0a1128 0%, #1e1b4b 100%)",
-        }}
+        className=" px-6 py-20"
+        
       >
         <div className="mx-auto">
           <div className="text-center">

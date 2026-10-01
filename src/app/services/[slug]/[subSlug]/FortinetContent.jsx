@@ -254,7 +254,7 @@ build resilient and scalable security architectures.</p>
 
       {/* ================= FORTRA SOLUTIONS SECTION ================= */}
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}
@@ -293,7 +293,7 @@ Effective cybersecurity begins with strong network protection that can identify,
       
     
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}

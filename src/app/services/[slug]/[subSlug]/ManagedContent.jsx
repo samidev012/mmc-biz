@@ -218,7 +218,7 @@ Every hour spent fighting a slow network or a broken login is an hour not spent 
 
       {/* ================= FORTRA SOLUTIONS SECTION ================= */}
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}
@@ -252,7 +252,7 @@ Every hour spent fighting a slow network or a broken login is an hour not spent 
       
     
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}
@@ -282,7 +282,7 @@ Every hour spent fighting a slow network or a broken login is an hour not spent 
       </section>
 
       <section
-        className="border-b border-line px-6 py-10"
+        className="px-6 py-10"
         style={{
           background: "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",
         }}

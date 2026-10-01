@@ -145,7 +145,7 @@ export default function Cybersecurity() {
 
       {/* ================= MANAGED SERVICES ================= */}
       <section
-        className="border-b border-line px-6 py-20"
+        className=" px-6 py-20"
         style={{
           background:
             "linear-gradient(160deg, #000000, #06170f 55%, #0a1128)",

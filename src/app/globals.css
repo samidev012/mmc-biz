@@ -2967,3 +2967,141 @@ html:not(.dark) .infrastructure-description {
 html:not(.dark) .logo-adaptive {
   filter: invert(1) hue-rotate(180deg);
 }
+
+.theme-bg-growth {
+  background: linear-gradient(160deg, #f1f5fb, #eef8f2 55%, #eaf1fb);
+}
+.dark .theme-bg-growth {
+  background: linear-gradient(160deg, #000000, #06170f 55%, #0a1128);
+}
+
+
+/* =====================================================================
+   LIGHT MODE SAFETY NET
+   globals.css ke SABSE END mein paste karo (sab rules ke baad).
+
+   Ye un sab jagahon ko pakadti hai jahan components mein hard-coded dark
+   colors hain (bg-black/40, from-[#0a1128], inline style gradients waghera).
+   Sirf light mode (html:not(.dark)) par lagti hai, dark mode untouched.
+===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   1) INLINE STYLE GRADIENT SECTIONS
+      e.g. style={{ background: "linear-gradient(120deg, #0a1128, #000 ...)" }}
+--------------------------------------------------------------------- */
+html:not(.dark) section[style*="gradient"],
+html:not(.dark) main[style*="gradient"] {
+  background: linear-gradient(120deg, #eef4fd, #ffffff 60%, #eef8f2) !important;
+}
+
+html:not(.dark) section[style*="#0a1128"],
+html:not(.dark) section[style*="#050914"],
+html:not(.dark) section[style*="#06170f"],
+html:not(.dark) section[style*="#000"] {
+  background: #f8fafc !important;
+}
+
+
+/* ---------------------------------------------------------------------
+   2) BACKGROUND COLORS: bg-black, bg-black/NN, bg-[#dark], bg-[#dark]/NN
+      (hover:/dark: variants match nahi hote, sirf plain class)
+--------------------------------------------------------------------- */
+html:not(.dark) [class~="bg-black"] {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) [class^="bg-black/"],
+html:not(.dark) [class*=" bg-black/"],
+html:not(.dark) [class^="bg-[#0a1128]"],
+html:not(.dark) [class*=" bg-[#0a1128]"],
+html:not(.dark) [class^="bg-[#050914]"],
+html:not(.dark) [class*=" bg-[#050914]"],
+html:not(.dark) [class^="bg-[#06170f]"],
+html:not(.dark) [class*=" bg-[#06170f]"],
+html:not(.dark) [class^="bg-[#001a3d]"],
+html:not(.dark) [class*=" bg-[#001a3d]"],
+html:not(.dark) [class^="bg-[#041024]"],
+html:not(.dark) [class*=" bg-[#041024]"],
+html:not(.dark) [class^="bg-[#000]"],
+html:not(.dark) [class*=" bg-[#000]"],
+html:not(.dark) [class^="bg-[#000000]"],
+html:not(.dark) [class*=" bg-[#000000]"] {
+  background-color: rgba(255, 255, 255, 0.78) !important;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+}
+
+
+/* ---------------------------------------------------------------------
+   3) GRADIENT STOPS: from-/via-/to- with dark colors
+--------------------------------------------------------------------- */
+html:not(.dark) [class~="from-black"],
+html:not(.dark) [class^="from-[#0a1128]"],
+html:not(.dark) [class*=" from-[#0a1128]"],
+html:not(.dark) [class^="from-[#050914]"],
+html:not(.dark) [class*=" from-[#050914]"],
+html:not(.dark) [class^="from-[#06170f]"],
+html:not(.dark) [class*=" from-[#06170f]"],
+html:not(.dark) [class^="from-[#001a3d]"],
+html:not(.dark) [class*=" from-[#001a3d]"],
+html:not(.dark) [class^="from-[#0a1a2e]"],
+html:not(.dark) [class*=" from-[#0a1a2e]"],
+html:not(.dark) [class^="from-[#060d1a]"],
+html:not(.dark) [class*=" from-[#060d1a]"],
+html:not(.dark) [class^="from-[#000000]"],
+html:not(.dark) [class*=" from-[#000000]"] {
+  --tw-gradient-from: #ffffff !important;
+}
+
+html:not(.dark) [class~="via-black"],
+html:not(.dark) [class^="via-[#0a1128]"],
+html:not(.dark) [class*=" via-[#0a1128]"],
+html:not(.dark) [class^="via-[#050914]"],
+html:not(.dark) [class*=" via-[#050914]"],
+html:not(.dark) [class^="via-[#06170f]"],
+html:not(.dark) [class*=" via-[#06170f]"],
+html:not(.dark) [class^="via-[#060d1a]"],
+html:not(.dark) [class*=" via-[#060d1a]"] {
+  --tw-gradient-via: #f4f7fc !important;
+}
+
+html:not(.dark) [class~="to-black"],
+html:not(.dark) [class^="to-[#0a1128]"],
+html:not(.dark) [class*=" to-[#0a1128]"],
+html:not(.dark) [class^="to-[#050914]"],
+html:not(.dark) [class*=" to-[#050914]"],
+html:not(.dark) [class^="to-[#06170f]"],
+html:not(.dark) [class*=" to-[#06170f]"],
+html:not(.dark) [class^="to-[#001a3d]"],
+html:not(.dark) [class*=" to-[#001a3d]"],
+html:not(.dark) [class^="to-[#000000]"],
+html:not(.dark) [class*=" to-[#000000]"] {
+  --tw-gradient-to: #eef4fd !important;
+}
+
+
+/* ---------------------------------------------------------------------
+   4) BORDERS: dark section par safed border (border-white/10 waghera)
+--------------------------------------------------------------------- */
+/* html:not(.dark) [class^="border-white/"],
+html:not(.dark) [class*=" border-white/"] {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+} */
+
+
+/* ---------------------------------------------------------------------
+   5) TEXT: dark bg ke liye likhe gaye halke/safed text colors
+--------------------------------------------------------------------- */
+html:not(.dark) [class^="text-white/"],
+html:not(.dark) [class*=" text-white/"] {
+  color: rgba(15, 23, 42, 0.72) !important;
+}
+
+html:not(.dark) [class~="text-gray-300"],
+html:not(.dark) [class~="text-gray-400"],
+html:not(.dark) [class~="text-slate-300"],
+html:not(.dark) [class~="text-slate-400"],
+html:not(.dark) [class~="text-zinc-300"],
+html:not(.dark) [class~="text-zinc-400"] {
+  color: #475569 !important;
+}
