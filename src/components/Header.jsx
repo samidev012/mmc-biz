@@ -289,7 +289,7 @@ export default function Header() {
           >
             <button
               onClick={() => { const nextOpen = !servicesOpen; setProductsOpen(false); setServicesOpen(nextOpen); }}
-              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-16 font-medium uppercase transition-colors duration-300 ${
+              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-14 font-medium uppercase transition-colors duration-300 ${
                 servicesOpen
                   ? "text-white"
                   : "text-paper/70 hover:text-signal"
@@ -414,7 +414,7 @@ export default function Header() {
 
           {/* PRODUCTS */}
           <div className="relative" onMouseEnter={openProducts} onMouseLeave={closeProducts}>
-            <button onClick={() => { const nextOpen = !productsOpen; setServicesOpen(false); setActiveSubMenu(null); setProductsOpen(nextOpen); }} className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-16 font-medium uppercase transition-colors duration-300 ${productsOpen ? "text-white" : "text-paper/70 hover:text-signal"}`} aria-expanded={productsOpen}>
+            <button onClick={() => { const nextOpen = !productsOpen; setServicesOpen(false); setActiveSubMenu(null); setProductsOpen(nextOpen); }} className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-14 font-medium uppercase transition-colors duration-300 ${productsOpen ? "text-white" : "text-paper/70 hover:text-signal"}`} aria-expanded={productsOpen}>
               {productsOpen && <motion.span layoutId="nav-pill-products" className="absolute inset-0 rounded-full bg-signal" />}
               <span className="relative z-10">Products</span><span className="relative z-10 text-[10px]">▼</span>
             </button>
@@ -447,7 +447,7 @@ export default function Header() {
           >
             <button
               onClick={() => setCompanyOpen(!companyOpen)}
-              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium uppercase transition-colors duration-300 ${
+              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-14 font-medium uppercase transition-colors duration-300 ${
                 companyOpen
                   ? "text-white"
                   : "text-paper/70 hover:text-signal"
