@@ -32,7 +32,7 @@ button,
 li,
 nav {
   font-family: var(--font-body), sans-serif;
-  font-size: 16px !important;
+  font-size: 14px !important;
 }
 
 /* =========================================
@@ -70,7 +70,7 @@ nav {
 }
 
 .mega-menu-title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   color: #000;
 }
@@ -105,7 +105,7 @@ nav {
 }
 
 .mega-menu-item-title span {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: black;
   transition: color 0.2s;
@@ -368,7 +368,7 @@ body {
   width: 100%;
 
   font-family: "Poppins", sans-serif;
-  font-size: clamp(2.8rem, 7.1vw, 6.65rem);
+  font-size: clamp(2.8rem, 90px, 6.65rem);
   font-weight: 650;
   line-height: 0.98;
 
@@ -3105,4 +3105,116 @@ html:not(.dark) [class~="text-slate-400"],
 html:not(.dark) [class~="text-zinc-300"],
 html:not(.dark) [class~="text-zinc-400"] {
   color: #475569 !important;
+}
+
+/* Audio visual quotation page */
+.av-hero-glow {
+  position: absolute;
+  width: min(42vw, 34rem);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.av-hero-glow-one {
+  top: -55%;
+  left: 8%;
+  background: rgba(0, 102, 255, 0.24);
+}
+
+.av-hero-glow-two {
+  right: -12%;
+  bottom: -68%;
+  background: rgba(30, 145, 255, 0.28);
+}
+
+.av-hero-grid {
+  z-index: 0;
+  opacity: 0.16;
+  background-image: linear-gradient(rgba(15, 70, 150, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 70, 150, 0.15) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.av-quote-card {
+  backdrop-filter: blur(8px);
+  box-shadow: 0 18px 55px rgba(13, 66, 140, 0.1);
+}
+
+.av-form-input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #3985ff;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 13px 16px;
+  color: #101827;
+  font-size: 13px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.av-form-input::placeholder {
+  color: #334155;
+  opacity: 0.9;
+}
+
+.av-form-input:focus {
+  outline: none;
+  border-color: #075fe5;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.14);
+}
+
+.av-form-input:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.av-form-textarea {
+  min-height: 48px;
+  resize: vertical;
+}
+
+.av-form-feedback {
+  margin: 0;
+  color: #14532d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.av-form-error {
+  color: #991b1b;
+}
+
+.av-hero .btn-submit {
+  background: #0866f5;
+  color: #fff;
+}
+
+.av-hero .btn-submit:hover:not(:disabled) {
+  background: #0056d6;
+  box-shadow: 0 10px 25px rgba(0, 86, 214, 0.2);
+}
+
+.av-hero .btn-whatsapp {
+  background: #0866f5;
+  color: #fff;
+  text-decoration: none;
+}
+
+.av-hero .btn-whatsapp:hover {
+  background: #0056d6;
+}
+
+.av-hero .form-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 640px) {
+  .av-hero .form-row,
+  .av-hero .form-actions {
+    grid-template-columns: 1fr;
+  }
 }

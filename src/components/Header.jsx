@@ -13,27 +13,27 @@ const sections = [
       {
         "title": "Next.js",
         "description": "Modern, fast websites and web apps built with Next.js.",
-        "href": "/services/next-js/"
+        "href": "#"
       },
       {
         "title": "React.js",
         "description": "Interactive user interfaces built with React.",
-        "href": "/services/react-js/"
+        "href": "#"
       },
       {
         "title": "WordPress Development",
         "description": "Custom WordPress websites, themes, and integrations.",
-        "href": "/services/wordpress-development/"
+        "href": "#"
       },
       {
         "title": "Shopify Development",
         "description": "Shopify stores tailored to your products and customers.",
-        "href": "/services/shopify-development/"
+        "href": "#"
       },
       {
         "title": "Wix Development",
         "description": "Professional websites built and customized on Wix.",
-        "href": "/services/wix-development/"
+        "href": "#"
       }
     ]
   },
@@ -43,22 +43,22 @@ const sections = [
       {
         "title": "Custom Software Development",
         "description": "Purpose-built software for your business workflows.",
-        "href": "/services/custom-software-development/"
+        "href": "#"
       },
       {
         "title": "ERP Development",
         "description": "ERP systems that connect your core business operations.",
-        "href": "/services/erp-development/"
+        "href": "#"
       },
       {
         "title": "Web Application Development",
         "description": "Secure web applications designed around your needs.",
-        "href": "/services/web-application-development/"
+        "href": "#"
       },
       {
         "title": "Mobile App Development",
         "description": "Mobile apps for iOS and Android devices.",
-        "href": "/services/mobile-app-development/"
+        "href": "#"
       }
     ]
   },
@@ -68,22 +68,22 @@ const sections = [
       {
         "title": "Social Media Marketing",
         "description": "Social campaigns that grow reach and engagement.",
-        "href": "/services/social-media-marketing/"
+        "href": "#"
       },
       {
         "title": "Search Engine Optimization",
         "description": "SEO to improve visibility in organic search.",
-        "href": "/services/search-engine-optimization/"
+        "href": "#"
       },
       {
         "title": "PPC Advertising",
         "description": "Targeted paid campaigns built around your goals.",
-        "href": "/services/ppc-advertising/"
+        "href": "#"
       },
       {
         "title": "Email Marketing",
         "description": "Email campaigns that reach and retain customers.",
-        "href": "/services/email-marketing/"
+        "href": "#"
       }
     ]
   },
@@ -93,72 +93,72 @@ const sections = [
       {
         "title": "SOC 24/7",
         "description": "Round-the-clock security monitoring and response.",
-        "href": "/services/soc-24-7/"
+        "href": "/services/cyber-security-sub/soc24-7/"
       },
       {
         "title": "MSSP",
         "description": "Managed security services for your organization.",
-        "href": "/services/mssp/"
+        "href": "/services/cyber-security-sub/mssp/"
       },
       {
         "title": "Managed IT Services",
         "description": "Ongoing IT support and infrastructure management.",
-        "href": "/services/managed-it-services/"
+        "href": "/services/cyber-security-sub/managed-it-service/"
       },
       {
         "title": "VAPT",
         "description": "Vulnerability assessment and penetration testing.",
-        "href": "/services/vapt/"
+        "href": "/services/cyber-security-sub/vapt/"
       },
       {
         "title": "Red Teaming",
         "description": "Adversary simulations to test security readiness.",
-        "href": "/services/red-teaming/"
+        "href": "/services/cyber-security-sub/red-teaming/"
       }
     ]
   }
 ];
 
 const productSections = [
-  { title: "Computing & Peripherals", href: "/products/computing-peripherals/", items: [
-    { title: "Computers & Computing Devices", description: "Computers and devices for work, business, and everyday use.", href: "/products/computing-peripherals/computers-computing-devices/" },
-    { title: "Computer Components & Storage", description: "Components and storage to build, upgrade, and protect systems.", href: "/products/computing-peripherals/computer-components-storage/" },
-    { title: "Computer Accessories & Peripherals", description: "Peripherals and accessories for productive workspaces.", href: "/products/computing-peripherals/computer-accessories-peripherals/" },
+  { title: "Computing & Peripherals", href: "#", items: [
+    { title: "Computers & Computing Devices", description: "Computers and devices for work, business, and everyday use.", href: "#" },
+    { title: "Computer Components & Storage", description: "Components and storage to build, upgrade, and protect systems.", href: "#" },
+    { title: "Computer Accessories & Peripherals", description: "Peripherals and accessories for productive workspaces.", href: "#" },
   ]},
-  { title: "Networking & Connectivity", href: "/products/networking-connectivity/", items: [
-    { title: "Networking Equipment", description: "Reliable equipment for wired business networks.", href: "/products/networking-connectivity/networking-equipment/" },
-    { title: "Routers & Switches", description: "Routers and switches to connect and manage your network.", href: "/products/networking-connectivity/routers-switches/" },
-    { title: "Wireless Connectivity", description: "Wireless solutions for secure, dependable connectivity.", href: "/products/networking-connectivity/wireless-connectivity/" },
-    { title: "Cables & Connectivity Accessories", description: "Cabling and accessories for connected infrastructure.", href: "/products/networking-connectivity/cables-connectivity-accessories/" },
-    { title: "CCTV & Surveillance", description: "Surveillance products to help monitor and secure sites.", href: "/products/networking-connectivity/cctv-surveillance/" },
+  { title: "Networking & Connectivity", href: "#", items: [
+    { title: "Networking Equipment", description: "Reliable equipment for wired business networks.", href: "/services/passive-network-services/" },
+    { title: "Routers & Switches", description: "Routers and switches to connect and manage your network.", href: "#" },
+    { title: "Wireless Connectivity", description: "Wireless solutions for secure, dependable connectivity.", href: "#" },
+    { title: "Cables & Connectivity Accessories", description: "Cabling and accessories for connected infrastructure.", href: "/services/passive-network-services/" },
+    { title: "CCTV & Surveillance", description: "Surveillance products to help monitor and secure sites.", href: "/services/cctv-surveillance/" },
   ]},
-  { title: "Data Center Infrastructure", href: "/products/data-center-infrastructure/", items: [
-    { title: "Prefabricated Data Centers", description: "Modular data center solutions designed for rapid deployment.", href: "/products/data-center-infrastructure/prefabricated-data-centers/" },
-    { title: "Precision Air Conditioners", description: "Precision cooling to maintain data center conditions.", href: "/products/data-center-infrastructure/precision-air-conditioners/" },
-    { title: "Mission Critical Power Systems", description: "Resilient power systems for critical IT environments.", href: "/products/data-center-infrastructure/mission-critical-power-systems/" },
-    { title: "Liquid Cooling Systems", description: "Liquid cooling for high-density computing infrastructure.", href: "/products/data-center-infrastructure/liquid-cooling-systems/" },
-    { title: "DCIM", description: "Tools to monitor and manage data center infrastructure.", href: "/products/data-center-infrastructure/dcim/" },
-    { title: "IT Racks & Cabinets", description: "Racks and cabinets to organize and secure IT equipment.", href: "/products/data-center-infrastructure/it-racks-cabinets/" },
+  { title: "Data Center Infrastructure", href: "/services/attom/", items: [
+    { title: "Prefabricated Data Centers", description: "Modular data center solutions designed for rapid deployment.", href: "/services/attom/prefabricated/" },
+    { title: "Precision Air Conditioners", description: "Precision cooling to maintain data center conditions.", href: "/services/attom/precision/" },
+    { title: "Mission Critical Power Systems", description: "Resilient power systems for critical IT environments.", href: "/services/attom/mission-critical-power-system/" },
+    { title: "Liquid Cooling Systems", description: "Liquid cooling for high-density computing infrastructure.", href: "/services/attom/liquid-cooling-system/" },
+    { title: "DCIM", description: "Tools to monitor and manage data center infrastructure.", href: "/services/attom/data-center-infrastructure-management/" },
+    { title: "IT Racks & Cabinets", description: "Racks and cabinets to organize and secure IT equipment.", href: "/services/attom/rack-systems/" },
   ]},
-  { title: "Cybersecurity", href: "/products/cybersecurity/", items: [
-    { title: "Endpoint Protection", description: "Security solutions that protect user devices and endpoints.", href: "/products/cybersecurity/endpoint-protection/" },
-    { title: "Cyber Threat Intelligence", description: "Threat insights to help teams anticipate cyber risks.", href: "/products/cybersecurity/cyber-threat-intelligence/" },
-    { title: "Attack Surface Management", description: "Discover and manage exposed digital assets.", href: "/products/cybersecurity/attack-surface-management/" },
-    { title: "Data Protection", description: "Solutions that help safeguard sensitive business data.", href: "/products/cybersecurity/data-protection/" },
-    { title: "Breach & Attack Simulation", description: "Simulate attacks to evaluate your security controls.", href: "/products/cybersecurity/breach-attack-simulation/" },
-    { title: "Integrity & Compliance Monitoring", description: "Monitor systems for integrity and compliance requirements.", href: "/products/cybersecurity/integrity-compliance-monitoring/" },
-    { title: "Network Security", description: "Protect network traffic, access, and infrastructure.", href: "/products/cybersecurity/network-security/" },
-    { title: "Secure Software Development", description: "Security tools and practices for the software lifecycle.", href: "/products/cybersecurity/secure-software-development/" },
+  { title: "Cybersecurity", href: "/services/cyber-security/", items: [
+    { title: "Endpoint Protection", description: "Security solutions that protect user devices and endpoints.", href: "/services/cyber-security/kaspersky/" },
+    { title: "Cyber Threat Intelligence", description: "Threat insights to help teams anticipate cyber risks.", href: "/services/cyber-security/recorded-future/" },
+    { title: "Attack Surface Management", description: "Discover and manage exposed digital assets.", href: "#" },
+    { title: "Data Protection", description: "Solutions that help safeguard sensitive business data.", href: "/services/cyber-security/fortra/" },
+    { title: "Breach & Attack Simulation", description: "Simulate attacks to evaluate your security controls.", href: "/services/cyber-security-sub/vapt/" },
+    { title: "Integrity & Compliance Monitoring", description: "Monitor systems for integrity and compliance requirements.", href: "/services/cyber-security/compliance-audit/" },
+    { title: "Network Security", description: "Protect network traffic, access, and infrastructure.", href: "/services/cyber-security/fortinet/" },
+    { title: "Secure Software Development", description: "Security tools and practices for the software lifecycle.", href: "#" },
   ]},
-  { title: "Collaboration & Workplace", href: "/products/collaboration-workplace/", items: [
+  { title: "Collaboration & Workplace", href: "#", items: [
     { title: "Audio Visual Collaboration", description: "Audio and visual systems for connected meeting spaces.", href: "/products/collaboration-workplace/audio-visual-collaboration/" },
-    { title: "Communication & Smart Office", description: "Smart office and communication solutions for teams.", href: "/products/collaboration-workplace/communication-smart-office/" },
-    { title: "Zoom Video Conferencing", description: "Video conferencing solutions powered by Zoom.", href: "/products/collaboration-workplace/zoom-video-conferencing/" },
-    { title: "AnyDesk Remote Access", description: "Remote access solutions for support and collaboration.", href: "/products/collaboration-workplace/anydesk-remote-access/" },
+    { title: "Communication & Smart Office", description: "Smart office and communication solutions for teams.", href: "#" },
+    { title: "Zoom Video Conferencing", description: "Video conferencing solutions powered by Zoom.", href: "/services/zoom/" },
+    { title: "AnyDesk Remote Access", description: "Remote access solutions for support and collaboration.", href: "/services/anydesk/" },
   ]},
-  { title: "Printing & Security Systems", href: "/products/printing-security-systems/", items: [
-    { title: "Printers, Scanners & Consumables", description: "Printing, scanning, and supplies for the workplace.", href: "/products/printing-security-systems/printers-scanners-consumables/" },
-    { title: "POS, Barcode & Identification", description: "POS and identification systems for business operations.", href: "/products/printing-security-systems/pos-barcode-identification/" },
+  { title: "Printing & Security Systems", href: "#", items: [
+    { title: "Printers, Scanners & Consumables", description: "Printing, scanning, and supplies for the workplace.", href: "#" },
+    { title: "POS, Barcode & Identification", description: "POS and identification systems for business operations.", href: "#" },
   ]},
 ];
 
@@ -289,10 +289,10 @@ export default function Header() {
           >
             <button
               onClick={() => { const nextOpen = !servicesOpen; setProductsOpen(false); setServicesOpen(nextOpen); }}
-              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-14 font-medium uppercase transition-colors duration-300 ${
+              className={`relative flex items-center gap-1 rounded-full px-4 py-2 font-medium uppercase transition-colors duration-300 ${
                 servicesOpen
                   ? "text-white"
-                  : "text-paper/70 hover:text-signal"
+                  : "text-paper/70 hover:bg-signal hover:text-white"
               }`}
             >
               {servicesOpen && (
@@ -320,12 +320,12 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.97 }}
                   transition={{ duration: 0.2 }}
-                  className="mega-menu-wrapper"
+                  className="mega-menu-wrapper !left-1/2 !w-screen -translate-x-1/2"
                   onMouseEnter={openServices}
                   onMouseLeave={closeServices}
                 >
-                  <div className="mega-menu mt-3 overflow-hidden rounded-2xl border border-white/10 bg-ink/50 shadow-2xl backdrop-blur-2xl">
-                    <div className="mega-menu-grid">
+                  <div className="mega-menu mt-3 w-full max-w-none overflow-hidden rounded-2xl border border-white/10 bg-ink/50 shadow-2xl backdrop-blur-2xl">
+                    <div className="mega-menu-grid w-full max-w-none">
                       {sections.map((section, sectionIndex) => (
                         <div
                           key={section.title}
@@ -414,15 +414,15 @@ export default function Header() {
 
           {/* PRODUCTS */}
           <div className="relative" onMouseEnter={openProducts} onMouseLeave={closeProducts}>
-            <button onClick={() => { const nextOpen = !productsOpen; setServicesOpen(false); setActiveSubMenu(null); setProductsOpen(nextOpen); }} className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-14 font-medium uppercase transition-colors duration-300 ${productsOpen ? "text-white" : "text-paper/70 hover:text-signal"}`} aria-expanded={productsOpen}>
+            <button onClick={() => { const nextOpen = !productsOpen; setServicesOpen(false); setActiveSubMenu(null); setProductsOpen(nextOpen); }} className={`relative flex items-center gap-1 rounded-full px-4 py-2 font-medium uppercase transition-colors duration-300 ${productsOpen ? "text-white" : "text-paper/70 hover:bg-signal hover:text-white"}`} aria-expanded={productsOpen}>
               {productsOpen && <motion.span layoutId="nav-pill-products" className="absolute inset-0 rounded-full bg-signal" />}
               <span className="relative z-10">Products</span><span className="relative z-10 text-[10px]">▼</span>
             </button>
             <AnimatePresence>{productsOpen && <motion.div initial={{opacity:0,y:10,scale:.97}} animate={{opacity:1,y:0,scale:1}} exit={{opacity:0,y:10,scale:.97}} transition={{duration:.2}} className="mega-menu-wrapper !left-1/2 !w-screen -translate-x-1/2" onMouseEnter={openProducts} onMouseLeave={closeProducts}>
-              <div className="mega-menu mt-3 w-full max-w-none max-h-[80vh] overflow-x-hidden overflow-y-auto rounded-2xl border border-black/10 bg-white p-6 text-black shadow-2xl"><div className="mega-menu-grid grid w-full max-w-none gap-6" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}>
+              <div className="mega-menu mt-3 w-full max-w-none max-h-[80vh] overflow-x-hidden overflow-y-auto rounded-2xl border border-black/10 bg-white p-6 text-black shadow-2xl"><div className="mega-menu-grid grid w-full max-w-none gap-x-6 gap-y-8" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))" }}>
                 {productSections.map((section,index)=><div key={section.title} className={`mega-menu-column mega-column-${index}`}>
                   <Link href={section.href} className="mega-menu-title text-signal">{section.title}</Link><div className="mega-menu-line bg-signal/20"/>
-                  <div className="mega-menu-items">{section.items.map((item,itemIndex)=><Link key={item.href} href={item.href} className="mega-menu-item rounded-lg transition-colors duration-200 hover:bg-signal/10" style={{animationDelay: `${itemIndex * 70}ms`}}><span className="mega-menu-content px-3 py-2"><span className="mega-menu-item-title"><span>{item.title}</span></span><span className="mega-menu-description">{item.description}</span></span></Link>)}</div>
+                  <div className="mega-menu-items !gap-0">{section.items.map((item,itemIndex)=><Link key={item.href} href={item.href} className="mega-menu-item !m-0 !p-0 rounded-lg transition-colors duration-200 hover:bg-signal/10" style={{animationDelay: `${itemIndex * 70}ms`}}><span className="mega-menu-content !gap-0 px-3 !py-1.5"><span className="mega-menu-item-title"><span>{item.title}</span></span></span></Link>)}</div>
                 </div>)}
               </div></div>
             </motion.div>}</AnimatePresence>
@@ -433,7 +433,7 @@ export default function Header() {
             <Link
               key={href}
               href={href}
-              className="rounded-full px-4 py-2 text-sm font-medium uppercase text-paper/70 transition-colors duration-300 hover:text-signal"
+              className="rounded-full px-4 py-2 font-medium uppercase text-paper/70 transition-colors duration-300 hover:bg-signal hover:text-white"
             >
               {label}
             </Link>
@@ -447,10 +447,10 @@ export default function Header() {
           >
             <button
               onClick={() => setCompanyOpen(!companyOpen)}
-              className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-14 font-medium uppercase transition-colors duration-300 ${
+              className={`relative flex items-center gap-1 rounded-full px-4 py-2 font-medium uppercase transition-colors duration-300 ${
                 companyOpen
                   ? "text-white"
-                  : "text-paper/70 hover:text-signal"
+                  : "text-paper/70 hover:bg-signal hover:text-white"
               }`}
             >
               {companyOpen && (
