@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://mmc-biz.vercel.app";
+  const baseUrl = "https://mmc.biz.pk";
 
   // Static Pages
   const staticPages = [
@@ -9,15 +9,34 @@ export default function sitemap() {
     { path: "/careers", priority: 0.7 },
     { path: "/clients", priority: 0.8 },
     { path: "/contact-us", priority: 0.9 },
+    { path: "/products/collaboration-workplace/audio-visual-collaboration", priority: 0.75 },
+    { path: "/services/attom/prefabricated/agile-rax-2-0-ip55", priority: 0.7 },
+    { path: "/services/attom/prefabricated/agile-cub-2-0", priority: 0.7 },
+    { path: "/services/attom/prefabricated/agile-mod", priority: 0.7 },
+    { path: "/services/attom/prefabricated/agilehub-2-0-shelter-modular-data-center-solution", priority: 0.7 },
+    { path: "/services/attom/prefabricated/agilecore-ai-prefabricated-modular-data-centers", priority: 0.7 },
+    { path: "/services/attom/precision/smoothair-rack-mount-dx", priority: 0.7 },
+    { path: "/services/attom/precision/smoothair-row-mount", priority: 0.7 },
+    { path: "/services/attom/precision/smoothair-wall-mount", priority: 0.7 },
+    { path: "/services/attom/precision/smoothair-wall-mount-split-type", priority: 0.7 },
+    { path: "/services/attom/precision/wiseair-room-cooling-crac", priority: 0.7 },
+    { path: "/services/attom/precision/precision-cooling-hot-climates", priority: 0.7 },
   ];
 
   // Main Service Pages
   const mainServices = [
+    "cyber-security-brands",
     "cyber-security",
+    "compliance-audit",
+    "passive-network-services",
+    "microsoft-365",
     "cctv-surveillance",
     "zoom",
     "anydesk",
     "tia",
+    "fortra",
+    "sangfor",
+    "attom",
   ];
 
   // ATTOM Sub-services
@@ -27,6 +46,7 @@ export default function sitemap() {
     "precision",
     "liquid-cooling-system",
     "prefabricated",
+    "rack-systems",
   ];
 
   // Cyber Security Brands

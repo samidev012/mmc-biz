@@ -1,4 +1,4 @@
-const SITE_URL = "https://mmc-biz.vercel.app";
+const SITE_URL = "https://mmc.biz.pk";
 const SITE_NAME = "MMC";
 const DEFAULT_OG_IMAGE = "/images/og-default.webp";
 
@@ -7,7 +7,7 @@ export function generatePageMetadata({ title, description, path = "", image = DE
   const url = `${SITE_URL}${path}`;
 
   return {
-    title,
+    title: { absolute: title.includes("| MMC") ? title : `${title} | MMC` },
     description,
     alternates: {
       canonical: url,
@@ -18,6 +18,7 @@ export function generatePageMetadata({ title, description, path = "", image = DE
       description,
       url,
       siteName: SITE_NAME,
+      locale: "en_PK",
       images: [{ url: image, width: 1200, height: 630, alt: title }],
     },
     twitter: {
@@ -27,6 +28,22 @@ export function generatePageMetadata({ title, description, path = "", image = DE
       description,
       images: [image],
     },
+    robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
+  };
+}
+
+export function generateProductSchema({ name, description, path, image = null, category = "Prefabricated Data Center" }) {
+  const url = `${SITE_URL}${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name,
+    description,
+    url,
+    ...(image ? { image: `${SITE_URL}${image}` } : {}),
+    brand: { "@type": "Brand", name: "ATTOM" },
+    manufacturer: { "@type": "Organization", name: "MMC", url: SITE_URL },
+    category,
   };
 }
 

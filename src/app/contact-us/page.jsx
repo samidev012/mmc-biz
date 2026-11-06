@@ -1,6 +1,9 @@
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import Partners from "@/components/Partners";
 import VantaDotsBackground from "@/components/ParticlesBackground";
+import { generatePageMetadata } from "@/lib/seo";
+
+export const metadata = generatePageMetadata({ title: "Contact MMC | ICT and Technology Solutions in Pakistan", description: "Contact MMC in Karachi for cybersecurity, data center, networking, audio visual, surveillance and enterprise technology solutions across Pakistan.", path: "/contact-us" });
 
 /* =========================
    CONTACT PAGE SCHEMA

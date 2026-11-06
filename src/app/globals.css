@@ -3218,3 +3218,287 @@ html:not(.dark) [class~="text-zinc-400"] {
     grid-template-columns: 1fr;
   }
 }
+
+/* ATTOM AgileRAX product page */
+.agile-product-hero {
+  background:
+    radial-gradient(ellipse at 8% 38%, rgba(0, 102, 255, 0.18), transparent 42%),
+    radial-gradient(ellipse at 94% 90%, rgba(0, 160, 100, 0.10), transparent 34%),
+    linear-gradient(135deg, #030914 0%, #07152d 48%, #050a11 100%);
+}
+
+.agile-product-grid {
+  z-index: -1;
+  opacity: 0.16;
+  background-image: linear-gradient(rgba(0, 102, 255, 0.13) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 102, 255, 0.13) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.agile-product-orb {
+  position: absolute;
+  z-index: -1;
+  width: min(40vw, 32rem);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.18;
+  animation: agileOrbFloat 14s ease-in-out infinite;
+}
+
+.agile-product-orb-one {
+  top: 2%;
+  left: -10%;
+  background: #0866f5;
+}
+
+.agile-product-orb-two {
+  right: -10%;
+  bottom: -25%;
+  background: #008d63;
+  animation-delay: -7s;
+}
+
+.agile-image-space {
+  position: relative;
+  display: flex;
+  min-height: 230px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px dashed rgba(0, 102, 255, 0.42);
+  background:
+    radial-gradient(ellipse at 50% 105%, rgba(0, 102, 255, 0.2), transparent 58%),
+    linear-gradient(145deg, rgba(230, 241, 255, 0.96), rgba(196, 216, 242, 0.96));
+}
+
+.agile-image-space::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  content: "";
+  pointer-events: none;
+}
+
+.agile-image-label {
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 14px 18px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.agile-info-card,
+.agile-config-card,
+.agile-component-card {
+  animation: agileCardIn 0.7s both;
+}
+
+.agile-info-card:nth-child(2),
+.agile-config-card:nth-child(2),
+.agile-component-card:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.agile-info-card:nth-child(3),
+.agile-config-card:nth-child(3),
+.agile-component-card:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.agile-info-card:nth-child(4),
+.agile-config-card:nth-child(4),
+.agile-component-card:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+@keyframes agileOrbFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(28px, -22px, 0) scale(1.08); }
+}
+
+@keyframes agileCardIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agile-product-orb,
+  .agile-info-card,
+  .agile-config-card,
+  .agile-component-card {
+    animation: none;
+  }
+}
+
+/* Product pages use the same MMC palette in light and dark themes. */
+html:not(.dark) .agile-product-page {
+  background: #f4f7fc;
+  color: #0f172a;
+}
+
+html:not(.dark) .agile-product-hero {
+  background:
+    radial-gradient(ellipse at 8% 38%, rgba(0, 102, 255, 0.12), transparent 42%),
+    radial-gradient(ellipse at 94% 90%, rgba(0, 160, 100, 0.07), transparent 34%),
+    linear-gradient(135deg, #eaf2ff 0%, #f6f9ff 48%, #edf7f3 100%);
+}
+
+html:not(.dark) .agile-product-orb {
+  opacity: 0.09;
+}
+
+html:not(.dark) .agile-product-grid {
+  opacity: 0.08;
+}
+
+html:not(.dark) .agile-hero-card {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 24px 70px rgba(31, 65, 118, 0.12);
+}
+
+html:not(.dark) .agile-info-card {
+  border-color: #dce5f0;
+  background: linear-gradient(145deg, #ffffff, #f2f6fc);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+html:not(.dark) .agile-config-section,
+html:not(.dark) .agile-cub-protection-section {
+  border-color: #dce5f0;
+  background: linear-gradient(145deg, #eaf2ff, #f7f9fc 55%, #edf7f2);
+}
+
+html:not(.dark) .agile-config-card,
+html:not(.dark) .agile-component-card,
+html:not(.dark) .agile-cub-panel {
+  border-color: #dce5f0;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+html:not(.dark) .agile-expansion-card,
+html:not(.dark) .agile-cta-card,
+html:not(.dark) .agile-cub-cta-card {
+  border-color: rgba(0, 102, 255, 0.2);
+  background: linear-gradient(110deg, #ffffff, #eef5ff 55%, #f1f8f4);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+}
+
+html:not(.dark) .agile-cub-soft-section {
+  background: #f7f9fc;
+}
+
+html:not(.dark) .agile-info-card .text-paper,
+html:not(.dark) .agile-info-card .text-paper\/70,
+html:not(.dark) .agile-info-card .text-paper\/65,
+html:not(.dark) .agile-info-card .text-paper\/60,
+html:not(.dark) .agile-config-card .text-paper,
+html:not(.dark) .agile-config-card .text-paper\/70,
+html:not(.dark) .agile-config-card .text-paper\/65,
+html:not(.dark) .agile-config-card .text-paper\/60,
+html:not(.dark) .agile-component-card .text-paper,
+html:not(.dark) .agile-component-card .text-paper\/70,
+html:not(.dark) .agile-component-card .text-paper\/65,
+html:not(.dark) .agile-component-card .text-paper\/60,
+html:not(.dark) .agile-expansion-card .text-paper,
+html:not(.dark) .agile-expansion-card .text-paper\/70,
+html:not(.dark) .agile-expansion-card .text-paper\/65,
+html:not(.dark) .agile-expansion-card .text-paper\/60,
+html:not(.dark) .agile-cub-panel .text-paper,
+html:not(.dark) .agile-cub-panel .text-paper\/70,
+html:not(.dark) .agile-cub-panel .text-paper\/65,
+html:not(.dark) .agile-cub-panel .text-paper\/60,
+html:not(.dark) .agile-cub-cta-card .text-paper,
+html:not(.dark) .agile-cub-cta-card .text-paper\/70,
+html:not(.dark) .agile-cub-cta-card .text-paper\/65,
+html:not(.dark) .agile-cub-cta-card .text-paper\/60 {
+  color: #334155 !important;
+}
+
+html:not(.dark) .agile-product-page .text-paper,
+html:not(.dark) .agile-product-page .text-paper\/75,
+html:not(.dark) .agile-product-page .text-paper\/70,
+html:not(.dark) .agile-product-page .text-paper\/65,
+html:not(.dark) .agile-product-page .text-paper\/60,
+html:not(.dark) .agile-product-page .text-paper\/50 {
+  color: #334155 !important;
+}
+
+html:not(.dark) .agile-config-card h3,
+html:not(.dark) .agile-component-card h3,
+html:not(.dark) .agile-cub-panel h2,
+html:not(.dark) .agile-cub-cta-card h2 {
+  color: #0f172a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agile-product-orb {
+    animation: none;
+  }
+}
+
+/* Filled product-title accents and homepage-style hover response. */
+.agile-product-title,
+.agile-section-heading,
+.agile-product-page h1,
+.agile-product-page h2,
+.av-collaboration-page h1,
+.av-collaboration-page h2 {
+  transition: letter-spacing 0.5s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.agile-product-title {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.agile-product-title:hover,
+.agile-section-heading:hover,
+.agile-product-page h1:hover,
+.agile-product-page h2:hover,
+.av-collaboration-page h1:hover,
+.av-collaboration-page h2:hover {
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 22px rgba(0, 102, 255, 0.2);
+}
+
+.agile-title-accent {
+  color: #0066ff;
+  -webkit-text-fill-color: #0066ff;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.agile-product-title:hover .agile-title-accent,
+.av-collaboration-page h1:hover .agile-title-accent {
+  color: #3b8cff;
+  -webkit-text-fill-color: #3b8cff;
+  text-shadow: 0 0 20px rgba(0, 102, 255, 0.28);
+}
+
+.agile-section-heading .highlight {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.agile-section-heading:hover .highlight {
+  color: #3b8cff;
+  text-shadow: 0 0 18px rgba(0, 102, 255, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agile-product-title,
+  .agile-product-title:hover,
+  .agile-section-heading,
+  .agile-section-heading:hover,
+  .av-collaboration-page h1,
+  .av-collaboration-page h2 {
+    animation: none;
+    transition: none;
+  }
+}

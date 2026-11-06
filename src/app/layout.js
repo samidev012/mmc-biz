@@ -93,6 +93,7 @@ export const metadata = {
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
 
   name: "MMC",
 
@@ -116,6 +117,16 @@ const orgSchema = {
     contactType: "customer service",
     email: "info@mmc.biz.pk",
   },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: "MMC",
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  inLanguage: "en-PK",
 };
 
 // =====================================================
@@ -151,7 +162,7 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(orgSchema).replace(/</g, "\\u003c"),
+            __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [orgSchema, websiteSchema] }).replace(/</g, "\\u003c"),
           }}
         />
       </head>

@@ -2,6 +2,12 @@ import Link from "next/link";
 import { ArrowUpRight, ClipboardList, Headphones, RefreshCw } from "lucide-react";
 import AVQuotationForm from "./AVQuotationForm";
 import AVMotion from "./AVMotion";
+import { generatePageMetadata, generateWebPageSchema } from "@/lib/seo";
+
+const avTitle = "Audio Visual Collaboration Solutions for Meeting Rooms | MMC";
+const avDescription = "Plan professional audio visual collaboration for boardrooms, classrooms and auditoriums with MMC: video conferencing, audio systems, interactive displays, projectors and installation support.";
+
+export const metadata = generatePageMetadata({ title: avTitle, description: avDescription, path: "/products/collaboration-workplace/audio-visual-collaboration" });
 
 const processSteps = [
   {
@@ -89,15 +95,10 @@ function ImagePlaceholder({ title }) {
   );
 }
 
-export const metadata = {
-  title: "Professional Audio Visual Solutions | MMC",
-  description:
-    "Professional audio visual solutions in Pakistan for meeting rooms, classrooms, boardrooms, auditoriums and workplaces.",
-};
-
 export default function AudioVisualCollaborationPage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-white text-[#101827]">
+    <main className="av-collaboration-page min-h-screen overflow-hidden bg-white text-[#101827]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateWebPageSchema({ title: avTitle, description: avDescription, path: "/products/collaboration-workplace/audio-visual-collaboration" })).replace(/</g, "\\u003c") }} />
       <section className="av-hero relative overflow-hidden bg-[#c5dcff] px-6 py-16 sm:py-20 lg:py-28">
         <AVMotion animation="glow-one" className="av-hero-glow av-hero-glow-one" />
         <AVMotion animation="glow-two" className="av-hero-glow av-hero-glow-two" />
@@ -105,8 +106,8 @@ export default function AudioVisualCollaborationPage() {
         <div className="relative z-10 mx-auto grid max-w-[1440px] items-center gap-10 lg:grid-cols-[1fr_1.08fr] lg:gap-12">
           <AVMotion animation="hero-left">
             <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#1268e8]">Audio Visual Solutions</p>
-            <h1 className="max-w-2xl text-4xl font-bold uppercase leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
-              Professional AV Solutions From Leading Brands
+            <h1 className="agile-product-title max-w-2xl text-4xl font-bold uppercase leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+              Professional <span className="agile-title-accent">AV Solutions</span> From Leading Brands
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-[#16243b]">
               Transform your meeting rooms, classrooms and auditoriums with MMC&apos;s professional audio visual solutions. From interactive LED displays and video conferencing systems to projectors, professional audio and complete meeting room solutions, we deliver reliable technology tailored to your needs.
@@ -128,7 +129,7 @@ export default function AudioVisualCollaborationPage() {
 
       <section className="px-6 py-14 sm:py-20">
         <div className="mx-auto max-w-[1440px]">
-          <h2 className="text-center text-3xl font-bold uppercase sm:text-5xl">Our Trusted <span className="text-[#1674ff]">Technology</span> Partners</h2>
+          <h2 className="agile-section-heading text-center text-3xl font-bold uppercase sm:text-5xl">Our Trusted <span className="text-[#1674ff]">Technology</span> Partners</h2>
           <div className="mt-10 grid grid-cols-2 items-center gap-x-5 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
             {partners.map((partner) => (
               <AVMotion key={partner} animation="partner" className="flex min-h-20 items-center justify-center px-3 text-center text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">
@@ -141,7 +142,7 @@ export default function AudioVisualCollaborationPage() {
 
       <section className="px-6 pb-16 sm:pb-24">
         <div className="mx-auto max-w-[1440px]">
-          <h2 className="mb-9 text-center text-3xl font-bold uppercase sm:mb-12 sm:text-5xl">How <span className="text-[#1674ff]">We</span> Work</h2>
+          <h2 className="agile-section-heading mb-9 text-center text-3xl font-bold uppercase sm:mb-12 sm:text-5xl">How <span className="text-[#1674ff]">We</span> Work</h2>
           <div className="grid gap-4 lg:grid-cols-3">
             {processSteps.map(({ icon: Icon, title, description }) => (
               <AVMotion key={title} as="article" animation="reveal" className="rounded-2xl border border-slate-300 bg-white p-6 sm:p-7">
@@ -162,7 +163,7 @@ export default function AudioVisualCollaborationPage() {
               <AVMotion key={solution.title} as="article" animation="reveal-row" className="grid overflow-hidden rounded-2xl border border-slate-300 bg-white lg:grid-cols-2">
                 {imageFirst && <ImagePlaceholder title={solution.title} />}
                 <div className="flex flex-col items-start justify-center p-6 sm:p-9 lg:p-10">
-                  <h2 className="text-2xl font-bold uppercase leading-tight sm:text-3xl">{solution.title}</h2>
+                  <h2 className="agile-section-heading text-2xl font-bold uppercase leading-tight sm:text-3xl">{solution.title}</h2>
                   <p className="mt-4 text-sm leading-6 text-slate-700 sm:text-base">{solution.description}</p>
                   <Link href="/contact-us" className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#0866f5] px-5 py-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-[#0056d6]">
                     Read More <ArrowUpRight className="h-4 w-4" />

@@ -1,10 +1,12 @@
 
+import Link from "next/link";
+
 const benefits = [
-  {  title: "AgileRax – Rack Micro Data Center", desc: "Modern organizations need IT infrastructure that can be deployed quickly, managed remotely, and scaled efficiently across distributed locations built for edge computing and digital services. digital services.", btn:"Go To Product" },
-  {  title: "AgileCub 2.0 – Container Micro Data Center Solution", desc: "ATTOM's AgileCub 2.0 is a prefabricated modular data center solution designed for organizations that need fast deployment.",  btn:"Go To Product"  },
-  { title: "AgileMod - Prefabricated Modular Data Center Solution", desc: "ATTOM AgileMod™ is a prefabricated modular data center solution built for organizations that need to expand.",  btn:"Go To Product"  },
-  { title: "AgileHub 2.0 – Shelter Modular Data Center Solution", desc: "As the 5G era drives demand for mixed DC and AC power device deployments, the telecom industry faces new challenges AgileHub 2.0 is purpose-built to meet them, backed by ATTOM's expertise in modular data centers.",  btn:"Go To Product"  },
-  { title: "AgileCore – AI Prefabricated Modular Data Centers", desc: "Modern AI infrastructure needs more than raw computing power it demands data centers capable of supporting higher rack densities, efficient thermal management, and rapid deployment.",  btn:"Go To Product"  },
+  { title: "AgileRAX 2.0 – IP55 Micro Data Center Solution", desc: "A modular micro data center designed for edge computing and distributed IT environments, combining protected IT space, cooling, power, monitoring and security in a flexible package.", href: "/services/attom/prefabricated/agile-rax-2-0-ip55/", btn: "Go To Product" },
+  { title: "AgileCub 2.0 – Container Micro Data Center Solution", desc: "ATTOM's AgileCub 2.0 is a prefabricated modular data center solution designed for organizations that need fast deployment.", href: "/services/attom/prefabricated/agile-cub-2-0/", btn: "Go To Product" },
+  { title: "AgileMod - Prefabricated Modular Data Center Solution", desc: "ATTOM AgileMod™ is a prefabricated modular data center solution built for organizations that need to expand.", href: "/services/attom/prefabricated/agile-mod/", btn: "Go To Product" },
+  { title: "AgileHub 2.0 – Shelter Modular Data Center Solution", desc: "As the 5G era drives demand for mixed DC and AC power device deployments, the telecom industry faces new challenges AgileHub 2.0 is purpose-built to meet them, backed by ATTOM's expertise in modular data centers.", href: "/services/attom/prefabricated/agilehub-2-0-shelter-modular-data-center-solution/", btn: "Go To Product" },
+  { title: "AgileCore – AI Prefabricated Modular Data Centers", desc: "Modern AI infrastructure needs more than raw computing power it demands data centers capable of supporting higher rack densities, efficient thermal management, and rapid deployment.", href: "/services/attom/prefabricated/agilecore-ai-prefabricated-modular-data-centers/", btn: "Go To Product" },
   
 ];
 
@@ -17,7 +19,7 @@ export default function PrefabricatedContent() {
           <div className="bg-gradient-to-b from-[#0a1128] to-black p-8 md:p-12">
             <h1 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl w-900">
               Prefabricated {" "}
-              <span className="text-transparent" style={{ WebkitTextStroke: "1.2px #0066ff" }}>
+              <span className="text-signal transition-colors duration-300 hover:text-[#3b8cff]">
                 Data
               </span>
               <br />
@@ -67,7 +69,7 @@ export default function PrefabricatedContent() {
                
                 <h2 className="mt-5 text-lg font-semibold text-signal">{b.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{b.desc}</p>
-                <button className="group relative mt-9 overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">{b.btn}</button>
+                <Link href={b.href} className="group relative mt-9 inline-flex overflow-hidden rounded-full border border-signal bg-signal/10 px-8 py-3 font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">{b.btn}</Link>
               </div>
             ))}
           </div>

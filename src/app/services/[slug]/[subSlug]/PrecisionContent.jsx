@@ -1,11 +1,11 @@
-
+import Link from "next/link";
 const benefits = [
-  {  title: "SmoothAir - Rack Cooling", desc: "The SmoothAir rack precision cooling series is engineered for energy efficiency and reliability in small to medium-sized data centers, edge spaces, and network closets.", btn:"Go To Product" },
-  {  title: "SmoothAir - Inrow Cooling", desc: "mounting and airflow front/side discharge design bring cooling closer to the heat source, with intelligent controls that dynamically regulate output for improved cooling efficiency.",  btn:"Go To Product"  },
-  { title: "SmoothAir - Wall Cooling", desc: "Built for outdoor edge applications and harsh environments, the SmoothAir wall-mount precision cooling unit offers a compact, weatherproof, all-in-one design for easy deployment on telecom shelters.",  btn:"Go To Product"  },
-  { title: "SmoothAir - Split Wall Cooling", desc: "A compact split-type cooling system designed to occupy minimal space, delivering continuous thermal management for network cabinets, server rooms, and other small spaces.",  btn:"Go To Product"  },
-  { title: "WiseAir - Room Cooling CRAC ", desc: "ATTOM's leading room air conditioning solutions come equipped with inverter compressors and intelligent control systems, delivering high-precision, high-reliability IT environments.",  btn:"Go To Product"  },
-    { title: "Precision Cooling for Hot Climates", desc: "The high-temperature conditions of hot climate regions present serious challenges for efficient, energy-saving, and stable data center operation this line is engineered specifically to meet them.",  btn:"Go To Product"  },
+  {  title: "SmoothAir Rack Mount DX Precision Cooling", desc: "The SmoothAir rack precision cooling series is engineered for energy efficiency and reliability in small to medium-sized data centers, edge spaces, and network closets.", href: "/services/attom/precision/smoothair-rack-mount-dx/", btn:"Go To Product" },
+  {  title: "SmoothAir Row Mount Precision Cooling", desc: "Row mounting and front or side airflow discharge bring cooling closer to the heat source, with intelligent controls that dynamically regulate output for improved cooling efficiency.", href: "/services/attom/precision/smoothair-row-mount/", btn:"Go To Product"  },
+  { title: "SmoothAir Wall Mount Precision Cooling", desc: "Built for outdoor edge applications and harsh environments, the SmoothAir wall-mount precision cooling unit offers a compact, weatherproof, all-in-one design for easy deployment on telecom shelters.", href: "/services/attom/precision/smoothair-wall-mount/", btn:"Go To Product"  },
+  { title: "SmoothAir Wall Mount Cooling Split Type", desc: "A compact split-type cooling system designed to occupy minimal space, delivering continuous thermal management for network cabinets, server rooms, and other small spaces.", href: "/services/attom/precision/smoothair-wall-mount-split-type/", btn:"Go To Product"  },
+  { title: "WiseAir Room Cooling CRAC", desc: "ATTOM's leading room air conditioning solutions come equipped with inverter compressors and intelligent control systems, delivering high-precision, high-reliability IT environments.", href: "/services/attom/precision/wiseair-room-cooling-crac/", btn:"Go To Product"  },
+  { title: "Precision Cooling for Hot Climates", desc: "The high-temperature conditions of hot climate regions present serious challenges for efficient, energy-saving, and stable data center operation. This line is engineered specifically to meet them.", href: "/services/attom/precision/precision-cooling-hot-climates/", btn:"Go To Product"  },
   
 ];
 
@@ -16,9 +16,9 @@ export default function PrecisionContent() {
       <section className=" px-6 py-16">
         <div className="mx-auto grid overflow-hidden rounded-2xl border border-signal/20 lg:grid-cols-2">
           <div className="bg-gradient-to-b from-[#0a1128] to-black p-8 md:p-12">
-            <h1 className="animate-fade-in-up mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 hover:tracking-wide md:text-6xl w-full">
+            <h1 className="agile-product-title mt-3 text-3xl font-bold uppercase text-paper transition-all duration-500 md:text-6xl w-full">
               SmoothAir –  {" "}
-              <span className="text-transparent" style={{ WebkitTextStroke: "1.2px #0066ff" }}>
+              <span className="agile-title-accent">
                Rack Mount DX
               </span>
               <br />
@@ -70,7 +70,7 @@ export default function PrecisionContent() {
                
                 <h2 className="mt-5 text-lg font-semibold text-signal">{b.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-steel">{b.desc}</p>
-                <button className="group relative mt-10 hidden overflow-hidden rounded-full border border-signal bg-signal/10 px-6 py-2.5 text-sm font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)] lg:inline-flex">{b.btn}</button>
+                <Link href={b.href || "#"} className="group relative mt-10 inline-flex overflow-hidden rounded-full border border-signal bg-signal/10 px-6 py-2.5 text-sm font-semibold text-signal transition-all duration-300 hover:bg-signal hover:text-white hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">{b.btn}</Link>
               </div>
             ))}
           </div>
