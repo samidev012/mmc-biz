@@ -10,7 +10,7 @@ import { SITE_URL } from "@/lib/seo";
 // =====================================================
 
 const HOME_TITLE =
-  "MMC | ICT Solutions for Pakistan's Banks, Regulators & Enterprises";
+  "MMC | ICTT Solutions for Pakistan's Banks, Regulators & Enterprises";
 
 const HOME_DESC =
   "For over 30 years, MMC has delivered software, cybersecurity, data center, hardware, surveillance, and digital solutions to Pakistan's leading organizations.";
